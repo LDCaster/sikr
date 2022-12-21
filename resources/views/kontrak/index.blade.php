@@ -15,6 +15,33 @@
                         <div class="sparkline13-graph">
                             <div class="datatable-dashv1-list custom-datatable-overright">
                                 <div id="toolbar">
+                                    <a href="#" data-toggle="modal" data-target="#PrimaryModalhdbgcl"
+                                        class="btn btn-cusom-four btn-primary"><i class="fa fa-plus edu-informatio"
+                                            aria-hidden="true"></i> Tambah</a>
+                                    <div id="PrimaryModalhdbgcl"
+                                        class="modal modal-edu-general default-popup-PrimaryModal fade" role="dialog">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header header-color-modal bg-color-1">
+                                                    <h4 class="modal-title">Tambah Data</h4>
+                                                    <div class="modal-close-area modal-close-df">
+                                                        <a class="close" data-dismiss="modal" href="#"><i
+                                                                class="fa fa-close"></i></a>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <i class="educate-icon educate-checked modal-check-pro"></i>
+                                                    <h2>Awesome!</h2>
+                                                    <p>The Modal plugin is a dialog box/popup window that is displayed on
+                                                        top of the current page</p>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <a data-dismiss="modal" href="#">Cancel</a>
+                                                    <a href="#">Process</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <select class="form-control dt-tb">
                                         <option value="">Export Basic</option>
                                         <option value="all">Export All</option>
@@ -60,7 +87,8 @@
                                             <th data-field="wd_kontrak" data-editable="true">Waktu Durasi Kontrak</th>
                                             <th data-field="terbilang_waktu" data-editable="true">Terbilang Waktu</th>
                                             <th data-field="direksi_pekerjaan" data-editable="true">Direksi Pekerjaan</th>
-                                            <th data-field="pengawas_pekerjaan" data-editable="true">Pengawas Pekerjaan</th>
+                                            <th data-field="pengawas_pekerjaan" data-editable="true">Pengawas Pekerjaan
+                                            </th>
                                             <th data-field="material" data-editable="true">Material</th>
                                             <th data-field="variant" data-editable="true">Variant Type</th>
                                             <th data-field="satuan" data-editable="true">Satuan</th>

@@ -42,6 +42,12 @@ class SatuanController extends Controller
     public function store(Request $request)
     {
         //
+        $validatedData = $request->validate([
+            'nama_satuan' => 'max:255',
+        ]);
+
+        Satuan::create($validatedData);
+        return redirect('/satuan ')->with('success', 'Data Berhasil Ditambahkan!');
     }
 
     /**
@@ -64,6 +70,8 @@ class SatuanController extends Controller
     public function edit($id)
     {
         //
+        $data = Satuan::find($id);
+        return response()->json($data);
     }
 
     /**
@@ -75,7 +83,12 @@ class SatuanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //ubah data satuan
+        $validatedData = $request->validate([
+            'nama_satuan' => 'max:255',
+        ]);
+        Satuan::where('id', $id)->update($validatedData);
+        return redirect('/satuan')->with('success', 'Data Berhasil Di Ubah!');
     }
 
     /**
@@ -86,6 +99,8 @@ class SatuanController extends Controller
      */
     public function destroy($id)
     {
-        //
+        //menghapus data satuan
+        Satuan::destroy($id);
+        return redirect('/satuan')->with('success', 'Data Berhasil Dihapus!');
     }
 }

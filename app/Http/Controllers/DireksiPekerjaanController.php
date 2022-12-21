@@ -42,6 +42,13 @@ class DireksiPekerjaanController extends Controller
     public function store(Request $request)
     {
         //
+        $validatedData = $request->validate([
+            'nama_direksi' => 'max:255',
+            'nama_pengawas' => 'max:255',
+        ]);
+
+        DireksiPekerjaan::create($validatedData);
+        return redirect('/direksi-pekerjaan ')->with('success', 'Data Berhasil Ditambahkan!');
     }
 
     /**
@@ -64,6 +71,8 @@ class DireksiPekerjaanController extends Controller
     public function edit($id)
     {
         //
+        $data = DireksiPekerjaan::find($id);
+        return response()->json($data);
     }
 
     /**
@@ -76,6 +85,12 @@ class DireksiPekerjaanController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $validatedData = $request->validate([
+            'nama_direksi' => 'max:255',
+            'nama_pengawas' => 'max:255',
+        ]);
+        DireksiPekerjaan::where('id', $id)->update($validatedData);
+        return redirect('/direksi-pekerjaan')->with('success', 'Data Berhasil Di Ubah!');
     }
 
     /**
@@ -87,5 +102,7 @@ class DireksiPekerjaanController extends Controller
     public function destroy($id)
     {
         //
+        DireksiPekerjaan::destroy($id);
+        return redirect('/direksi-pekerjaan')->with('success', 'Data Berhasil Dihapus!');
     }
 }

@@ -10,7 +10,7 @@
                <nav class="sidebar-nav left-sidebar-menu-pro">
                    <ul class="metismenu" id="menu1">
                        <li class="active">
-                           <a class="" href="">
+                           <a class="" href="/dashboard">
                                <i class="fa-solid fa-house-chimney"></i>
                                <span class="mini-click-non">Dashboard</span>
                            </a>
@@ -85,12 +85,12 @@
                                    class="mini-click-non">Data RAB</span></a>
                            <ul class="submenu-angle" aria-expanded="false">
                                <li>
-                                   <a title="Data Order" href="">
-                                       <span class="mini-sub-pro">Data Order</span>
+                                   <a title="Data Order" href="/rincian-nilai-kontrak">
+                                       <span class="mini-sub-pro">Rincian Nilai Kontrak</span>
                                    </a>
                                </li>
                                <li>
-                                   <a title="RAB" href="">
+                                   <a title="RAB" href="/rencana-anggaran-biaya">
                                        <span class="mini-sub-pro">RAB</span>
                                    </a>
                                </li>

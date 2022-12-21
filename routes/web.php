@@ -8,7 +8,10 @@ use App\Http\Controllers\MaterialController;
 use App\Http\Controllers\PabrikanController;
 use App\Http\Controllers\PengadaanController;
 use App\Http\Controllers\PrkController;
+use App\Http\Controllers\RabController;
+use App\Http\Controllers\RnkController;
 use App\Http\Controllers\SatuanController;
+use App\Http\Controllers\TambahRabController;
 use App\Http\Controllers\VariantController;
 use Illuminate\Support\Facades\Route;
 
@@ -47,3 +50,6 @@ Route::resource('jenis-material', JenisMaterialController::class);
 Route::resource('material', MaterialController::class);
 Route::resource('satuan', SatuanController::class);
 Route::resource('prk', PrkController::class);
+Route::resource('rincian-nilai-kontrak', RnkController::class);
+Route::resource('rencana-anggaran-biaya', RabController::class);
+Route::resource('tambah-rab', TambahRabController::class);

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\JenisMaterial;
 use App\Models\Material;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class MaterialController extends Controller
 {
@@ -14,10 +16,14 @@ class MaterialController extends Controller
      */
     public function index()
     {
-        $materials = Material::get();
+        $jenismaterials = JenisMaterial::get();
+        $materials = DB::table('material')
+            ->join('jenismaterial', 'jenismaterial.id', '=', 'material.nama_jenis')
+            ->get();
         //
         return view('material.index', [
             'title' => 'Data Material',
+            'jenismaterials' => $jenismaterials,
             'materials' => $materials
         ]);
     }
@@ -41,6 +47,13 @@ class MaterialController extends Controller
     public function store(Request $request)
     {
         //
+        $validatedData = $request->validate([
+            'nama_jenis' => 'max:255',
+            'nama_material' => 'max:255',
+        ]);
+
+        Material::create($validatedData);
+        return redirect('/material ')->with('success', 'Data Berhasil Ditambahkan!');
     }
 
     /**

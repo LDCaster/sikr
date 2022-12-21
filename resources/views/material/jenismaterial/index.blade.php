@@ -9,11 +9,53 @@
                     <div class="sparkline13-list">
                         <div class="sparkline13-hd">
                             <div class="main-sparkline13-hd">
-                                <h1>Data <span class="table-project-n">Jenis Variant</span></h1>
+                                <h1>Data <span class="table-project-n">Jenis Material</span></h1>
                             </div>
                         </div>
+                        @if (session()->has('success'))
+                            <div class="alert alert-success alert-success-style1 alert-success-stylenone">
+                                <button type="button" class="close sucess-op" data-dismiss="alert" aria-label="Close">
+                                    <span class="icon-sc-cl" aria-hidden="true">&times;</span>
+                                </button>
+                                <i class="fa fa-check edu-checked-pro admin-check-sucess admin-check-pro-none"
+                                    aria-hidden="true"></i>
+                                <p>{{ session('success') }}</p>
+                            </div>
+                        @endif
                         <div class="sparkline13-graph">
                             <div class="datatable-dashv1-list custom-datatable-overright">
+                                <a href="#" data-toggle="modal" data-target="#PrimaryModalhdbgcl"
+                                    class="btn btn-cusom-four btn-primary"><i class="fa fa-plus edu-informatio"
+                                        aria-hidden="true"></i> Tambah</a>
+                                <div id="PrimaryModalhdbgcl" class="modal modal-edu-general default-popup-PrimaryModal fade"
+                                    role="dialog">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header header-color-modal bg-color-1">
+                                                <h4 class="modal-title">Tambah Jenis Material</h4>
+                                                <div class="modal-close-area modal-close-df">
+                                                    <a class="close" data-dismiss="modal" href="#"><i
+                                                            class="fa fa-close"></i></a>
+                                                </div>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form action="{{ url('/jenis-material') }}" method="POST">
+                                                    @csrf
+                                                    <div class="mb-3">
+                                                        <label for="nama_jenis" class="form-label">Jenis Material</label>
+                                                        <input type="text" class="form-control" name="nama_jenis">
+                                                    </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button data-dismiss="modal"
+                                                    class="btn btn-cusom-four btn-primary">Cancel</button>
+                                                <button type="submit"
+                                                    class="btn btn-cusom-four btn-primary">Submit</button>
+                                            </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div id="toolbar">
                                     <select class="form-control dt-tb">
                                         <option value="">Export Basic</option>

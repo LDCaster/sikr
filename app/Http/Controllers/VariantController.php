@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\JenisVariant;
 use App\Models\Variant;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class VariantController extends Controller
 {
@@ -15,10 +17,14 @@ class VariantController extends Controller
     public function index()
     {
         ////
-        $variants = Variant::get();
+        $jenisvariants = JenisVariant::get();
+        $variants = DB::table('variant')
+            ->join('jenisvariant', 'jenisvariant.id', '=', 'variant.nama_jenis')
+            ->get();
 
         return view('variant.index', [
             'title' => 'Data Variant',
+            'jenisvariants' => $jenisvariants,
             'variants' => $variants
         ]);
     }
@@ -42,6 +48,13 @@ class VariantController extends Controller
     public function store(Request $request)
     {
         //
+        $validatedData = $request->validate([
+            'nama_jenis' => 'max:255',
+            'nama_variant' => 'max:255',
+        ]);
+
+        Variant::create($validatedData);
+        return redirect('/variant ')->with('success', 'Data Berhasil Ditambahkan!');
     }
 
     /**
@@ -64,6 +77,10 @@ class VariantController extends Controller
     public function edit($id)
     {
         //
+        $data = DB::table('variant')
+            ->join('jenisvariant', 'jenisvariant.id', '=', 'variant.nama_jenis')
+            ->find($id);
+        return response()->json($data);
     }
 
     /**
@@ -75,7 +92,12 @@ class VariantController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validatedData = $request->validate([
+            'nama_jenis' => 'max:255',
+            'nama_variant' => 'max:255',
+        ]);
+        Variant::where('id', $id)->update($validatedData);
+        return redirect('/variant')->with('success', 'Data Berhasil Di Ubah!');
     }
 
     /**
@@ -87,5 +109,7 @@ class VariantController extends Controller
     public function destroy($id)
     {
         //
+        Variant::destroy($id);
+        return redirect('/variant ')->with('success', 'Data Berhasil Dihapus!');
     }
 }

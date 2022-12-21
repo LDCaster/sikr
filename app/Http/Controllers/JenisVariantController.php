@@ -43,6 +43,12 @@ class JenisVariantController extends Controller
     public function store(Request $request)
     {
         //
+        $validatedData = $request->validate([
+            'nama_jenis' => 'max:255',
+        ]);
+
+        JenisVariant::create($validatedData);
+        return redirect('/jenis-variant ')->with('success', 'Data Berhasil Ditambahkan!');
     }
 
     /**
@@ -65,6 +71,8 @@ class JenisVariantController extends Controller
     public function edit($id)
     {
         //
+        $data = JenisVariant::find($id);
+        return response()->json($data);
     }
 
     /**
@@ -77,6 +85,11 @@ class JenisVariantController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $validatedData = $request->validate([
+            'nama_jenis'   => 'max:255',
+        ]);
+        JenisVariant::where('id', $id)->update($validatedData);
+        return redirect('/jenis-variant ')->with('success', 'Data Berhasil Di Ubah!');
     }
 
     /**
@@ -88,5 +101,7 @@ class JenisVariantController extends Controller
     public function destroy($id)
     {
         //
+        JenisVariant::destroy($id);
+        return redirect('/jenis-variant ')->with('success', 'Data Berhasil Dihapus!');
     }
 }

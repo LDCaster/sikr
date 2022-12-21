@@ -42,6 +42,12 @@ class PengadaanController extends Controller
     public function store(Request $request)
     {
         //
+        $validatedData = $request->validate([
+            'nama_pengadaan' => 'max:255',
+        ]);
+
+        Pengadaan::create($validatedData);
+        return redirect('/pengadaan ')->with('success', 'Data Berhasil Ditambahkan!');
     }
 
     /**
@@ -64,6 +70,8 @@ class PengadaanController extends Controller
     public function edit($id)
     {
         //
+        $data = Pengadaan::find($id);
+        return response()->json($data);
     }
 
     /**
@@ -76,6 +84,11 @@ class PengadaanController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $validatedData = $request->validate([
+            'nama_pengadaan' => 'max:255',
+        ]);
+        Pengadaan::where('id', $id)->update($validatedData);
+        return redirect('/pengadaan')->with('success', 'Data Berhasil Di Ubah!');
     }
 
     /**
@@ -87,5 +100,7 @@ class PengadaanController extends Controller
     public function destroy($id)
     {
         //
+        Pengadaan::destroy($id);
+        return redirect('/pengadaan ')->with('success', 'Data Berhasil Dihapus!');
     }
 }

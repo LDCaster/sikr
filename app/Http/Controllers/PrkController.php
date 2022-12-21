@@ -42,6 +42,16 @@ class PrkController extends Controller
     public function store(Request $request)
     {
         //
+        $validatedData = $request->validate([
+            'no_prk' => 'max:255',
+            'bidang' => 'max:255',
+            'fungsi' => 'max:255',
+            'sub_fungsi' => 'max:255',
+            'program' => 'max:255',
+        ]);
+
+        Prk::create($validatedData);
+        return redirect('/prk ')->with('success', 'Data Berhasil Ditambahkan!');
     }
 
     /**
@@ -64,6 +74,8 @@ class PrkController extends Controller
     public function edit($id)
     {
         //
+        $data = Prk::find($id);
+        return response()->json($data);
     }
 
     /**
@@ -75,7 +87,16 @@ class PrkController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //ubah data prk
+        $validatedData = $request->validate([
+            'no_prk' => 'max:255',
+            'bidang' => 'max:255',
+            'fungsi' => 'max:255',
+            'sub_fungsi' => 'max:255',
+            'program' => 'max:255',
+        ]);
+        Prk::where('id', $id)->update($validatedData);
+        return redirect('/prk')->with('success', 'Data Berhasil Di Ubah!');
     }
 
     /**
@@ -86,6 +107,8 @@ class PrkController extends Controller
      */
     public function destroy($id)
     {
-        //
+        //menghapus data prk
+        Prk::destroy($id);
+        return redirect('/prk')->with('success', 'Data Berhasil Dihapus!');
     }
 }

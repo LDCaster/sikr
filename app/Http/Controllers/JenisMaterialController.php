@@ -42,6 +42,12 @@ class JenisMaterialController extends Controller
     public function store(Request $request)
     {
         //
+        $validatedData = $request->validate([
+            'nama_jenis' => 'max:255',
+        ]);
+
+        JenisMaterial::create($validatedData);
+        return redirect('/jenis-material ')->with('success', 'Data Berhasil Ditambahkan!');
     }
 
     /**
