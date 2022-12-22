@@ -70,6 +70,8 @@ class JenisMaterialController extends Controller
     public function edit($id)
     {
         //
+        $data = JenisMaterial::find($id);
+        return response()->json($data);
     }
 
     /**
@@ -82,6 +84,11 @@ class JenisMaterialController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $validatedData = $request->validate([
+            'nama_jenis'   => 'max:255',
+        ]);
+        JenisMaterial::where('id', $id)->update($validatedData);
+        return redirect('/jenis-material ')->with('success', 'Data Berhasil Di Ubah!');
     }
 
     /**
@@ -93,5 +100,8 @@ class JenisMaterialController extends Controller
     public function destroy($id)
     {
         //
+        //menghapus data jenis material
+        JenisMaterial::destroy($id);
+        return redirect('/jenis-material ')->with('success', 'Data Berhasil Ditambahkan!');
     }
 }

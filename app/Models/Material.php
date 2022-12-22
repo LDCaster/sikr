@@ -12,4 +12,9 @@ class Material extends Model
     protected $table = 'material';
 
     protected $guarded = [];
+
+    public function jenismaterial()
+    {
+        return $this->belongsTo(JenisMaterial::class, 'nama_jenis');
+    }
 }

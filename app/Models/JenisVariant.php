@@ -12,4 +12,9 @@ class JenisVariant extends Model
     protected $table = 'jenisvariant';
 
     protected $guarded = [];
+
+    public function variants()
+    {
+        return $this->hasMany(Variant::class);
+    }
 }

@@ -27,6 +27,8 @@
                                 <a href="#" data-toggle="modal" data-target="#PrimaryModalhdbgcl"
                                     class="btn btn-cusom-four btn-primary"><i class="fa fa-plus edu-informatio"
                                         aria-hidden="true"></i> Tambah</a>
+
+                                {{-- START MODAL TAMBAH --}}
                                 <div id="PrimaryModalhdbgcl" class="modal modal-edu-general default-popup-PrimaryModal fade"
                                     role="dialog">
                                     <div class="modal-dialog">
@@ -56,6 +58,42 @@
                                         </div>
                                     </div>
                                 </div>
+                                {{-- END MODAL TAMBAH --}}
+
+                                {{-- START MODAL EDIT --}}
+                                <div id="ModalEdit" class="modal modal-edu-general default-popup-PrimaryModal fade"
+                                    role="dialog">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header header-color-modal bg-color-1">
+                                                <h4 class="modal-title">Ubah Jenis Material</h4>
+                                                <div class="modal-close-area modal-close-df">
+                                                    <a class="close" data-dismiss="modal" href="#"><i
+                                                            class="fa fa-close"></i></a>
+                                                </div>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form action="" method="POST">
+                                                    @csrf
+                                                    @method('put')
+                                                    <div class="mb-3">
+                                                        <label for="nama_jenis" class="form-label">Jenis Material</label>
+                                                        <input type="text" class="form-control" name="nama_jenis"
+                                                            id="nama_jenis">
+                                                    </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button data-dismiss="modal"
+                                                    class="btn btn-cusom-four btn-primary">Cancel</button>
+                                                <button type="submit"
+                                                    class="btn btn-cusom-four btn-primary">Submit</button>
+                                            </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                {{-- END MODAL EDIT --}}
+
                                 <div id="toolbar">
                                     <select class="form-control dt-tb">
                                         <option value="">Export Basic</option>
@@ -85,8 +123,9 @@
                                                 <td>
                                                     <!-- Button trigger modal -->
                                                     <button class="btn btn-warning edit" value="{{ $jmaterial->id }}"
-                                                        data-bs-toggle="modal" data-bs-target="#ModalEdit">Edit</button>
-                                                    <form class="d-inline" action="{{ url('/pabrikan', $jmaterial->id) }}"
+                                                        data-toggle="modal" data-target="#ModalEdit">Edit</button>
+                                                    <form class="d-inline"
+                                                        action="{{ url('/jenis-material', $jmaterial->id) }}"
                                                         method="POST">
                                                         @method('delete')
                                                         @csrf
@@ -107,4 +146,20 @@
         </div>
     </div>
     <!-- Static Table End -->
+    <script>
+        $(document).ready(function() {
+
+            $('.edit').click(function() {
+                const id = $(this).val()
+                $.ajax({
+                    url: `{{ url('/jenis-material/${id}/edit') }}`,
+                    method: "get",
+                    success: function(data) {
+                        $('#nama_jenis').val(data.nama_jenis)
+                        $('#ModalEdit form').attr('action', `{{ url('jenis-material/${id}') }}`)
+                    }
+                })
+            })
+        })
+    </script>
 @endsection

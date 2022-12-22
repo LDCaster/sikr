@@ -10,4 +10,8 @@ class Variant extends Model
     protected $table = 'variant';
 
     protected $guarded = [];
+    public function jenisvariant()
+    {
+        return $this->belongsTo(JenisVariant::class, 'nama_jenis');
+    }
 }

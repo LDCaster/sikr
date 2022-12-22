@@ -17,10 +17,8 @@ class MaterialController extends Controller
     public function index()
     {
         $jenismaterials = JenisMaterial::get();
-        $materials = DB::table('material')
-            ->join('jenismaterial', 'jenismaterial.id', '=', 'material.nama_jenis')
-            ->get();
-        //
+        $materials = Material::with(['jenismaterial'])->get();
+
         return view('material.index', [
             'title' => 'Data Material',
             'jenismaterials' => $jenismaterials,
@@ -76,6 +74,9 @@ class MaterialController extends Controller
     public function edit($id)
     {
         //
+        //
+        $material = Material::with(['jenismaterial'])->find($id);
+        return response()->json($material);
     }
 
     /**
@@ -88,6 +89,12 @@ class MaterialController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $validatedData = $request->validate([
+            'nama_jenis' => 'max:255',
+            'nama_material' => 'max:255',
+        ]);
+        Material::with(['jenismaterial'])->where('id', $id)->update($validatedData);
+        return redirect('/material')->with('success', 'Data Berhasil Di Ubah!');
     }
 
     /**
@@ -99,5 +106,7 @@ class MaterialController extends Controller
     public function destroy($id)
     {
         //
+        Material::destroy($id);
+        return redirect('/material ')->with('success', 'Data Berhasil Dihapus!');
     }
 }

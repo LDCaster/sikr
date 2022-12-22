@@ -18,9 +18,10 @@ class VariantController extends Controller
     {
         ////
         $jenisvariants = JenisVariant::get();
-        $variants = DB::table('variant')
-            ->join('jenisvariant', 'jenisvariant.id', '=', 'variant.nama_jenis')
-            ->get();
+        // $nama_jenis = DB::table('variant')
+        //     ->join('jenisvariant', 'jenisvariant.id', '=', 'variant.nama_jenis')
+        //     ->get();
+        $variants = Variant::with(['jenisvariant'])->get();
 
         return view('variant.index', [
             'title' => 'Data Variant',
@@ -66,6 +67,7 @@ class VariantController extends Controller
     public function show($id)
     {
         //
+
     }
 
     /**
@@ -77,10 +79,8 @@ class VariantController extends Controller
     public function edit($id)
     {
         //
-        $data = DB::table('variant')
-            ->join('jenisvariant', 'jenisvariant.id', '=', 'variant.nama_jenis')
-            ->find($id);
-        return response()->json($data);
+        $variant = Variant::with(['jenisvariant'])->find($id);
+        return response()->json($variant);
     }
 
     /**
@@ -96,7 +96,7 @@ class VariantController extends Controller
             'nama_jenis' => 'max:255',
             'nama_variant' => 'max:255',
         ]);
-        Variant::where('id', $id)->update($validatedData);
+        Variant::with(['jenisvariant'])->where('id', $id)->update($validatedData);
         return redirect('/variant')->with('success', 'Data Berhasil Di Ubah!');
     }
 

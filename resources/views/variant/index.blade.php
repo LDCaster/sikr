@@ -87,15 +87,12 @@
                                                     @method('put')
                                                     <div class="mb-3">
                                                         <label for="nama_jenis" class="form-label">Nama Jenis</label>
-                                                        <select class="form-control custom-select-value" name="nama_jenis">
+                                                        <select class="form-control custom-select-value" name="nama_jenis"
+                                                            id="nama_jenis">
                                                             @foreach ($jenisvariants as $jv)
-                                                                @if (old('nama_jenis', $jv->id) == $variants->nama_jenis))
-                                                                    <option value="{{ $jv->id }}" selected>
-                                                                        {{ $jv->nama_jenis }}
-                                                                    </option>
-                                                                @else
-                                                                    <option value="{{ $jv->nama_jenis }}"></option>
-                                                                @endforeach
+                                                                <option value="{{ $jv->id }}">{{ $jv->nama_jenis }}
+                                                                </option>
+                                                            @endforeach
                                                         </select>
                                                     </div>
                                                     <div class="mb-3">
@@ -142,7 +139,7 @@
                                             <tr>
                                                 <td></td>
                                                 <td>{{ $loop->iteration }}</td>
-                                                <td>{{ $variant->nama_jenis }}</td>
+                                                <td>{{ $variant->jenisvariant->nama_jenis }}</td>
                                                 <td>{{ $variant->nama_variant }}</td>
                                                 <td>
                                                     <!-- Button trigger modal -->
