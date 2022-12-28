@@ -74,7 +74,9 @@
                                             Tambah</button>
 
                                         {{-- <section class="container"> --}}
-                                        <form action="#" class="form" id="form">
+                                        <form action="#" class="form">
+                                            <br>
+                                            <h4>Data 1</h4>
                                             <div class="column">
                                                 <div class="input-box">
                                                     <label>Unit</label>
@@ -170,15 +172,16 @@
     </script> --}}
 
     <script>
-        let dataRow = 0
+        let dataRow = 1
         $('#add-input').click(() => {
             dataRow++
             inputRow(dataRow)
         })
 
         inputRow = (i) => {
-            let tr = ` <hr/>
-                        <div id="adjust-${i}">
+            let tr = ` <div id="adjust-${i}">
+                          <hr/>
+                            <h4>Data ${i}</h4>
                             <div class="column">
                                 <div class="input-box">
                                     <label>Unit</label>
@@ -219,15 +222,15 @@
                                     <input type="text" placeholder="Enter birth date" />
                                 </div>
                             </div>
-                            
+                            <button class="btn btn-custom-four btn-primary  delete-record " data-id="${i}">Hapus</button>
                         </div>`
             $('#data').append(tr)
         }
 
         $('#data').on('click', '.delete-record', function() {
             let id = $(this).attr('data-id')
-            $('#input-tr-' + id).remove()
+            $('#adjust-' + id).remove()
         })
     </script>
 @endsection
-{{-- <button class="btn btn-custom-four btn-primary" data-id="${i}">Hapus</button> --}}
+{{-- <button class="btn btn-custom-four btn-primary  delete-record " data-id="${i}">Hapus</button> --}}
