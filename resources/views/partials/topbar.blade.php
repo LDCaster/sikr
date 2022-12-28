@@ -28,26 +28,7 @@
                                 <div class="col-lg-6 col-md-7 col-sm-6 col-xs-12">
                                     <div class="header-top-menu tabl-d-n">
                                         <ul class="nav navbar-nav mai-top-nav">
-                                            <li class="nav-item"><a href="#" class="nav-link">Home</a>
-                                            </li>
-                                            <li class="nav-item"><a href="#" class="nav-link">About</a>
-                                            </li>
-                                            <li class="nav-item"><a href="#" class="nav-link">Services</a>
-                                            </li>
-                                            <li class="nav-item dropdown res-dis-nn">
-                                                <a href="#" data-toggle="dropdown" role="button"
-                                                    aria-expanded="false" class="nav-link dropdown-toggle">Project
-                                                    <span class="angle-down-topmenu"><i
-                                                            class="fa fa-angle-down"></i></span></a>
-                                                <div role="menu" class="dropdown-menu animated zoomIn">
-                                                    <a href="#" class="dropdown-item">Documentation</a>
-                                                    <a href="#" class="dropdown-item">Expert Backend</a>
-                                                    <a href="#" class="dropdown-item">Expert FrontEnd</a>
-                                                    <a href="#" class="dropdown-item">Contact Support</a>
-                                                </div>
-                                            </li>
-                                            <li class="nav-item"><a href="#" class="nav-link">Support</a>
-                                            </li>
+
                                         </ul>
                                     </div>
                                 </div>
@@ -123,9 +104,8 @@
                                                     </div>
                                                 </div>
                                             </li>
-                                            <li class="nav-item"><a href="#" data-toggle="dropdown"
-                                                    role="button" aria-expanded="false"
-                                                    class="nav-link dropdown-toggle"><i
+                                            <li class="nav-item"><a href="#" data-toggle="dropdown" role="button"
+                                                    aria-expanded="false" class="nav-link dropdown-toggle"><i
                                                         class="educate-icon educate-bell" aria-hidden="true"></i><span
                                                         class="indicator-nt"></span></a>
                                                 <div role="menu"
@@ -200,7 +180,7 @@
                                                 <a href="#" data-toggle="dropdown" role="button"
                                                     aria-expanded="false" class="nav-link dropdown-toggle">
                                                     <img src="assets/img/product/pro4.jpg" alt="" />
-                                                    <span class="admin-name">Prof.Anderson</span>
+                                                    <span class="admin-name">{{ Auth::user()->name }}</span>
                                                     <i class="fa fa-angle-down edu-icon edu-down-arrow"></i>
                                                 </a>
                                                 <ul role="menu"
@@ -220,7 +200,7 @@
                                                     <li><a href="#"><span
                                                                 class="edu-icon edu-settings author-log-ic"></span>Settings</a>
                                                     </li>
-                                                    <li><a href="#"><span
+                                                    <li><a href="/logout"><span
                                                                 class="edu-icon edu-locked author-log-ic"></span>Log
                                                             Out</a>
                                                     </li>
