@@ -68,7 +68,7 @@
                                                         <li>
                                                             <a href="#">
                                                                 <div class="message-img">
-                                                                    <img src="img/contact/1.jpg" alt="">
+                                                                    <img src="assets/img/contact/1.jpg" alt="">
                                                                 </div>
                                                                 <div class="message-content">
                                                                     <span class="message-date">16 Sept</span>
@@ -81,7 +81,7 @@
                                                         <li>
                                                             <a href="#">
                                                                 <div class="message-img">
-                                                                    <img src="img/contact/4.jpg" alt="">
+                                                                    <img src="assets/img/contact/4.jpg" alt="">
                                                                 </div>
                                                                 <div class="message-content">
                                                                     <span class="message-date">16 Sept</span>
@@ -94,7 +94,7 @@
                                                         <li>
                                                             <a href="#">
                                                                 <div class="message-img">
-                                                                    <img src="img/contact/3.jpg" alt="">
+                                                                    <img src="assets/img/contact/3.jpg" alt="">
                                                                 </div>
                                                                 <div class="message-content">
                                                                     <span class="message-date">16 Sept</span>
@@ -107,7 +107,7 @@
                                                         <li>
                                                             <a href="#">
                                                                 <div class="message-img">
-                                                                    <img src="img/contact/2.jpg" alt="">
+                                                                    <img src="assets/img/contact/2.jpg" alt="">
                                                                 </div>
                                                                 <div class="message-content">
                                                                     <span class="message-date">16 Sept</span>
@@ -257,7 +257,7 @@
                                                                             <a href="#">
                                                                                 <div class="notes-list-flow">
                                                                                     <div class="notes-img">
-                                                                                        <img src="img/contact/4.jpg"
+                                                                                        <img src="assets/img/contact/4.jpg"
                                                                                             alt="" />
                                                                                     </div>
                                                                                     <div class="notes-content">
@@ -274,7 +274,7 @@
                                                                             <a href="#">
                                                                                 <div class="notes-list-flow">
                                                                                     <div class="notes-img">
-                                                                                        <img src="img/contact/1.jpg"
+                                                                                        <img src="assets/img/contact/1.jpg"
                                                                                             alt="" />
                                                                                     </div>
                                                                                     <div class="notes-content">
@@ -291,7 +291,7 @@
                                                                             <a href="#">
                                                                                 <div class="notes-list-flow">
                                                                                     <div class="notes-img">
-                                                                                        <img src="img/contact/2.jpg"
+                                                                                        <img src="assets/img/contact/2.jpg"
                                                                                             alt="" />
                                                                                     </div>
                                                                                     <div class="notes-content">
@@ -308,7 +308,7 @@
                                                                             <a href="#">
                                                                                 <div class="notes-list-flow">
                                                                                     <div class="notes-img">
-                                                                                        <img src="img/contact/3.jpg"
+                                                                                        <img src="assets/img/contact/3.jpg"
                                                                                             alt="" />
                                                                                     </div>
                                                                                     <div class="notes-content">
@@ -325,7 +325,7 @@
                                                                             <a href="#">
                                                                                 <div class="notes-list-flow">
                                                                                     <div class="notes-img">
-                                                                                        <img src="img/contact/4.jpg"
+                                                                                        <img src="assets/img/contact/4.jpg"
                                                                                             alt="" />
                                                                                     </div>
                                                                                     <div class="notes-content">
@@ -342,7 +342,7 @@
                                                                             <a href="#">
                                                                                 <div class="notes-list-flow">
                                                                                     <div class="notes-img">
-                                                                                        <img src="img/contact/1.jpg"
+                                                                                        <img src="assets/img/contact/1.jpg"
                                                                                             alt="" />
                                                                                     </div>
                                                                                     <div class="notes-content">
@@ -359,7 +359,7 @@
                                                                             <a href="#">
                                                                                 <div class="notes-list-flow">
                                                                                     <div class="notes-img">
-                                                                                        <img src="img/contact/2.jpg"
+                                                                                        <img src="assets/img/contact/2.jpg"
                                                                                             alt="" />
                                                                                     </div>
                                                                                     <div class="notes-content">
@@ -376,7 +376,7 @@
                                                                             <a href="#">
                                                                                 <div class="notes-list-flow">
                                                                                     <div class="notes-img">
-                                                                                        <img src="img/contact/1.jpg"
+                                                                                        <img src="assets/img/contact/1.jpg"
                                                                                             alt="" />
                                                                                     </div>
                                                                                     <div class="notes-content">
@@ -393,7 +393,7 @@
                                                                             <a href="#">
                                                                                 <div class="notes-list-flow">
                                                                                     <div class="notes-img">
-                                                                                        <img src="img/contact/2.jpg"
+                                                                                        <img src="assets/img/contact/2.jpg"
                                                                                             alt="" />
                                                                                     </div>
                                                                                     <div class="notes-content">
@@ -410,7 +410,7 @@
                                                                             <a href="#">
                                                                                 <div class="notes-list-flow">
                                                                                     <div class="notes-img">
-                                                                                        <img src="img/contact/3.jpg"
+                                                                                        <img src="assets/img/contact/3.jpg"
                                                                                             alt="" />
                                                                                     </div>
                                                                                     <div class="notes-content">

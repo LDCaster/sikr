@@ -16,6 +16,7 @@
     <!-- Bootstrap CSS
   ============================================ -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/tambah-rab.css">
     {{-- Bootstrap CSS  --}}
     {{-- ============================================ --}}
     {{-- ============================================ --> 
@@ -32,12 +33,12 @@
     <!-- Animate CSS for the css animation support if needed -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet" />
 
-    <!-- Demo CSS -->
-    <link href="../../demo.css" rel="stylesheet" type="text/css" />
-    <link href="../../../../assets/css/style.css?v=7" rel="stylesheet" type="text/css" />
+    {{-- <!-- Demo CSS -->
+    <link href="assets/../../demo.css" rel="stylesheet" type="text/css" />
+    <link href="../../../../assets/css/style.css?v=7" rel="stylesheet" type="text/css" /> --}}
 
     <!-- Include SmartWizard CSS -->
-    <link href="./css/demo.css" rel="stylesheet" type="text/css" />
+    {{-- <link href="./css/demo.css" rel="stylesheet" type="text/css" /> --}}
 
     <!-- Demo files -->
     <link href="https://cdn.jsdelivr.net/npm/smartwizard@6/dist/css/smart_wizard_all.min.css" rel="stylesheet"
@@ -78,7 +79,7 @@
     <link rel="stylesheet" href="assets/css/calendar/fullcalendar.print.min.css">
     <!-- buttons CSS
   ============================================ -->
-    <link rel="stylesheet" href="css/buttons.css">
+    <link rel="stylesheet" href="assets/css/buttons.css">
     <!-- x-editor CSS
   ============================================ -->
     <link rel="stylesheet" href="assets/css/editor/select2.css">
@@ -91,7 +92,7 @@
     <link rel="stylesheet" href="assets/css/data-table/bootstrap-editable.css">
     <!-- style CSS
   ============================================ -->
-    <link rel="stylesheet" href="assets/css/style1.css">
+    <link rel="stylesheet" href="assets/css/stylee.css">
     <!-- responsive CSS
   ============================================ -->
     <link rel="stylesheet" href="assets/css/responsive.css">
@@ -195,8 +196,8 @@
     <!-- calendar JS
   ============================================ -->
     <script src="assets/js/calendar/moment.min.js"></script>
-    <script src="assets/js/calendar/fullcalendar.min.js"></script>
-    <script src="assets/js/calendar/fullcalendar-active.js"></script>
+    {{-- <script src="assets/js/calendar/fullcalendar.min.js"></script>
+    <script src="assets/js/calendar/fullcalendar-active.js"></script> --}}
     <!-- tab JS
   ============================================ -->
     <script src="assets/js/tab.js"></script>
@@ -226,7 +227,7 @@
     <script src="https://cdn.jsdelivr.net/npm/smartwizard@6/dist/js/jquery.smartWizard.min.js" type="text/javascript">
     </script>
 
-    <script type="text/javascript" src="./js/demo.js"></script>
+    {{-- <script type="text/javascript" src="./js/demo.js"></script> --}}
 
     <script type="text/javascript">
         function onFinish() {
@@ -276,9 +277,9 @@
                 toolbar: {
                     showNextButton: true, // show/hide a Next button
                     showPreviousButton: true, // show/hide a Previous button
-                    position: 'both', // none/ top/ both bottom
+                    position: 'bottom', // none/ top/ both bottom
                     extraHtml: `<button class="btn btn-success" onclick="onFinish()">Finish</button>
-                              <button class="btn btn-secondary" onclick="onCancel()">Cancel</button>`
+                              <button class="btn btn-secondary" onclick="onCancel()">Reset</button>`
                 },
                 anchor: {
                     enableNavigation: true, // Enable/Disable anchor navigation 
