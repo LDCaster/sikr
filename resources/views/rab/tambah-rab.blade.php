@@ -40,7 +40,7 @@
                                     </li>
                                 </ul>
 
-                                <div class="tab-content">
+                                <div class="tab-content" id="h">
                                     <div id="step-1" class="tab-pane" role="tabpanel" aria-labelledby="step-1">
                                         <h3>Step 1 Tambah User</h3>
                                         <div class="basic-login-form-ad">
@@ -174,6 +174,8 @@
     <script>
         let dataRow = 1
         $('#add-input').click(() => {
+            const h = document.getElementById('h');
+            h.style.removeProperty('height');
             dataRow++
             inputRow(dataRow)
         })
