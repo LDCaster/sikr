@@ -111,29 +111,39 @@
                 <h3>Daftar Akun</h3>
                 <p>Si KR layanan Sistem Informasi Kontrak Rinci</p>
             </div>
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             <div class="content-error">
                 <div class="hpanel">
                     <div class="panel-body">
-                        <form action="#" id="loginForm">
+                        <form method="post" action="" id="loginForm">
+                            @csrf
                             <div class="row">
                                 <div class="form-group col-lg-12">
-                                    <label for="username">Username</label>
-                                    <input class="form-control" type="text" name="username" id="username"
-                                        placeholder="username">
-                                </div>
-                                <div class="form-group col-lg-12">
-                                    <label for="password">Password</label>
-                                    <input type="password" name="password" id="password" placeholder="password"
-                                        class="form-control">
+                                    <label for="name">Nama</label>
+                                    <input class="form-control" type="text" name="name" id="name"
+                                        placeholder="name">
                                 </div>
                                 <div class="form-group col-lg-12">
                                     <label for="email">Email Address</label>
                                     <input class="form-control" type="text" name="email" id="email"
-                                        placeholder="email@example.com">
+                                        placeholder="email@example.com" required>
+                                </div>
+                                <div class="form-group col-lg-12">
+                                    <label for="password">Password</label>
+                                    <input type="password" name="password" id="password" placeholder="password"
+                                        class="form-control" required>
                                 </div>
                             </div>
                             <div class="text-center">
-                                <button class="btn btn-success btn-block loginbtn">Register</button>
+                                <button type="submit" class="btn btn-success btn-block loginbtn">Register</button>
                                 <a class="btn btn-default btn-block" href="/login">Login</a>
                             </div>
                         </form>

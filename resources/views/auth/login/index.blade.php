@@ -69,9 +69,6 @@
     <link rel="stylesheet" href="assets/css/metisMenu/metisMenu-vertical.css">
     <!-- calendar CSS
   ============================================ -->
-    {{-- modals CSS --}}
-    <link rel="stylesheet" href="assets/css/modals.css">
-    {{-- modals css --}}
     {{-- alerts --}}
     <link rel="stylesheet" href="assets/css/alerts.css">
     {{-- alerts --}}
@@ -80,16 +77,7 @@
     <!-- buttons CSS
   ============================================ -->
     <link rel="stylesheet" href="assets/css/buttons.css">
-    <!-- x-editor CSS
-  ============================================ -->
-    <link rel="stylesheet" href="assets/css/editor/select2.css">
-    <link rel="stylesheet" href="assets/css/editor/datetimepicker.css">
-    <link rel="stylesheet" href="assets/css/editor/bootstrap-editable.css">
-    <link rel="stylesheet" href="assets/css/editor/x-editor-style.css">
-    <!-- normalize CSS
-  ============================================ -->
-    <link rel="stylesheet" href="assets/css/data-table/bootstrap-table.css">
-    <link rel="stylesheet" href="assets/css/data-table/bootstrap-editable.css">
+
     <!-- style CSS
   ============================================ -->
     <link rel="stylesheet" href="assets/css/stylee.css">
@@ -128,8 +116,8 @@
                             @csrf
                             <div class="form-group">
                                 <label class="control-label" for="email">Email</label>
-                                <input type="email" placeholder="email " required="" name="email"
-                                    id="email" class="form-control">
+                                <input type="email" placeholder="email " required="" name="email" id="email"
+                                    class="form-control">
                                 <span class="help-block small">Your unique username to app</span>
                             </div>
                             <div class="form-group">
