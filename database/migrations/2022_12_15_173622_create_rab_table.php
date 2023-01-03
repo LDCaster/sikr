@@ -15,11 +15,9 @@ return new class extends Migration
     {
         Schema::create('rab', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_rab');
-            $table->string('unit')->nullable();
+            $table->string('kode_rab');
+            $table->string('nama_user')->nullable();
             $table->string('prk')->nullable();
-            $table->foreignId('rnk_id');
-            $table->string('total_harga');
             $table->timestamps();
         });
     }

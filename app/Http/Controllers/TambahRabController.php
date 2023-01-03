@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Rab;
 use App\Models\Rnk;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class TambahRabController extends Controller
 {
@@ -44,7 +45,6 @@ class TambahRabController extends Controller
      */
     public function store(Request $request)
     {
-        //
     }
 
     /**

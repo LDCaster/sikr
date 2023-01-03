@@ -110,6 +110,16 @@
                         <p>{{ session('message') }}</p>
                     </div>
                 @endif
+                @if (session()->has('check'))
+                    <div class="alert alert-success alert-success-style1 alert-st-bg">
+                        <button type="button" class="close sucess-op" data-dismiss="alert" aria-label="Close">
+                            <span class="icon-sc-cl" aria-hidden="true">&times;</span>
+                        </button>
+                        <i class="fa fa-check edu-checked-pro admin-check-pro admin-check-pro-clr"
+                            aria-hidden="true"></i>
+                        <p>{{ session('message') }}</p>
+                    </div>
+                @endif
                 <div class="hpanel">
                     <div class="panel-body">
                         <form method="POST" id="loginForm" action="/login">

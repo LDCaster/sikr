@@ -12,4 +12,9 @@ class Rab extends Model
     protected $table = 'rab';
 
     protected $guarded = [];
+
+    public function rnk()
+    {
+        return $this->hasMany(Rnk::class, 'kode_rab');
+    }
 }

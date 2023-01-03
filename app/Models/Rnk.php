@@ -12,4 +12,9 @@ class Rnk extends Model
     protected $table = 'rnk';
 
     protected $guarded = [];
+
+    public function rab()
+    {
+        return $this->belongsTo(Rab::class, 'kode_rab');
+    }
 }

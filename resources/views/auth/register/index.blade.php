@@ -111,19 +111,19 @@
                 <h3>Daftar Akun</h3>
                 <p>Si KR layanan Sistem Informasi Kontrak Rinci</p>
             </div>
-            @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
             <div class="content-error">
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 <div class="hpanel">
                     <div class="panel-body">
-                        <form method="post" action="" id="loginForm">
+                        <form method="post" action="/register" id="loginForm">
                             @csrf
                             <div class="row">
                                 <div class="form-group col-lg-12">
@@ -134,12 +134,12 @@
                                 <div class="form-group col-lg-12">
                                     <label for="email">Email Address</label>
                                     <input class="form-control" type="text" name="email" id="email"
-                                        placeholder="email@example.com" required>
+                                        placeholder="email@example.com">
                                 </div>
                                 <div class="form-group col-lg-12">
                                     <label for="password">Password</label>
                                     <input type="password" name="password" id="password" placeholder="password"
-                                        class="form-control" required>
+                                        class="form-control">
                                 </div>
                             </div>
                             <div class="text-center">

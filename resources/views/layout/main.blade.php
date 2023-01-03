@@ -1,5 +1,7 @@
-<!doctype html>
-<html class="no-js" lang="en">
+{{-- <!doctype html>
+<html class="no-js" lang="en"> --}}
+<!DOCTYPE html>
+<html lang="en" class="no-js">
 
 <head>
     <meta charset="utf-8">
@@ -231,6 +233,41 @@
 
     <script type="text/javascript">
         function onFinish() {
+            // let unit = []
+            // let nama_variant = []
+            // let nama_satuan = []
+            // let volume = []
+
+            // $('.unit').each(function() {
+            //     unit.push($(this).text())
+            // })
+            // $('.nama_variant').each(function() {
+            //     nama_variant.push($(this).text())
+            // })
+            // $('.nama_satuan').each(function() {
+            //     nama_satuan.push($(this).text())
+            // })
+            // $('.volume').each(function() {
+            //     volume.push($(this).text())
+            // })
+
+            // $.ajax({
+            //     mehod: "post",
+            //     url: "{{ url('/ta mbah-rab/store') }}",
+            //     data: {
+            //         unit: unit,
+            //         nama_variant: nama_variant,
+            //         nama_satuan: nama_satuan,
+            //         volume: volume,
+            //         "_token": "{{ csrf_token() }}"
+            //     },
+            // success: function(response) {
+            //     console log(response),
+            // }.error: function(xhr) {
+            //     // console log(xhr)
+            // }
+            // });
+
             alert('Finish Clicked');
         }
 

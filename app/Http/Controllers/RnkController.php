@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Rab;
 use App\Models\Rnk;
 use Illuminate\Http\Request;
 
@@ -15,11 +16,13 @@ class RnkController extends Controller
     public function index()
     {
         //
-        $rnks = Rnk::get();
+        $rabs = Rab::get();
+        $rnks = Rnk::with(['rab'])->get();
 
         return view('rab/rnk.index', [
             'title' => 'Data Rincian Nilai Kontrak',
-            'rnks' => $rnks
+            'rnks' => $rnks,
+            'rabs' => $rabs
         ]);
     }
 
@@ -42,6 +45,21 @@ class RnkController extends Controller
     public function store(Request $request)
     {
         //
+        $validatedData = $request->validate([
+            'kode_rab' => 'max:255',
+            'unit' => 'max:255',
+            'nama_variant' => 'max:255',
+            'nama_satuan' => 'max:255',
+            'volume' => 'max:255',
+            'alokasi_bulan' => 'max:255',
+            'no_prk' => 'max:255',
+            'harga_satuan' => 'max:255',
+            'harga_transport' => 'max:255',
+            'total' => 'max:255',
+        ]);
+
+        Rnk::create($validatedData);
+        return redirect('/rincian-nilai-kontrak ')->with('success', 'Data Berhasil Ditambahkan!');
     }
 
     /**
@@ -64,6 +82,9 @@ class RnkController extends Controller
     public function edit($id)
     {
         //
+
+        $rnk = Rnk::with(['rab'])->find($id);
+        return response()->json($rnk);
     }
 
     /**
@@ -76,6 +97,20 @@ class RnkController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $validatedData = $request->validate([
+            'kode_rab' => 'max:255',
+            'unit' => 'max:255',
+            'nama_variant' => 'max:255',
+            'nama_satuan' => 'max:255',
+            'volume' => 'max:255',
+            'alokasi_bulan' => 'max:255',
+            'no_prk' => 'max:255',
+            'harga_satuan' => 'max:255',
+            'harga_transport' => 'max:255',
+            'total' => 'max:255',
+        ]);
+        Rnk::with(['rab'])->where('id', $id)->update($validatedData);
+        return redirect('/rincian-nilai-kontrak')->with('success', 'Data Berhasil Di Ubah!');
     }
 
     /**
@@ -87,5 +122,7 @@ class RnkController extends Controller
     public function destroy($id)
     {
         //
+        Rnk::destroy($id);
+        return redirect('/rincian-nilai-kontrak ')->with('success', 'Data Berhasil Dihapus!');
     }
 }

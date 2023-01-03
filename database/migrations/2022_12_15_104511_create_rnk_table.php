@@ -15,16 +15,17 @@ return new class extends Migration
     {
         Schema::create('rnk', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
             $table->foreignId('rab_id')->nullable();
-            $table->string('nama_unit');
-            $table->string('nama_variant');
-            $table->string('nama_satuan');
-            $table->string('volume');
-            $table->string('alokas_bulan');
-            $table->string('no_prk');
-            $table->string('harga_satuan');
-            $table->string('sub_harga');
+            $table->string('unit')->nullable();
+            $table->string('nama_variant')->nullable();
+            $table->string('nama_satuan')->nullable();
+            $table->string('volume')->nullable();
+            $table->string('alokasi_bulan')->nullable();
+            $table->string('no_prk')->nullable();
+            $table->string('harga_satuan')->nullable();
+            $table->string('harga_transport')->nullable();
+            $table->string('total')->nullable();
+            $table->timestamps();
         });
     }
 

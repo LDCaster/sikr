@@ -74,51 +74,48 @@
                                             Tambah</button>
 
                                         {{-- <section class="container"> --}}
-                                        <form action="#" class="form">
+                                        <form action="/tambah-rab" method="post" class="form">
+                                            @csrf
                                             <br>
-                                            <h4>Data 1</h4>
-                                            <div class="column">
-                                                <div class="input-box">
-                                                    <label>Unit</label>
-                                                    <input type="text" placeholder="Enter phone number" reqired />
-                                                </div>
-                                                <div class="input-box">
-                                                    <label>Variant Type</label>
-                                                    <input type="text" placeholder="Enter birth date" />
-                                                </div>
-                                                <div class="input-box">
-                                                    <label>Satuan</label>
-                                                    <input type="text" placeholder="Enter phone number" />
-                                                </div>
-                                                <div class="input-box">
-                                                    <label>Volume</label>
-                                                    <input type="text" placeholder="Enter birth date" />
-                                                </div>
-                                                <div class="input-box">
-                                                    <label>Alokasi Bulan</label>
-                                                    <input type="text" placeholder="Enter birth date" />
-                                                </div>
-                                                <div class="input-box">
-                                                    <label>No. PRK</label>
-                                                    <input type="text" placeholder="Enter birth date" />
-                                                </div>
-                                            </div>
-                                            <div class="column">
-                                                <div class="input-box">
-                                                    <label>Harga Satuan</label>
-                                                    <input type="text" placeholder="Enter birth date" />
-                                                </div>
-                                                <div class="input-box">
-                                                    <label>Harga Transport dan Asuransi</label>
-                                                    <input type="text" placeholder="Enter birth date" />
-                                                </div>
-                                                <div class="input-box">
-                                                    <label>Total(Rp)</label>
-                                                    <input type="text" placeholder="Enter birth date" />
-                                                </div>
-                                            </div>
                                             <div id="data">
 
+                                            </div>
+                                            <div id="jumlah">
+                                                </hr><br>
+                                                <div class="container">
+                                                    <div class="row">
+                                                        <div class="col-md-12"
+                                                            style="text-align: right; padding-bottom:10px;">
+                                                            <div class="col-md-9" style="padding-top: 9px">
+                                                                <h4 class="">Jumlah</h4>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <input class="form-control" style="border-radius: 20px"
+                                                                    type="text" placeholder="Jumlah" readonly>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12"
+                                                            style="text-align: right; padding-bottom:10px;">
+                                                            <div class="col-md-9" style="padding-top: 9px">
+                                                                <h4 class="">PPN 11%</h4>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <input class="form-control" style="border-radius: 20px"
+                                                                    type="text" placeholder="PPN 11%" readonly>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12" style="text-align: right">
+                                                            <div class="col-md-9" style="padding-top: 9px">
+                                                                <h4 class="">Total + PPN</h4>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <input class="form-control" style="border-radius: 20px"
+                                                                    type="text" placeholder="Total + PPN" readonly>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                </hr>
                                             </div>
                                         </form>
                                         </section>
@@ -172,7 +169,7 @@
     </script> --}}
 
     <script>
-        let dataRow = 1
+        let dataRow = 0
         $('#add-input').click(() => {
             const h = document.getElementById('h');
             h.style.removeProperty('height');
@@ -186,42 +183,42 @@
                             <h4>Data ${i}</h4>
                             <div class="column">
                                 <div class="input-box">
-                                    <label>Unit</label>
-                                    <input type="text" placeholder="Enter phone number" reqired />
+                                    <label for="unit">Unit</label>
+                                    <input type="text" placeholder="" id="unit" name="unit[]" reqired />
                                 </div>
                                 <div class="input-box">
-                                    <label>Variant Type</label>
-                                    <input type="text" placeholder="Enter birth date" />
+                                    <label for="nama_variant">Variant Type</label>
+                                    <input type="text" id="nama_variant" name="nama_variant[]" placeholder="" />
                                 </div>
                                 <div class="input-box">
-                                    <label>Satuan</label>
-                                    <input type="text" placeholder="Enter phone number" />
+                                    <label for="nama_satuan">Satuan</label>
+                                    <input type="text" id="nama_satuan" name="nama_satuan[]" placeholder="" />
                                 </div>
                                 <div class="input-box">
-                                    <label>Volume</label>
-                                    <input type="text" placeholder="Enter birth date" />
+                                    <label for="volume">Volume</label>
+                                    <input type="text" id="volume" name="volume[]" placeholder="" />
                                 </div>
                                 <div class="input-box">
-                                    <label>Alokasi Bulan</label>
-                                    <input type="text" placeholder="Enter birth date" />
+                                    <label for="alokasi_bulan">Alokasi Bulan</label>
+                                    <input type="text" id="alokasi_bulan" name="alokasi_bulan[]" placeholder="" />
                                 </div>
                                 <div class="input-box">
-                                    <label>No. PRK</label>
-                                    <input type="text" placeholder="Enter birth date" />
+                                    <label for="no_prk">No. PRK</label>
+                                    <input type="text" id="no_prk" name="no_prk[]" placeholder="" />
                                 </div>
                             </div>
                             <div class="column">
                                 <div class="input-box">
-                                    <label>Harga Satuan</label>
-                                    <input type="text" placeholder="Enter birth date" />
+                                    <label for="harga_satuan">Harga Satuan</label>
+                                    <input type="text" id="harga_satuan" name="harga_satuan[]" placeholder="" />
                                 </div>
                                 <div class="input-box">
-                                    <label>Harga Transport dan Asuransi</label>
-                                    <input type="text" placeholder="Enter birth date" />
+                                    <label for="harga_transport">Harga Transport dan Asuransi</label>
+                                    <input type="text" id="harga_transport" name="harga_transport[]" placeholder="" />
                                 </div>
                                 <div class="input-box">
-                                    <label>Total(Rp)</label>
-                                    <input type="text" placeholder="Enter birth date" />
+                                    <label for="total">Total(Rp)</label>
+                                    <input type="text" id="total" name="total[]" placeholder="" />
                                 </div>
                             </div>
                             <button class="btn btn-custom-four btn-primary  delete-record " data-id="${i}">Hapus</button>

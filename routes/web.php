@@ -15,6 +15,7 @@ use App\Http\Controllers\RnkController;
 use App\Http\Controllers\SatuanController;
 use App\Http\Controllers\TambahRabController;
 use App\Http\Controllers\VariantController;
+use App\Models\Rnk;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,8 +37,8 @@ Route::get('/login', [AuthController::class, 'login'])->name('login')->middlewar
 Route::post('/login', [AuthController::class, 'authentication'])->middleware('guest');
 Route::get('/logout', [AuthController::class, 'logout'])->middleware('auth');
 
-Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
-Route::post('/register', [RegisterController::class, 'register'])->middleware('guest');
+Route::get('/register', [AuthController::class, 'register'])->middleware('guest');
+Route::post('/register', [AuthController::class, 'registerProses'])->middleware('guest');
 
 Route::get('/dashboard', function () {
     return view('dashboard', [
@@ -61,4 +62,5 @@ Route::resource('satuan', SatuanController::class)->middleware('auth');
 Route::resource('prk', PrkController::class)->middleware('auth');
 Route::resource('rincian-nilai-kontrak', RnkController::class)->middleware('auth');
 Route::resource('rencana-anggaran-biaya', RabController::class)->middleware('auth');
+// Route::get('rnk', [RnkController::class, 'show'])->middleware('auth');
 Route::resource('tambah-rab', TambahRabController::class)->middleware('auth');

@@ -42,6 +42,14 @@ class RabController extends Controller
     public function store(Request $request)
     {
         //
+        $validatedData = $request->validate([
+            'kode_rab' => 'max:255',
+            'nama_user' => 'max:255',
+            'prk' => 'max:255'
+        ]);
+
+        Rab::create($validatedData);
+        return redirect('/rencana-anggaran-biaya ')->with('success', 'Data Berhasil Ditambahkan!');
     }
 
     /**
@@ -53,6 +61,9 @@ class RabController extends Controller
     public function show($id)
     {
         //
+        $data = Rab::find($id);
+
+        return response()->json($data);
     }
 
     /**
@@ -64,6 +75,8 @@ class RabController extends Controller
     public function edit($id)
     {
         //
+        $data = Rab::find($id);
+        return response()->json($data);
     }
 
     /**
@@ -76,6 +89,13 @@ class RabController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $validatedData = $request->validate([
+            'kode_rab' => 'max:255',
+            'nama_user' => 'max:255',
+            'prk' => 'max:255'
+        ]);
+        Rab::where('id', $id)->update($validatedData);
+        return redirect('/rencana-anggaran-biaya')->with('success', 'Data Berhasil Di Ubah!');
     }
 
     /**
@@ -87,5 +107,8 @@ class RabController extends Controller
     public function destroy($id)
     {
         //
+        //menghapus data satuan
+        Rab::destroy($id);
+        return redirect('/rencana-anggaran-biaya')->with('success', 'Data Berhasil Dihapus!');
     }
 }
