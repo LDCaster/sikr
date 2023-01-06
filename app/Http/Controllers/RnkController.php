@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pabrikan;
+use App\Models\Prk;
 use App\Models\Rab;
 use App\Models\Rnk;
+use App\Models\Satuan;
+use App\Models\Variant;
 use Illuminate\Http\Request;
 
 class RnkController extends Controller
@@ -17,12 +21,18 @@ class RnkController extends Controller
     {
         //
         $rabs = Rab::get();
-        $rnks = Rnk::with(['rab'])->get();
+        $rnks = Rnk::with(['rab', 'prk'])->get();
+        $prks = Prk::get();
+        $variants = Variant::get();
+        $satuans = Satuan::get();
 
         return view('rab/rnk.index', [
             'title' => 'Data Rincian Nilai Kontrak',
             'rnks' => $rnks,
-            'rabs' => $rabs
+            'rabs' => $rabs,
+            'prks' => $prks,
+            'variants' => $variants,
+            'satuans' => $satuans
         ]);
     }
 

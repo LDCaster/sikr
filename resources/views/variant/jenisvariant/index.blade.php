@@ -111,7 +111,7 @@
                                             <th data-field="state" data-checkbox="true"></th>
                                             <th data-field="no">No</th>
                                             <th data-field="jenis_variant" data-editable="true">Nama Jenis</th>
-                                            <th data-field="action">Aksi</th>
+                                            <th data-field="action" class="aksi">Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -122,15 +122,20 @@
                                                 <td>{{ $jvariant->nama_jenis }}</td>
                                                 <td>
                                                     <!-- Button trigger modal -->
-                                                    <button class="btn btn-warning edit" value="{{ $jvariant->id }}"
-                                                        data-toggle="modal" data-target="#ModalEdit">Edit</button>
-                                                    <form class="d-inline"
+                                                    <button class="btn btn-warning btn-sm edit"
+                                                        value="{{ $jvariant->id }}" data-toggle="modal"
+                                                        data-target="#ModalEdit">
+                                                        <i class="fa-regular fa-pen-to-square"></i>
+                                                    </button>
+                                                    <form class="d-inline" style="display: inline"
                                                         action="{{ url('/jenis-variant', $jvariant->id) }}"
                                                         method="POST">
                                                         @method('delete')
                                                         @csrf
                                                         <button type="submit" class="btn btn-danger btn-sm"
-                                                            onclick="return confirm('Apakah anda yakin untuk hapus jenis variant?')">Hapus</button>
+                                                            onclick="return confirm('Apakah anda yakin untuk hapus data Jenis Variant?')">
+                                                            <i class="fa-solid fa-trash"></i>
+                                                        </button>
                                                     </form>
 
                                                 </td>

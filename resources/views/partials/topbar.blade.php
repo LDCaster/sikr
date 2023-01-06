@@ -29,6 +29,45 @@
                                     <div class="header-top-menu tabl-d-n">
                                         <ul class="nav navbar-nav mai-top-nav">
 
+                                            {{-- jam digital  --}}
+
+                                            <li class="nav-item" id="jam_aktif">
+                                                <a href="" class="disabled-link">
+                                                    <label id="jam"></label> :
+                                                    <label id="menit"></label> :
+                                                    <label id="detik"></label>
+                                                    <label id="pm_am"></label>
+                                                </a>
+                                            </li>
+                                            <?php
+                                            $tgl = date('Y-m-d');
+                                            function merubah_tanggal($tgl)
+                                            {
+                                                $bulan = [
+                                                    1 => 'Januari',
+                                                    'Februari',
+                                                    'Maret',
+                                                    'April',
+                                                    'Mei',
+                                                    'Juni',
+                                                    'Juli',
+                                                    'Agustus',
+                                                    'September',
+                                                    'Oktober',
+                                                    'November',
+                                                    'Desember',
+                                                ];
+                                                $pecahkan = explode('-', $tgl);
+                                                return $pecahkan[2] . '/' . $bulan[(int) $pecahkan[1]] . '/' . $pecahkan[0];
+                                            }
+                                            ?>
+                                            <li class="nav-item" id="tgl_hari_ini">
+                                                <a href="" class="disabled-link" style="font-weight: bold">
+                                                    <?php echo merubah_tanggal($tgl); ?></a>
+                                            </li>
+
+                                            {{-- end jam digital --}}
+
                                         </ul>
                                     </div>
                                 </div>
@@ -1045,3 +1084,58 @@
     </div>
     <!-- Single pro tab start-->
     {{-- Menu Top Bar End --}}
+
+
+    {{-- fungsi jam digital --}}
+    <script type="text/javascript">
+        window.setTimeout("jam_aktif()", 1000);
+
+        function jam_aktif() {
+            var jam_aktif = new Date();
+            setTimeout("jam_aktif()", 1000);
+            var jam = jam_aktif.getHours();
+            var menit = jam_aktif.getMinutes();
+            var detik = jam_aktif.getSeconds();
+
+            //menampilkan am/pm
+            if (jam < 12) {
+                document.getElementById("pm_am").innerHTML = 'AM';
+            } else if (jam > 12) {
+                document.getElementById("pm_am").innerHTML = 'PM';
+            }
+
+            //memberikan angka 2 digit untuk 0-9 pada JAM
+            if (jam == 0) {
+                document.getElementById("jam").innerHTML = '0' + jam;
+            } else if (jam < 10) {
+                document.getElementById("jam").innerHTML = '0' + jam;
+            } else if (jam == 10) {
+                document.getElementById("jam").innerHTML = jam_aktif.getHours();
+            } else if (jam > 10) {
+                document.getElementById("jam").innerHTML = jam_aktif.getHours();
+            }
+
+            //memberikan angka 2 digit untuk 0-9 pada MENIT
+            if (menit == 0) {
+                document.getElementById("menit").innerHTML = '0' + menit;
+            } else if (menit < 10) {
+                document.getElementById("menit").innerHTML = '0' + menit;
+            } else if (menit == 10) {
+                document.getElementById("menit").innerHTML = jam_aktif.getMinutes();
+            } else if (menit > 10) {
+                document.getElementById("menit").innerHTML = jam_aktif.getMinutes();
+            }
+
+            //memberikan angka 2 digit untuk 0-9 pada DETIK
+            if (detik == 0) {
+                document.getElementById("detik").innerHTML = '0' + detik;
+            } else if (detik < 10) {
+                document.getElementById("detik").innerHTML = '0' + detik;
+            } else if (detik == 10) {
+                document.getElementById("detik").innerHTML = jam_aktif.getSeconds();
+            } else if (detik > 10) {
+                document.getElementById("detik").innerHTML = jam_aktif.getSeconds();
+            }
+        }
+    </script>
+    {{-- end fungsi jam digital  --}}

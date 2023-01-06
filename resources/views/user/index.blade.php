@@ -9,7 +9,7 @@
                     <div class="sparkline13-list">
                         <div class="sparkline13-hd">
                             <div class="main-sparkline13-hd">
-                                <h1>Data <span class="table-project-n">PRK</span></h1>
+                                <h1>Data <span class="table-project-n">User</span></h1>
                             </div>
                         </div>
                         @if (session()->has('success'))
@@ -34,35 +34,42 @@
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header header-color-modal bg-color-1">
-                                                <h4 class="modal-title">Tambah Data Pabrikan</h4>
+                                                <h4 class="modal-title">Tambah Data User</h4>
                                                 <div class="modal-close-area modal-close-df">
                                                     <a class="close" data-dismiss="modal" href="#"><i
                                                             class="fa fa-close"></i></a>
                                                 </div>
                                             </div>
-                                            <form action="/prk" method="POST">
+                                            <form method="post" action="/user">
                                                 @csrf
                                                 <div class="modal-body">
                                                     <div class="mb-3">
-                                                        <label for="no_prk" class="form-label">No PRK</label>
-                                                        <input type="text" class="form-control" name="no_prk" required>
+                                                        <label for="name" class="form-label">Nama User</label>
+                                                        <input type="text" class="form-control" name="name">
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label for="bidang" class="form-label">Bidang</label>
-                                                        <input type="text" class="form-control" name="bidang" required>
+                                                        <label for="image" class="form-label">Gambar</label>
+                                                        <input type="text" class="form-control" name="image">
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label for="fungsi" class="form-label">Fungsi</label>
-                                                        <input type="text" class="form-control" name="fungsi" required>
+                                                        <label for="role_id" class="form-label">Role</label>
+                                                        <select class="form-control custom-select-value" name="role_id">
+                                                            <option value="">-- Pilih Role ---</option>
+                                                            @foreach ($roles as $role)
+                                                                <option value="{{ $role->id }}">
+                                                                    {{ $role->name }}
+                                                                </option>
+                                                            @endforeach
+                                                        </select>
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label for="sub_fungsi" class="form-label">Sub Fungsi</label>
-                                                        <input type="text" class="form-control" name="sub_fungsi"
-                                                            required>
+                                                        <label for="email" class="form-label">Email</label>
+                                                        <input type="text" class="form-control" name="email">
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label for="program" class="form-label">Program</label>
-                                                        <input type="text" class="form-control" name="program" required>
+                                                        <label for="password" class="form-label">Password</label>
+                                                        <input type="password" class="form-control" name="password"
+                                                            id="password">
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer">
@@ -83,53 +90,55 @@
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header header-color-modal bg-color-1">
-                                                <h4 class="modal-title">Ubah Data PRK</h4>
+                                                <h4 class="modal-title">Ubah Data User</h4>
                                                 <div class="modal-close-area modal-close-df">
                                                     <a class="close" data-dismiss="modal" href="#"><i
                                                             class="fa fa-close"></i></a>
                                                 </div>
                                             </div>
-                                            <div class="modal-body">
-                                                <form action="" method="POST">
+                                            <form action="" method="POST">
+                                                <div class="modal-body">
                                                     @csrf
                                                     @method('put')
                                                     <div class="mb-3">
-                                                        <label for="no_prk" class="form-label">No PRK</label>
-                                                        <input type="text" class="form-control" name="no_prk"
-                                                            id="no_prk">
+                                                        <label for="name" class="form-label">Nama User</label>
+                                                        <input type="text" class="form-control" name="name"
+                                                            id="name">
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label for="bidang" class="form-label">Bidang</label>
-                                                        <input type="text" class="form-control" name="bidang"
-                                                            id="bidang">
+                                                        <label for="image" class="form-label">Gambar</label>
+                                                        <input type="text" class="form-control" name="image"
+                                                            id="image">
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label for="fungsi" class="form-label">Fungsi</label>
-                                                        <input type="text" class="form-control" name="fungsi"
-                                                            id="fungsi">
+                                                        <label for="role" class="form-label">Role</label>
+                                                        <select class="form-control custom-select-value" name="role"
+                                                            id="role">
+                                                            <option value=""> --- Pilih Roles ---</option>
+                                                            @foreach ($roles as $role)
+                                                                <option value="{{ $role->id }}">{{ $role->name }}
+                                                                </option>
+                                                            @endforeach
+                                                        </select>
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label for="sub_fungsi" class="form-label">Sub Fungsi</label>
-                                                        <input type="text" class="form-control" name="sub_fungsi"
-                                                            id="sub_fungsi">
+                                                        <label for="email" class="form-label">Email</label>
+                                                        <input type="text" class="form-control" name="email"
+                                                            id="email">
                                                     </div>
-                                                    <div class="mb-3">
-                                                        <label for="program" class="form-label">Program</label>
-                                                        <input type="text" class="form-control" name="program"
-                                                            id="program">
-                                                    </div>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button data-dismiss="modal"
-                                                    class="btn btn-cusom-four btn-primary">Cancel</button>
-                                                <button type="submit"
-                                                    class="btn btn-cusom-four btn-primary">Submit</button>
-                                            </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button data-dismiss="modal"
+                                                        class="btn btn-cusom-four btn-primary">Cancel</button>
+                                                    <button type="submit"
+                                                        class="btn btn-cusom-four btn-primary">Submit</button>
+                                                </div>
                                             </form>
                                         </div>
                                     </div>
                                 </div>
                                 {{-- END MODAL EDIT --}}
+
 
                                 <div id="toolbar">
                                     <select class="form-control dt-tb">
@@ -147,33 +156,31 @@
                                         <tr>
                                             <th data-field="state" data-checkbox="true"></th>
                                             <th data-field="no">No</th>
-                                            <th data-field="no_prk" data-editable="true">No PRK</th>
-                                            <th data-field="bidang" data-editable="true">Bidang</th>
-                                            <th data-field="fungsi" data-editable="true">Fungsi</th>
-                                            <th data-field="sub_fungsi" data-editable="true">Sub Fungsi</th>
-                                            <th data-field="program" data-editable="true">Program</th>
-                                            <th class="aksi">Aksi</th>
+                                            <th data-field="nama_satuan" data-editable="true">Nama</th>
+                                            <th data-field="image" data-editable="true">Gambar</th>
+                                            <th data-field="role" data-editable="true">Role</th>
+                                            <th data-field="email" data-editable="true">Email</th>
+                                            <th data-field="action" class="aksi">Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($prks as $prk)
+                                        @foreach ($users as $user)
                                             <tr>
                                                 <td></td>
                                                 <td>{{ $loop->iteration }}</td>
-                                                <td>{{ $prk->no_prk }}</td>
-                                                <td>{{ $prk->bidang }}</td>
-                                                <td>{{ $prk->fungsi }}</td>
-                                                <td>{{ $prk->sub_fungsi }}</td>
-                                                <td>{{ $prk->program }}</td>
+                                                <td>{{ $user->name }}</td>
+                                                <td>{{ $user->img }}</td>
+                                                <td>{{ $user->role->name }}</td>
+                                                <td>{{ $user->email }}</td>
                                                 <td>
                                                     <!-- Button trigger modal -->
                                                     <button class="btn btn-warning btn-sm edit"
-                                                        value="{{ $prk->id }}" data-toggle="modal"
+                                                        value="{{ $user->id }}" data-toggle="modal"
                                                         data-target="#ModalEdit">
                                                         <i class="fa-regular fa-pen-to-square"></i>
                                                     </button>
                                                     <form class="d-inline" style="display: inline"
-                                                        action="{{ url('/prk', $prk->id) }}" method="POST">
+                                                        action="{{ url('/user', $user->id) }}" method="POST">
                                                         @method('delete')
                                                         @csrf
                                                         <button type="submit" class="btn btn-danger btn-sm"
@@ -194,22 +201,21 @@
         </div>
     </div>
     <!-- Static Table End -->
-
     <script>
         $(document).ready(function() {
 
             $('.edit').click(function() {
                 const id = $(this).val()
                 $.ajax({
-                    url: `{{ url('/prk/${id}/edit') }}`,
+                    url: `{{ url('/user/${id}/edit') }}`,
                     method: "get",
                     success: function(data) {
-                        $('#no_prk').val(data.no_prk)
-                        $('#bidang').val(data.bidang)
-                        $('#fungsi').val(data.fungsi)
-                        $('#sub_fungsi').val(data.sub_fungsi)
-                        $('#program').val(data.program)
-                        $('#ModalEdit form').attr('action', `{{ url('prk/${id}') }}`)
+                        $('#name').val(data.name)
+                        $('#image').val(data.img)
+                        $('#role').val(data.role_id)
+                        $('#email').val(data.email)
+                        $('#ModalEdit form').attr('action',
+                            `{{ url('user/${id}') }}`)
                     }
                 })
             })

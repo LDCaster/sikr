@@ -9,7 +9,7 @@
                     <div class="sparkline13-list">
                         <div class="sparkline13-hd">
                             <div class="main-sparkline13-hd">
-                                <h1>Data <span class="table-project-n">Direksi Pekerjaan</span></h1>
+                                <h1>Data <span class="table-project-n">Role User</span></h1>
                             </div>
                         </div>
                         @if (session()->has('success'))
@@ -34,32 +34,27 @@
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header header-color-modal bg-color-1">
-                                                <h4 class="modal-title">Tambah Data Pabrikan</h4>
+                                                <h4 class="modal-title">Tambah Data Role</h4>
                                                 <div class="modal-close-area modal-close-df">
                                                     <a class="close" data-dismiss="modal" href="#"><i
                                                             class="fa fa-close"></i></a>
                                                 </div>
                                             </div>
-                                            <div class="modal-body">
-                                                <form method="post" action="/direksi-pekerjaan">
-                                                    @csrf
+                                            <form method="post" action="/role">
+                                                @csrf
+                                                <div class="modal-body">
                                                     <div class="mb-3">
-                                                        <label for="nama_direksi" class="form-label">Nama
-                                                            Direksi</label>
-                                                        <input type="text" class="form-control" name="nama_direksi">
+                                                        <label for="name" class="form-label">Nama Role</label>
+                                                        <input type="text" class="form-control" name="name"
+                                                            id="name">
                                                     </div>
-                                                    <div class="mb-3">
-                                                        <label for="nama_pengawas" class="form-label">Nama
-                                                            Pengawas</label>
-                                                        <input type="text" class="form-control" name="nama_pengawas">
-                                                    </div>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button data-dismiss="modal"
-                                                    class="btn btn-cusom-four btn-primary">Cancel</button>
-                                                <button type="submit"
-                                                    class="btn btn-cusom-four btn-primary">Submit</button>
-                                            </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button data-dismiss="modal"
+                                                        class="btn btn-cusom-four btn-primary">Cancel</button>
+                                                    <button type="submit"
+                                                        class="btn btn-cusom-four btn-primary">Submit</button>
+                                                </div>
                                             </form>
                                         </div>
                                     </div>
@@ -72,34 +67,28 @@
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header header-color-modal bg-color-1">
-                                                <h4 class="modal-title">Ubah Data Pabrikan</h4>
+                                                <h4 class="modal-title">Ubah Data Role</h4>
                                                 <div class="modal-close-area modal-close-df">
                                                     <a class="close" data-dismiss="modal" href="#"><i
                                                             class="fa fa-close"></i></a>
                                                 </div>
                                             </div>
-                                            <div class="modal-body">
-                                                <form action="" method="POST">
+                                            <form action="" method="POST">
+                                                <div class="modal-body">
                                                     @csrf
                                                     @method('put')
                                                     <div class="mb-3">
-                                                        <label for="nama_direksi" class="form-label">Direksi
-                                                            Pekerjaan</label>
-                                                        <input type="text" class="form-control" name="nama_direksi"
-                                                            id="nama_direksi">
+                                                        <label for="name" class="form-label">Nama Role</label>
+                                                        <input type="text" class="form-control" name="name"
+                                                            id="role">
                                                     </div>
-                                                    <div class="mb-3">
-                                                        <label for="nama_pengawas" class="form-label">Nama Pengawas</label>
-                                                        <input type="text" class="form-control" name="nama_pengawas"
-                                                            id="nama_pengawas">
-                                                    </div>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button data-dismiss="modal"
-                                                    class="btn btn-cusom-four btn-primary">Cancel</button>
-                                                <button type="submit"
-                                                    class="btn btn-cusom-four btn-primary">Submit</button>
-                                            </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button data-dismiss="modal"
+                                                        class="btn btn-cusom-four btn-primary">Cancel</button>
+                                                    <button type="submit"
+                                                        class="btn btn-cusom-four btn-primary">Submit</button>
+                                                </div>
                                             </form>
                                         </div>
                                     </div>
@@ -116,40 +105,39 @@
                                 </div>
                                 <table id="table" data-toggle="table" data-pagination="true" data-search="true"
                                     data-show-columns="true" data-show-pagination-switch="true" data-show-refresh="true"
-                                    data-key-events="true" data-show-toggle="true" data-resizable="true"
-                                    data-cookie="true" data-cookie-id-table="saveId" data-show-export="true"
-                                    data-click-to-select="true" data-toolbar="#toolbar">
+                                    data-key-events="true" data-show-toggle="true" data-resizable="true" data-cookie="true"
+                                    data-cookie-id-table="saveId" data-show-export="true" data-click-to-select="true"
+                                    data-toolbar="#toolbar">
                                     <thead>
                                         <tr>
                                             <th data-field="state" data-checkbox="true"></th>
                                             <th data-field="no">No</th>
-                                            <th data-field="nama_direksi" data-editable="true">Direksi Pekerjaan</th>
-                                            <th data-field="nama_pengawas" data-editable="true">Nama Pengawas</th>
+                                            <th data-field="role" data-editable="true">Nama Role</th>
                                             <th data-field="action" class="aksi">Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($direksis as $direksi)
+                                        @foreach ($roles as $role)
                                             <tr>
                                                 <td></td>
                                                 <td>{{ $loop->iteration }}</td>
-                                                <td>{{ $direksi->nama_direksi }}</td>
-                                                <td>{{ $direksi->nama_pengawas }}</td>
+                                                <td>{{ $role->name }}</td>
                                                 <td>
                                                     <!-- Button trigger modal -->
-                                                    <button class="btn btn-warning edit" value="{{ $direksi->id }}"
-                                                        data-toggle="modal" data-target="#ModalEdit"><i
-                                                            class="fa-regular fa-pen-to-square"></i></button>
-                                                    <form class="d-inline"
-                                                        action="{{ url('/direksi-pekerjaan', $direksi->id) }}"
-                                                        method="POST">
+                                                    <button class="btn btn-warning btn-sm edit"
+                                                        value="{{ $role->id }}" data-toggle="modal"
+                                                        data-target="#ModalEdit">
+                                                        <i class="fa-regular fa-pen-to-square"></i>
+                                                    </button>
+                                                    <form class="d-inline" style="display: inline"
+                                                        action="{{ url('/role', $role->id) }}" method="POST">
                                                         @method('delete')
                                                         @csrf
                                                         <button type="submit" class="btn btn-danger btn-sm"
-                                                            onclick="return confirm('Apakah anda yakin untuk hapus data Direksi Pekerjaan?')">
-                                                            <i class="fa-solid fa-trash"></i></button>
+                                                            onclick="return confirm('Apakah anda yakin untuk hapus data PRK?')">
+                                                            <i class="fa-solid fa-trash"></i>
+                                                        </button>
                                                     </form>
-                                                    <!-- Modal Tambah Data -->
                                                 </td>
                                             </tr>
                                         @endforeach
@@ -169,13 +157,12 @@
             $('.edit').click(function() {
                 const id = $(this).val()
                 $.ajax({
-                    url: `{{ url('/direksi-pekerjaan/${id}/edit') }}`,
+                    url: `{{ url('/role/${id}/edit') }}`,
                     method: "get",
                     success: function(data) {
-                        $('#nama_direksi').val(data.nama_direksi)
-                        $('#nama_pengawas').val(data.nama_pengawas)
+                        $('#role').val(data.name)
                         $('#ModalEdit form').attr('action',
-                            `{{ url('direksi-pekerjaan/${id}') }}`)
+                            `{{ url('role/${id}') }}`)
                     }
                 })
             })

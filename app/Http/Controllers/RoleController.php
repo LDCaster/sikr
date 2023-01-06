@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Prk;
+use App\Models\Role;
 use Illuminate\Http\Request;
 
-class PrkController extends Controller
+class RoleController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,11 +15,11 @@ class PrkController extends Controller
     public function index()
     {
         //
-        $prks = Prk::get();
+        $roles = Role::get();
 
-        return view('prk.index', [
-            'title' => 'Data PRK',
-            'prks' => $prks
+        return view('user.role', [
+            'title' => 'Data Role User',
+            'roles' => $roles
         ]);
     }
 
@@ -43,15 +43,11 @@ class PrkController extends Controller
     {
         //
         $validatedData = $request->validate([
-            'no_prk' => 'max:255',
-            'bidang' => 'max:255',
-            'fungsi' => 'max:255',
-            'sub_fungsi' => 'max:255',
-            'program' => 'max:255',
+            'name' => 'max:255',
         ]);
 
-        Prk::create($validatedData);
-        return redirect('/prk ')->with('success', 'Data Berhasil Ditambahkan!');
+        Role::create($validatedData);
+        return redirect('/role ')->with('success', 'Data Berhasil Ditambahkan!');
     }
 
     /**
@@ -63,10 +59,7 @@ class PrkController extends Controller
     public function show($id)
     {
         //
-        //
-        $data = Prk::find($id);
 
-        return response()->json($data);
     }
 
     /**
@@ -78,7 +71,7 @@ class PrkController extends Controller
     public function edit($id)
     {
         //
-        $data = Prk::find($id);
+        $data = Role::find($id);
         return response()->json($data);
     }
 
@@ -91,16 +84,12 @@ class PrkController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //ubah data prk
+        //
         $validatedData = $request->validate([
-            'no_prk' => 'max:255',
-            'bidang' => 'max:255',
-            'fungsi' => 'max:255',
-            'sub_fungsi' => 'max:255',
-            'program' => 'max:255',
+            'name' => 'max:255',
         ]);
-        Prk::where('id', $id)->update($validatedData);
-        return redirect('/prk')->with('success', 'Data Berhasil Di Ubah!');
+        Role::where('id', $id)->update($validatedData);
+        return redirect('/role')->with('success', 'Data Berhasil Di Ubah!');
     }
 
     /**
@@ -111,8 +100,8 @@ class PrkController extends Controller
      */
     public function destroy($id)
     {
-        //menghapus data prk
-        Prk::destroy($id);
-        return redirect('/prk')->with('success', 'Data Berhasil Dihapus!');
+        //
+        Role::destroy($id);
+        return redirect('/user')->with('success', 'Data Berhasil Dihapus!');
     }
 }

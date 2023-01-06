@@ -46,6 +46,7 @@
                                                     <div class="mb-3">
                                                         <label for="nama_jenis" class="form-label">Nama Jenis</label>
                                                         <select class="form-control custom-select-value" name="nama_jenis">
+                                                            <option value="">--- Pilih Jenis Variant ---</option>
                                                             @foreach ($jenisvariants as $jv)
                                                                 <option value="{{ $jv->id }}">{{ $jv->nama_jenis }}
                                                                 </option>
@@ -131,7 +132,7 @@
                                             <th data-field="no">No</th>
                                             <th data-field="jenis_variant" data-editable="true">Nama Jenis</th>
                                             <th data-field="nama_variant" data-editable="true">Nama Variant</th>
-                                            <th data-field="action">Aksi</th>
+                                            <th data-field="action" class="aksi">Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -143,14 +144,19 @@
                                                 <td>{{ $variant->nama_variant }}</td>
                                                 <td>
                                                     <!-- Button trigger modal -->
-                                                    <button class="btn btn-warning edit" value="{{ $variant->id }}"
-                                                        data-toggle="modal" data-target="#ModalEdit">Edit</button>
-                                                    <form class="d-inline" action="{{ url('/variant', $variant->id) }}"
-                                                        method="POST">
+                                                    <button class="btn btn-warning btn-sm edit"
+                                                        value="{{ $variant->id }}" data-toggle="modal"
+                                                        data-target="#ModalEdit">
+                                                        <i class="fa-regular fa-pen-to-square"></i>
+                                                    </button>
+                                                    <form class="d-inline" style="display: inline"
+                                                        action="{{ url('/variant', $variant->id) }}" method="POST">
                                                         @method('delete')
                                                         @csrf
                                                         <button type="submit" class="btn btn-danger btn-sm"
-                                                            onclick="return confirm('Apakah anda yakin untuk hapus data variant?')">Hapus</button>
+                                                            onclick="return confirm('Apakah anda yakin untuk hapus data variant?')">
+                                                            <i class="fa-solid fa-trash"></i>
+                                                        </button>
                                                     </form>
 
                                                 </td>

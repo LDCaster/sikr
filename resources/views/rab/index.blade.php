@@ -135,7 +135,7 @@
                                             <th data-field="unit" data-editable="true">Kode RAB</th>
                                             <th data-field="variant" data-editable="true">User</th>
                                             <th data-field="nama_rab" data-editable="true">PRK</th>
-                                            <th data-field="action">Aksi</th>
+                                            <th data-field="action" class="aksi">Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -149,14 +149,16 @@
                                                 <td>
                                                     <!-- Button trigger modal -->
                                                     <button class="btn btn-warning edit" value="{{ $rab->id }}"
-                                                        data-toggle="modal" data-target="#ModalEdit">Edit</button>
+                                                        data-toggle="modal" data-target="#ModalEdit"> <i
+                                                            class="fa-regular fa-pen-to-square"></i></button>
                                                     <form class="d-inline"
                                                         action="{{ url('/rencana-anggaran-biaya', $rab->id) }}"
                                                         method="POST">
                                                         @method('delete')
                                                         @csrf
                                                         <button type="submit" class="btn btn-danger btn-sm"
-                                                            onclick="return confirm('Apakah anda yakin untuk hapus data RAB?')">Hapus</button>
+                                                            onclick="return confirm('Apakah anda yakin untuk hapus data RAB?')">
+                                                            <i class="fa-solid fa-trash"></i></button>
                                                     </form>
                                                     <!-- Modal Tambah Data -->
                                                 </td>

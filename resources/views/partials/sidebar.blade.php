@@ -16,6 +16,22 @@
                            </a>
                        </li>
                        <li>
+                           <a class="has-arrow" href="" aria-expanded="false">
+                               <i class="fa-solid fa-users"></i><span class="mini-click-non">&nbsp; Data User</span></a>
+                           <ul class="submenu-angle" aria-expanded="false">
+                               <li>
+                                   <a title="Variant" href="/user">
+                                       <span class="mini-sub-pro">&nbsp;User</span>
+                                   </a>
+                               </li>
+                               <li>
+                                   <a title="Jenis Variant" href="/role">
+                                       <span class="mini-sub-pro">&nbsp;Role User</span>
+                                   </a>
+                               </li>
+                           </ul>
+                       </li>
+                       <li>
                            <a title="Data Kontrak" href="/kontrak" aria-expanded="false">
                                <span class="mini-click-non"><i class="fa-regular fa-calendar-days"
                                        aria-hidden="true"></i>&ensp;&nbsp;Data Kontrak</span></a>

@@ -41,70 +41,116 @@
                                                             class="fa fa-close"></i></a>
                                                 </div>
                                             </div>
-                                            <a href="#" class="btn btn-cusom-four btn-primary"><i
-                                                    class="fa fa-plus edu-informatio" aria-hidden="true"></i>
-                                                Tambah</a>
+                                            {{-- BUTTON TAMBAH DATA DINAMIS --}}
+                                            {{-- <button class="btn btn-custom-four btn-primary" id="add-input"><i
+                                                    class="fa fa-plus edu-informatio"></i>
+                                                Tambah</button> --}}
                                             <form method="post" action="/rincian-nilai-kontrak">
                                                 @csrf
-                                                <div class="modal-body">
-                                                    <div class="mb-3">
+                                                <div class="container">
+                                                    <div class="col-lg-6">
                                                         <label for="kode_rab" class="form-label">Kode Rab</label>
                                                         <select class="form-control custom-select-value" name="kode_rab"
                                                             id="kode_rab">
+                                                            <option value="">-- Pilih Rab ---</option>
                                                             @foreach ($rabs as $rab)
                                                                 <option value="{{ $rab->id }}">{{ $rab->kode_rab }}
                                                                 </option>
                                                             @endforeach
                                                         </select>
                                                     </div>
-                                                    <div class="mb-3">
+                                                    <div class="col-lg-3">
                                                         <label for="nama_user" class="form-label">User</label>
                                                         <input type="text" class="form-control" name="nama_user"
                                                             id="nama_user" readonly>
                                                     </div>
-                                                    <div class="mb-3">
+                                                    <div class="col-lg-3">
                                                         <label for="prk" class="form-label">PRK</label>
                                                         <input type="text" class="form-control" name="prk"
                                                             id="prk" readonly>
                                                     </div>
-                                                    <div class="mb-3">
+                                                    <div class="col-lg-12" style="margin-top: 10px">
                                                         <label for="unit" class="form-label">Unit</label>
-                                                        <input type="text" class="form-control" name="unit"
+                                                        <select class="form-control custom-select-value" name="unit"
                                                             id="unit">
+                                                            <option value="">-- Pilih Unit ---</option>
+                                                            @foreach ($prks as $prk)
+                                                                <option value="{{ $prk->id }}">{{ $prk->bidang }}
+                                                                </option>
+                                                            @endforeach
+                                                        </select>
                                                     </div>
-                                                    <div class="mb-3">
-                                                        <label for="nama_variant" class="form-label">Variant Type</label>
-                                                        <input type="text" class="form-control" name="nama_variant">
+                                                    <div class="col-lg-6" style="margin-top: 10px">
+                                                        <label for="no_prk" class="form-label">No PRK</label>
+                                                        <input type="text" class="form-control" name="no_prk"
+                                                            id="no_prk">
                                                     </div>
-                                                    <div class="mb-3">
-                                                        <label for="nama_satuan" class="form-label">Satuan</label>
-                                                        <input type="text" class="form-control" name="nama_satuan">
+                                                    <div class="col-lg-6" style="margin-top: 10px">
+                                                        <label for="nama_variant" class="form-label">Variant
+                                                            Type</label>
+                                                        <select class="form-control custom-select-value" name="nama_variant"
+                                                            id="nama_variant">
+                                                            <option value="">-- Pilih Variant ---</option>
+                                                            @foreach ($variants as $variant)
+                                                                <option value="{{ $variant->id }}">
+                                                                    {{ $variant->nama_variant }}
+                                                                </option>
+                                                            @endforeach
+                                                        </select>
                                                     </div>
-                                                    <div class="mb-3">
-                                                        <label for="volume" class="form-label">Volume</label>
-                                                        <input type="text" class="form-control" name="volume">
-                                                    </div>
-                                                    <div class="mb-3">
+                                                    <div class="col-lg-4" style="margin-top: 10px">
                                                         <label for="alokasi_bulan" class="form-label">Alokasi Bulan</label>
                                                         <input type="text" class="form-control" name="alokasi_bulan">
                                                     </div>
-                                                    <div class="mb-3">
-                                                        <label for="no_prk" class="form-label">No PRK</label>
-                                                        <input type="text" class="form-control" name="no_prk">
+                                                    <div class="col-lg-4" style="margin-top: 10px">
+                                                        <label for="volume" class="form-label">Volume</label>
+                                                        <input type="text" class="form-control" name="volume">
                                                     </div>
-                                                    <div class="mb-3">
+                                                    <div class="col-lg-4" style="margin-top: 10px">
+                                                        <label for="nama_satuan" class="form-label">Satuan</label>
+                                                        <select class="form-control custom-select-value"
+                                                            name="nama_satuan" id="nama_satuan">
+                                                            <option value="">-- Pilih Satuan ---</option>
+                                                            @foreach ($satuans as $satuan)
+                                                                <option value="{{ $satuan->id }}">
+                                                                    {{ $satuan->nama_satuan }}
+                                                                </option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-lg-4" style="margin-top: 10px">
                                                         <label for="harga_satuan" class="form-label">Harga Satuan</label>
-                                                        <input type="text" class="form-control" name="harga_satuan">
+                                                        <input type="text" class="form-control" name="harga_satuan"
+                                                            id="harga_satuan">
                                                     </div>
-                                                    <div class="mb-3">
+                                                    <div class="col-lg-4" style="margin-top: 10px">
+                                                        <label for="biaya_transport" class="form-label">Biaya
+                                                            Transport</label>
+                                                        {{-- <input type="text" class="form-control" name="biaya_transport"
+                                                            id="biaya_transport"> --}}
+                                                        <select class="form-control custom-select-value"
+                                                            name="biaya_transport" id="biaya_transport"
+                                                            id="biaya_transport">
+                                                            <option value="">-- Pilih Biaya Transport ---</option>
+                                                            @foreach ($satuans as $satuan)
+                                                                <option value="{{ $satuan->id }}">
+                                                                    {{ $satuan->nama_satuan }}
+                                                                </option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-lg-4" style="margin-top: 10px">
                                                         <label for="harga_transport" class="form-label">Harga
                                                             Transport</label>
-                                                        <input type="text" class="form-control"
-                                                            name="harga_transport">
+                                                        <input type="text" class="form-control" name="harga_transport"
+                                                            id="harga_transport">
                                                     </div>
-                                                    <div class="mb-3">
+                                                    <div class="col-lg-12" style="margin-top: 10px">
                                                         <label for="total" class="form-label">Total</label>
                                                         <input type="text" class="form-control" name="total">
+                                                    </div>
+                                                    <div id="rnk">
+
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer">
@@ -227,7 +273,7 @@
                                             <th data-field="harga_satuan" data-editable="true">Harga Satuan</th>
                                             <th data-field="harga_transport" data-editable="true">Harga Transport</th>
                                             <th data-field="sub_harga" data-editable="true">Total</th>
-                                            <th data-field="action">Aksi</th>
+                                            <th data-field="action" class="aksi">Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -248,14 +294,16 @@
                                                 <td>
                                                     <!-- Button trigger modal -->
                                                     <button class="btn btn-warning edit" value="{{ $rnk->id }}"
-                                                        data-toggle="modal" data-target="#ModalEdit">Edit</button>
+                                                        data-toggle="modal" data-target="#ModalEdit"> <i
+                                                            class="fa-regular fa-pen-to-square"></i></button>
                                                     <form class="d-inline"
                                                         action="{{ url('/rincian-nilai-kontrak', $rnk->id) }}"
                                                         method="POST">
                                                         @method('delete')
                                                         @csrf
                                                         <button type="submit" class="btn btn-danger btn-sm"
-                                                            onclick="return confirm('Apakah anda yakin untuk hapus data Rincian Nilai Kontrak?')">Hapus</button>
+                                                            onclick="return confirm('Apakah anda yakin untuk hapus data Rincian Nilai Kontrak?')">
+                                                            <i class="fa-solid fa-trash"></i></button>
                                                     </form>
                                                     <!-- Modal Tambah Data -->
                                                 </td>
@@ -271,6 +319,18 @@
         </div>
     </div>
     <!-- Static Table End -->
+
+    <script>
+        $(document).ready(function() {
+            $("#harga_satuan, #biaya_transport").keyup(function() {
+                var harga_satuan = $("#harga_satuan").val();
+                var biaya_transport = $("#biaya_transport").val();
+                var harga_transport = parseFloat(harga_satuan) * parseFloat(biaya_transport);
+                $("#harga_transport").val(harga_transport);
+            });
+        })
+    </script>
+
     <script>
         $('#kode_rab').on('change', (event) => {
             // console.log(event);
@@ -280,14 +340,101 @@
             });
         });
 
-        async function getRab(id) {
-            let response = await fetch('/rencana-anggaran-biaya/' + id);
+        $('#unit').on('change', (event) => {
+            // console.log(event);
+            getPrk(event.target.value).then(data => {
+                $('#no_prk').val(data.no_prk);
+            });
+        });
+
+        async function getPrk(id) {
+            let response = await fetch('/prk/' + id);
             let data = await response.json();
             // const body = await response.text();
             console.log(data);
 
             return data;
         }
+
+        async function getRab(id) {
+            let response = await fetch('/rencana-anggaran-biaya/' + id);
+            let data = await response.json();
+            // const body = await response.text();
+            // console.log(data);
+
+            return data;
+        }
+
+
+        // FUNGSI TAMBAH DINAMIS
+        // let dataRow = 0
+        // $('#add-input').click(() => {
+        //     dataRow++
+        //     inputRow(dataRow)
+        // })
+
+        // inputRow = (i) => {
+        //     let tr = ` <div id="adjust-${i}">
+    //                     <h4>Data ${i}</h4>
+    //                     <div class="col-lg-6">
+    //                         <label for="kode_rab" class="form-label">Kode Rab</label>
+    //                         <select class="form-control custom-select-value" name="kode_rab" id="kode_rab">
+
+    //                         </select>
+    //                     </div>
+    //                     <div class="col-lg-3">
+    //                         <label for="nama_user" class="form-label">User</label>
+    //                         <input type="text" class="form-control" name="nama_user" id="nama_user" readonly>
+    //                     </div>
+    //                     <div class="col-lg-3">
+    //                         <label for="prk" class="form-label">PRK</label>
+    //                         <input type="text" class="form-control" name="prk" id="prk" readonly>
+    //                     </div>
+    //                     <div class="col-lg-12" style="margin-top: 10px">
+    //                         <label for="unit" class="form-label">Unit</label>
+    //                         <input type="text" class="form-control" name="unit" id="unit">
+    //                     </div>
+    //                     <div class="col-lg-6" style="margin-top: 10px">
+    //                         <label for="nama_variant" class="form-label">Variant Type</label>
+    //                         <input type="text" class="form-control" name="nama_variant">
+    //                     </div>
+    //                     <div class="col-lg-6" style="margin-top: 10px">
+    //                         <label for="no_prk" class="form-label">No PRK</label>
+    //                         <input type="text" class="form-control" name="no_prk">
+    //                     </div>
+    //                     <div class="col-lg-4" style="margin-top: 10px">
+    //                         <label for="alokasi_bulan" class="form-label">Alokasi Bulan</label>
+    //                         <input type="text" class="form-control" name="alokasi_bulan">
+    //                     </div>
+    //                     <div class="col-lg-4" style="margin-top: 10px">
+    //                         <label for="volume" class="form-label">Volume</label>
+    //                         <input type="text" class="form-control" name="volume">
+    //                     </div>
+    //                     <div class="col-lg-4" style="margin-top: 10px">
+    //                         <label for="nama_satuan" class="form-label">Satuan</label>
+    //                         <input type="text" class="form-control" name="nama_satuan">
+    //                     </div>
+    //                     <div class="col-lg-6" style="margin-top: 10px">
+    //                         <label for="harga_satuan" class="form-label">Harga Satuan</label>
+    //                         <input type="text" class="form-control" name="harga_satuan">
+    //                     </div>
+    //                     <div class="col-lg-6" style="margin-top: 10px">
+    //                         <label for="harga_transport" class="form-label">Harga Transport</label>
+    //                         <input type="text" class="form-control" ame="harga_transport">
+    //                     </div>
+    //                     <div class="col-lg-12" style="margin-top: 10px">
+    //                         <label for="total" class="form-label">Total</label>
+    //                         <input type="text" class="form-control" name="total">
+    //                     </div>
+    //                     <button class="btn btn-custom-four btn-primary  delete-record " data-id="${i}">Hapus</button>
+    //                 </div>`
+        //     $('#rnk').append(tr)
+        // }
+
+        // $('#rnk').on('click', '.delete-record', function() {
+        //     let id = $(this).attr('rnk-id')
+        //     $('#adjust-' + id).remove()
+        // })
     </script>
     <script>
         $(document).ready(function() {

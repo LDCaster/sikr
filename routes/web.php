@@ -12,10 +12,11 @@ use App\Http\Controllers\PengadaanController;
 use App\Http\Controllers\PrkController;
 use App\Http\Controllers\RabController;
 use App\Http\Controllers\RnkController;
+use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SatuanController;
 use App\Http\Controllers\TambahRabController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\VariantController;
-use App\Models\Rnk;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -50,6 +51,8 @@ Route::get('/dashboard', function () {
 //     return view('default');
 // });
 
+Route::resource('user', UserController::class)->middleware('auth');
+Route::resource('role', RoleController::class)->middleware('auth');
 Route::resource('kontrak', KontrakController::class)->middleware('auth');
 Route::resource('pabrikan', PabrikanController::class)->middleware('auth');
 Route::resource('jenis-variant', JenisVariantController::class)->middleware('auth');
@@ -62,5 +65,4 @@ Route::resource('satuan', SatuanController::class)->middleware('auth');
 Route::resource('prk', PrkController::class)->middleware('auth');
 Route::resource('rincian-nilai-kontrak', RnkController::class)->middleware('auth');
 Route::resource('rencana-anggaran-biaya', RabController::class)->middleware('auth');
-// Route::get('rnk', [RnkController::class, 'show'])->middleware('auth');
 Route::resource('tambah-rab', TambahRabController::class)->middleware('auth');

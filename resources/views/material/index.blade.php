@@ -143,16 +143,20 @@
                                                 <td>{{ $material->nama_material }}</td>
                                                 <td>
                                                     <!-- Button trigger modal -->
-                                                    <button class="btn btn-warning edit" value="{{ $material->id }}"
-                                                        data-toggle="modal" data-target="#ModalEdit">Edit</button>
-                                                    <form class="d-inline" action="{{ url('/material', $material->id) }}"
-                                                        method="POST">
+                                                    <button class="btn btn-warning btn-sm edit"
+                                                        value="{{ $material->id }}" data-toggle="modal"
+                                                        data-target="#ModalEdit">
+                                                        <i class="fa-regular fa-pen-to-square"></i>
+                                                    </button>
+                                                    <form class="d-inline" style="display: inline"
+                                                        action="{{ url('/material', $material->id) }}" method="POST">
                                                         @method('delete')
                                                         @csrf
                                                         <button type="submit" class="btn btn-danger btn-sm"
-                                                            onclick="return confirm('Apakah anda yakin untuk hapus data Pabrikan?')">Hapus</button>
+                                                            onclick="return confirm('Apakah anda yakin untuk hapus data PRK?')">
+                                                            <i class="fa-solid fa-trash"></i>
+                                                        </button>
                                                     </form>
-                                                    <!-- Modal Tambah Data -->
                                                 </td>
                                             </tr>
                                         @endforeach
@@ -175,6 +179,7 @@
                     url: `{{ url('/material/${id}/edit') }}`,
                     method: "get",
                     success: function(data) {
+                        console.log(data.nama_jenis);
                         $('#nama_jenis').val(data.nama_jenis)
                         $('#nama_material').val(data.nama_material)
                         $('#ModalEdit form').attr('action', `{{ url('material/${id}') }}`)

@@ -15,6 +15,11 @@ class Rnk extends Model
 
     public function rab()
     {
-        return $this->belongsTo(Rab::class, 'kode_rab');
+        return $this->belongsTo(Rab::class, 'rab_id');
+    }
+
+    public function prk()
+    {
+        return $this->belongsTo(Prk::class, 'prk_id');
     }
 }

@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('rnk', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('rab_id')->nullable();
-            $table->string('unit')->nullable();
-            $table->string('nama_variant')->nullable();
-            $table->string('nama_satuan')->nullable();
+            $table->foreignId('rab_id')->constrained('rab')->nullable(); // kode_rab
+            $table->foreignId('prk_id')->constrained('prk')->nullable(); // unit 
+            $table->foreignId('variant_id')->constrained('variant')->nullable(); // nama_variant
+            $table->foreignId('satuan_id')->constrained('satuan')->nullable(); // satuan
             $table->string('volume')->nullable();
             $table->string('alokasi_bulan')->nullable();
             $table->string('no_prk')->nullable();

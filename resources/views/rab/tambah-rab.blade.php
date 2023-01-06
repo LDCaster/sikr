@@ -181,6 +181,89 @@
             let tr = ` <div id="adjust-${i}">
                           <hr/>
                             <h4>Data ${i}</h4>
+                            <div class="col-lg-6">
+                                                        <label for="kode_rab" class="form-label">Kode Rab</label>
+                                                        <select class="form-control custom-select-value" name="kode_rab"
+                                                            id="kode_rab">
+                                                            @foreach ($rabs as $rab)
+                                                                <option value="{{ $rab->id }}">{{ $rab->kode_rab }}
+                                                                </option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-lg-3">
+                                                        <label for="nama_user" class="form-label">User</label>
+                                                        <input type="text" class="form-control" name="nama_user"
+                                                            id="nama_user" readonly>
+                                                    </div>
+                                                    <div class="col-lg-3">
+                                                        <label for="prk" class="form-label">PRK</label>
+                                                        <input type="text" class="form-control" name="prk"
+                                                            id="prk" readonly>
+                                                    </div>
+                                                    <div class="col-lg-12" style="margin-top: 10px">
+                                                        <label for="unit" class="form-label">Unit</label>
+                                                        <input type="text" class="form-control" name="unit"
+                                                            id="unit">
+                                                    </div>
+                                                    <div class="col-lg-6" style="margin-top: 10px">
+                                                        <label for="nama_variant" class="form-label">Variant
+                                                            Type</label>
+                                                        <input type="text" class="form-control" name="nama_variant">
+                                                    </div>
+                                                    <div class="col-lg-6" style="margin-top: 10px">
+                                                        <label for="no_prk" class="form-label">No PRK</label>
+                                                        <input type="text" class="form-control" name="no_prk">
+                                                    </div>
+                                                    <div class="col-lg-4" style="margin-top: 10px">
+                                                        <label for="alokasi_bulan" class="form-label">Alokasi Bulan</label>
+                                                        <input type="text" class="form-control" name="alokasi_bulan">
+                                                    </div>
+                                                    <div class="col-lg-4" style="margin-top: 10px">
+                                                        <label for="volume" class="form-label">Volume</label>
+                                                        <input type="text" class="form-control" name="volume">
+                                                    </div>
+                                                    <div class="col-lg-4" style="margin-top: 10px">
+                                                        <label for="nama_satuan" class="form-label">Satuan</label>
+                                                        <input type="text" class="form-control" name="nama_satuan">
+                                                    </div>
+                                                    <div class="col-lg-6" style="margin-top: 10px">
+                                                        <label for="harga_satuan" class="form-label">Harga Satuan</label>
+                                                        <input type="text" class="form-control" name="harga_satuan">
+                                                    </div>
+                                                    <div class="col-lg-6" style="margin-top: 10px">
+                                                        <label for="harga_transport" class="form-label">Harga
+                                                            Transport</label>
+                                                        <input type="text" class="form-control"
+                                                            name="harga_transport">
+                                                    </div>
+                                                    <div class="col-lg-12" style="margin-top: 10px">
+                                                        <label for="total" class="form-label">Total</label>
+                                                        <input type="text" class="form-control" name="total">
+                                                    </div>
+                            <button class="btn btn-custom-four btn-primary  delete-record " data-id="${i}">Hapus</button>
+                        </div>`
+            $('#data').append(tr)
+        }
+
+        $('#data').on('click', '.delete-record', function() {
+            let id = $(this).attr('data-id')
+            $('#adjust-' + id).remove()
+        })
+    </script>
+    {{-- <script>
+        let dataRow = 0
+        $('#add-input').click(() => {
+            const h = document.getElementById('h');
+            h.style.removeProperty('height');
+            dataRow++
+            inputRow(dataRow)
+        })
+
+        inputRow = (i) => {
+            let tr = ` <div id="adjust-${i}">
+                          <hr/>
+                            <h4>Data ${i}</h4>
                             <div class="column">
                                 <div class="input-box">
                                     <label for="unit">Unit</label>
@@ -230,6 +313,6 @@
             let id = $(this).attr('data-id')
             $('#adjust-' + id).remove()
         })
-    </script>
+    </script> --}}
 @endsection
 {{-- <button class="btn btn-custom-four btn-primary  delete-record " data-id="${i}">Hapus</button> --}}

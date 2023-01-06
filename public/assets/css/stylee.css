@@ -461,6 +461,11 @@ ul {
     font-size: 14px;
 }
 
+.disabled-link {
+    pointer-events: none;
+}
+
+
 .header-top-menu .navbar-nav>li a .angle-down-topmenu {
     margin-left: 4px;
 }
