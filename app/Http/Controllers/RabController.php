@@ -65,12 +65,21 @@ class RabController extends Controller
      */
     public function show($id)
     {
-        //
         $datas = Rab::with('rnks')->find($id);
-        // return compact($datas);
+        $arr = array();
+        foreach ($datas->rnks as $value) {
+            array_push($arr, $value->total);
+        }
+        $arrTotal =  preg_replace("/[^0-9]/", '', $arr);
+        $rmTotal = implode(",", $arrTotal);
+        $result = 0;
+        foreach (explode(',', $rmTotal) as $key)
+            $result += intval($key);
+        //return compact($datas);
         return view('rab.show', [
             'title' => 'Details',
-            'datas' => $datas
+            'datas' => $datas,
+            'result' => $result,
         ]);
         // return response()->json($data);
     }
