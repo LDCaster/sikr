@@ -53,7 +53,7 @@
                                                 <td></td>
                                                 <td style="background-color: black !important"></td>
                                                 <td style="background-color: black !important"></td>
-                                                <td>{{ $datas->rnks()->sum('total') }}</td>
+                                                <td>{{ number_format($result, 0, ',', '.') }}</td>
                                                 {{-- <td>
                                                     <span id="hasil"></span>
                                                 </td> --}}
