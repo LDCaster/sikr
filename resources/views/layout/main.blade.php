@@ -124,7 +124,7 @@
 
     @yield('content')
 
-    @include('partials/footer')
+    {{-- @include('partials/footer') --}}
 
 
     <!-- jquery

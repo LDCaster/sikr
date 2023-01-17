@@ -12,7 +12,8 @@
                             </div>
                             <div class="sparkline10-graph">
                                 <div class="static-table-list">
-                                    <table class="table table-bordered text-nowrap" style="text-align: center;">
+                                    <table id="nilai" class="table table-bordered text-nowrap"
+                                        style="text-align: center;">
                                         <thead>
                                             <tr>
                                                 <th>No</th>
@@ -39,7 +40,7 @@
                                                     <td>{{ $rnk->no_prk }}</td>
                                                     <td>{{ $rnk->harga_satuan }}</td>
                                                     <td>{{ $rnk->harga_transport }}</td>
-                                                    <td>{{ $rnk->total }}</td>
+                                                    <td id="total_rnk">{{ $rnk->total }}</td>
                                                 </tr>
                                             @endforeach
                                             <tr style="font-weight: 700; background-color: #bdd7ee;">
@@ -53,6 +54,9 @@
                                                 <td style="background-color: black !important"></td>
                                                 <td style="background-color: black !important"></td>
                                                 <td>{{ $datas->rnks()->sum('total') }}</td>
+                                                {{-- <td>
+                                                    <span id="hasil"></span>
+                                                </td> --}}
                                             </tr>
                                             <tr style="font-weight: 700; background-color: #c6e0b4;">
                                                 <td style="background-color: #bdd7ee !important;"></td>
@@ -81,4 +85,9 @@
             </div>
         </div>
     </div>
+    <script>
+        var nilai = $("#total_rnk").text();
+        let TotalRnk = nilai.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '');
+        console.log(hTransport);
+    </script>
 @endsection
