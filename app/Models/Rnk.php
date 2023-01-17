@@ -22,4 +22,12 @@ class Rnk extends Model
     {
         return $this->belongsTo(Prk::class, 'prk_id');
     }
+    public function material()
+    {
+        return $this->belongsTo(Material::class, 'variant_id');
+    }
+    public function satuan()
+    {
+        return $this->belongsTo(Satuan::class, 'satuan_id');
+    }
 }

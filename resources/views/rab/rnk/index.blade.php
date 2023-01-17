@@ -49,9 +49,9 @@
                                                 @csrf
                                                 <div class="container">
                                                     <div class="col-lg-6">
-                                                        <label for="kode_rab" class="form-label">Kode Rab</label>
-                                                        <select class="form-control custom-select-value" name="kode_rab"
-                                                            id="kode_rab">
+                                                        <label for="rab_id" class="form-label">Kode Rab</label>
+                                                        <select class="form-control custom-select-value" name="rab_id"
+                                                            id="rab_id">
                                                             <option value="">-- Pilih Rab ---</option>
                                                             @foreach ($rabs as $rab)
                                                                 <option value="{{ $rab->id }}">{{ $rab->kode_rab }}
@@ -70,9 +70,9 @@
                                                             id="prk" readonly>
                                                     </div>
                                                     <div class="col-lg-12" style="margin-top: 10px">
-                                                        <label for="unit" class="form-label">Unit</label>
-                                                        <select class="form-control custom-select-value" name="unit"
-                                                            id="unit">
+                                                        <label for="prk_id" class="form-label">Unit</label>
+                                                        <select class="form-control custom-select-value" name="prk_id"
+                                                            id="prk_id">
                                                             <option value="">-- Pilih Unit ---</option>
                                                             @foreach ($prks as $prk)
                                                                 <option value="{{ $prk->id }}">{{ $prk->bidang }}
@@ -80,20 +80,34 @@
                                                             @endforeach
                                                         </select>
                                                     </div>
-                                                    <div class="col-lg-6" style="margin-top: 10px">
+                                                    <div class="col-lg-4" style="margin-top: 10px">
                                                         <label for="no_prk" class="form-label">No PRK</label>
                                                         <input type="text" class="form-control" name="no_prk"
                                                             id="no_prk">
                                                     </div>
-                                                    <div class="col-lg-6" style="margin-top: 10px">
-                                                        <label for="nama_variant" class="form-label">Variant
+                                                    <div class="col-lg-4" style="margin-top: 10px">
+                                                        <label for="variant_id" class="form-label">Variant
                                                             Type</label>
-                                                        <select class="form-control custom-select-value" name="nama_variant"
-                                                            id="nama_variant">
+                                                        <select class="form-control custom-select-value" name="variant_id"
+                                                            id="variant_id">
                                                             <option value="">-- Pilih Variant ---</option>
-                                                            @foreach ($variants as $variant)
-                                                                <option value="{{ $variant->id }}">
-                                                                    {{ $variant->nama_variant }}
+                                                            @foreach ($hsatuans as $hsatuan)
+                                                                <option value="{{ $hsatuan->id }}">
+                                                                    {{ $hsatuan->material->nama_material }}
+                                                                </option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-lg-4" style="margin-top: 10px">
+                                                        <label for="up3" class="form-label">PLN Wilayah</label>
+                                                        <select class="form-control custom-select-value" name="up3"
+                                                            id="up3">
+                                                            <option value="">-- Pilih Area ---</option>
+                                                            @foreach ($htransports as $htransport)
+                                                                <option value="{{ $htransport->id }}">
+                                                                    {{ $htransport->lokasi_awal }} /
+                                                                    {{ $htransport->pln_area_up3 }} /
+                                                                    {{ $htransport->material->nama_material }}
                                                                 </option>
                                                             @endforeach
                                                         </select>
@@ -104,12 +118,13 @@
                                                     </div>
                                                     <div class="col-lg-4" style="margin-top: 10px">
                                                         <label for="volume" class="form-label">Volume</label>
-                                                        <input type="text" class="form-control" name="volume">
+                                                        <input type="text" class="form-control" name="volume"
+                                                            id="volume">
                                                     </div>
                                                     <div class="col-lg-4" style="margin-top: 10px">
-                                                        <label for="nama_satuan" class="form-label">Satuan</label>
-                                                        <select class="form-control custom-select-value"
-                                                            name="nama_satuan" id="nama_satuan">
+                                                        <label for="satuan_id" class="form-label">Satuan</label>
+                                                        <select class="form-control custom-select-value" name="satuan_id"
+                                                            id="satuan_id">
                                                             <option value="">-- Pilih Satuan ---</option>
                                                             @foreach ($satuans as $satuan)
                                                                 <option value="{{ $satuan->id }}">
@@ -126,18 +141,8 @@
                                                     <div class="col-lg-4" style="margin-top: 10px">
                                                         <label for="biaya_transport" class="form-label">Biaya
                                                             Transport</label>
-                                                        {{-- <input type="text" class="form-control" name="biaya_transport"
-                                                            id="biaya_transport"> --}}
-                                                        <select class="form-control custom-select-value"
-                                                            name="biaya_transport" id="biaya_transport"
+                                                        <input type="text" class="form-control" name="biaya_transport"
                                                             id="biaya_transport">
-                                                            <option value="">-- Pilih Biaya Transport ---</option>
-                                                            @foreach ($satuans as $satuan)
-                                                                <option value="{{ $satuan->id }}">
-                                                                    {{ $satuan->nama_satuan }}
-                                                                </option>
-                                                            @endforeach
-                                                        </select>
                                                     </div>
                                                     <div class="col-lg-4" style="margin-top: 10px">
                                                         <label for="harga_transport" class="form-label">Harga
@@ -147,7 +152,8 @@
                                                     </div>
                                                     <div class="col-lg-12" style="margin-top: 10px">
                                                         <label for="total" class="form-label">Total</label>
-                                                        <input type="text" class="form-control" name="total">
+                                                        <input type="text" class="form-control" name="total"
+                                                            id="total">
                                                     </div>
                                                     <div id="rnk">
 
@@ -182,9 +188,9 @@
                                                 @method('put')
                                                 <div class="modal-body">
                                                     <div class="mb-3">
-                                                        <label for="kode_rab" class="form-label">Kode Rab</label>
-                                                        <select class="form-control custom-select-value" name="kode_rab"
-                                                            id="kode_rab">
+                                                        <label for="rab_id" class="form-label">Kode Rab</label>
+                                                        <select class="form-control custom-select-value" name="rab_id"
+                                                            id="rab_id">
                                                             @foreach ($rabs as $rab)
                                                                 <option value="{{ $rab->id }}">{{ $rab->kode_rab }}
                                                                 </option>
@@ -192,19 +198,19 @@
                                                         </select>
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label for="unit" class="form-label">Unit</label>
+                                                        <label for="prk_id" class="form-label">Unit</label>
                                                         <input type="text" class="form-control" name="unit"
-                                                            id="unit">
+                                                            id="prk_id">
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label for="nama_variant" class="form-label">Variant Type</label>
-                                                        <input type="text" class="form-control" name="nama_variant"
-                                                            id="nama_variant">
+                                                        <label for="variant_id" class="form-label">Variant Type</label>
+                                                        <input type="text" class="form-control" name="variant_id"
+                                                            id="variant_id">
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label for="nama_satuan" class="form-label">Satuan</label>
-                                                        <input type="text" class="form-control" name="nama_satuan"
-                                                            id="nama_satuan">
+                                                        <label for="satuan_id" class="form-label">Satuan</label>
+                                                        <input type="text" class="form-control" name="satuan_id"
+                                                            id="satuan_id">
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="volume" class="form-label">Volume</label>
@@ -261,30 +267,31 @@
                                     data-click-to-select="true" data-toolbar="#toolbar">
                                     <thead>
                                         <tr>
-                                            <th data-field="state" data-checkbox="true"></th>
                                             <th data-field="no">No</th>
-                                            <th data-field="kode_rab" data-editable="true">Kode RAB</th>
-                                            <th data-field="unit" data-editable="true">Unit</th>
-                                            <th data-field="variant" data-editable="true">Variant</th>
+                                            <th data-field="rab_id" data-editable="true" class="kode_rab">Kode RAB</th>
+                                            <th data-field="prk_id" data-editable="true" class="unit">Unit</th>
+                                            <th data-field="variant" data-editable="true" class="variant">Variant</th>
                                             <th data-field="satuan" data-editable="true">Satuan</th>
                                             <th data-field="volume" data-editable="true">Volume</th>
                                             <th data-field="alokasi_bulan" data-editable="true">Alokasi Bulan</th>
-                                            <th data-field="no_prk" data-editable="true">No PRK</th>
-                                            <th data-field="harga_satuan" data-editable="true">Harga Satuan</th>
-                                            <th data-field="harga_transport" data-editable="true">Harga Transport</th>
-                                            <th data-field="sub_harga" data-editable="true">Total</th>
+                                            <th data-field="no_prk" data-editable="true" class="no-prk">No PRK</th>
+                                            <th data-field="harga_satuan" data-editable="true" class="harga_satuan">Harga
+                                                Satuan</th>
+                                            <th data-field="harga_transport" data-editable="true"
+                                                class="harga_transport">Harga Transport</th>
+                                            <th data-field="sub_harga" data-editable="true" class="total">Total (Rp)
+                                            </th>
                                             <th data-field="action" class="aksi">Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @foreach ($rnks as $rnk)
                                             <tr>
-                                                <td></td>
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td>{{ $rnk->rab->kode_rab }}</td>
-                                                <td>{{ $rnk->unit }}</td>
-                                                <td>{{ $rnk->nama_variant }}</td>
-                                                <td>{{ $rnk->nama_satuan }}</td>
+                                                <td>{{ $rnk->prk->bidang }}</td>
+                                                <td>{{ $rnk->material->nama_material }}</td>
+                                                <td>{{ $rnk->satuan->nama_satuan }}</td>
                                                 <td>{{ $rnk->volume }}</td>
                                                 <td>{{ $rnk->alokasi_bulan }}</td>
                                                 <td>{{ $rnk->no_prk }}</td>
@@ -293,19 +300,21 @@
                                                 <td>{{ $rnk->total }}</td>
                                                 <td>
                                                     <!-- Button trigger modal -->
-                                                    <button class="btn btn-warning edit" value="{{ $rnk->id }}"
-                                                        data-toggle="modal" data-target="#ModalEdit"> <i
-                                                            class="fa-regular fa-pen-to-square"></i></button>
-                                                    <form class="d-inline"
+                                                    <button class="btn btn-warning btn-sm edit"
+                                                        value="{{ $rnk->id }}" data-toggle="modal"
+                                                        data-target="#ModalEdit">
+                                                        <i class="fa-regular fa-pen-to-square"></i>
+                                                    </button>
+                                                    <form class="d-inline" style="display: inline"
                                                         action="{{ url('/rincian-nilai-kontrak', $rnk->id) }}"
                                                         method="POST">
                                                         @method('delete')
                                                         @csrf
                                                         <button type="submit" class="btn btn-danger btn-sm"
-                                                            onclick="return confirm('Apakah anda yakin untuk hapus data Rincian Nilai Kontrak?')">
-                                                            <i class="fa-solid fa-trash"></i></button>
+                                                            onclick="return confirm('Apakah anda yakin untuk hapus data rincian nilai kontrak?')">
+                                                            <i class="fa-solid fa-trash"></i>
+                                                        </button>
                                                     </form>
-                                                    <!-- Modal Tambah Data -->
                                                 </td>
                                             </tr>
                                         @endforeach
@@ -321,18 +330,53 @@
     <!-- Static Table End -->
 
     <script>
+        //hitung harga transport
         $(document).ready(function() {
-            $("#harga_satuan, #biaya_transport").keyup(function() {
-                var harga_satuan = $("#harga_satuan").val();
-                var biaya_transport = $("#biaya_transport").val();
-                var harga_transport = parseFloat(harga_satuan) * parseFloat(biaya_transport);
-                $("#harga_transport").val(harga_transport);
+            function convertToRupiah(angka) {
+                let rupiah = '';
+                let angkarev = angka.toString().split('').reverse().join('');
+                for (let i = 0; i < angkarev.length; i++)
+                    if (i % 3 == 0) rupiah += angkarev.substr(i, 3) + ',';
+                return rupiah.split('', rupiah.length - 1).reverse().join('');
+            }
+            $("#volume, #biaya_transport").keyup(function() {
+                let volume = $("#volume").val();
+                let biaya_transport = $("#biaya_transport").val();
+                let bTransport = biaya_transport.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '');
+                let harga_transport = parseInt(volume) * parseInt(
+                    bTransport);
+                $("#harga_transport").val(
+                    convertToRupiah(harga_transport)
+                );
             });
         })
+        //end hitung harga transport
+        //hitung total
+        $(document).ready(function() {
+            function convertToRupiah(angka) {
+                let rupiah = '';
+                let angkarev = angka.toString().split('').reverse().join('');
+                for (let i = 0; i < angkarev.length; i++)
+                    if (i % 3 == 0) rupiah += angkarev.substr(i, 3) + ',';
+                return '' + rupiah.split('', rupiah.length - 1).reverse().join('');
+            }
+            $("#volume, #harga_satuan, #harga_transport").keyup(function() {
+                let volume = $("#volume").val();
+                let harga_satuan = $("#harga_satuan").val();
+                let hSatuan = harga_satuan.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '');
+                let harga_transport = $("#harga_transport").val();
+                let hTransport = harga_transport.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '');
+                let total = parseInt(volume) * parseInt(hSatuan) + parseInt(hTransport);
+                $("#total").val(
+                    convertToRupiah(total)
+                );
+            });
+        })
+        //end hitung total
     </script>
 
     <script>
-        $('#kode_rab').on('change', (event) => {
+        $('#rab_id').on('change', (event) => {
             // console.log(event);
             getRab(event.target.value).then(data => {
                 $('#nama_user').val(data.nama_user);
@@ -340,12 +384,42 @@
             });
         });
 
-        $('#unit').on('change', (event) => {
+        $('#prk_id').on('change', (event) => {
             // console.log(event);
             getPrk(event.target.value).then(data => {
                 $('#no_prk').val(data.no_prk);
             });
         });
+
+        $('#variant_id').on('change', (event) => {
+            // console.log(event);
+            getHargaSatuan(event.target.value).then(data => {
+                $('#harga_satuan').val(data.harga_satuan);
+            });
+        });
+        $('#up3').on('change', (event) => {
+            // console.log(event);
+            getBiayaTransport(event.target.value).then(data => {
+                $('#biaya_transport').val(data.harga);
+            });
+        });
+
+        async function getHargaSatuan(id) {
+            let response = await fetch('/harga-satuan/' + id);
+            let data = await response.json();
+
+
+            return data;
+        }
+
+        async function getBiayaTransport(id) {
+            let response = await fetch('/harga-transport/' + id);
+            let data = await response.json();
+            // const body = await response.text();
+            console.log(data);
+
+            return data;
+        }
 
         async function getPrk(id) {
             let response = await fetch('/prk/' + id);
@@ -357,15 +431,15 @@
         }
 
         async function getRab(id) {
-            let response = await fetch('/rencana-anggaran-biaya/' + id);
+            let response = await fetch('/rincian-nilai-kontrak/' + id);
             let data = await response.json();
             // const body = await response.text();
             // console.log(data);
 
             return data;
         }
-
-
+    </script>
+    <script>
         // FUNGSI TAMBAH DINAMIS
         // let dataRow = 0
         // $('#add-input').click(() => {
@@ -446,10 +520,10 @@
                     method: "get",
                     success: function(data) {
                         // console.log(data)
-                        $('#kode_rab').val(data.kode_rab)
-                        $('#unit').val(data.unit)
-                        $('#nama_variant').val(data.nama_variant)
-                        $('#nama_satuan').val(data.nama_satuan)
+                        $('#rab_id').val(data.rab_id)
+                        $('#prk_id').val(data.prk_id)
+                        $('#variant_id').val(data.variant_id)
+                        $('#satuan_id').val(data.satuan_id)
                         $('#volume').val(data.volume)
                         $('#alokasi_bulan').val(data.alokasi_bulan)
                         $('#no_prk').val(data.no_prk)

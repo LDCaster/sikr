@@ -9,7 +9,7 @@
                     <div class="sparkline13-list">
                         <div class="sparkline13-hd">
                             <div class="main-sparkline13-hd">
-                                <h1>Data <span class="table-project-n">User</span></h1>
+                                <h1>Data <span class="table-project-n">Harga Satuan</span></h1>
                             </div>
                         </div>
                         @if (session()->has('success'))
@@ -34,42 +34,49 @@
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header header-color-modal bg-color-1">
-                                                <h4 class="modal-title">Tambah Data User</h4>
+                                                <h4 class="modal-title">Tambah Data Harga Satuan</h4>
                                                 <div class="modal-close-area modal-close-df">
                                                     <a class="close" data-dismiss="modal" href="#"><i
                                                             class="fa fa-close"></i></a>
                                                 </div>
                                             </div>
-                                            <form method="post" action="/user">
-                                                @csrf
+                                            <form method="post" action="/harga-satuan">
                                                 <div class="modal-body">
+                                                    @csrf
                                                     <div class="mb-3">
-                                                        <label for="name" class="form-label">Nama User</label>
-                                                        <input type="text" class="form-control" name="name">
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label for="image" class="form-label">Gambar</label>
-                                                        <input type="text" class="form-control" name="image">
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label for="role_id" class="form-label">Role</label>
-                                                        <select class="form-control custom-select-value" name="role_id">
-                                                            <option value="">-- Pilih Role ---</option>
-                                                            @foreach ($roles as $role)
-                                                                <option value="{{ $role->id }}">
-                                                                    {{ $role->name }}
+                                                        <label for="pabrikan_id" class="form-label">Nama Vendor</label>
+                                                        <select class="form-control custom-select-value" name="pabrikan_id"
+                                                            id="pabrikan_id">
+                                                            <option value="">-- Pilih No KHS ---</option>
+                                                            @foreach ($pabrikans as $pabrikan)
+                                                                <option value="{{ $pabrikan->id }}">
+                                                                    {{ $pabrikan->nama_vendor }}
                                                                 </option>
                                                             @endforeach
                                                         </select>
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label for="email" class="form-label">Email</label>
-                                                        <input type="text" class="form-control" name="email">
+                                                        <label for="no_khs" class="form-label">No KHS</label>
+                                                        <textarea class="form-control" name="no_khs" id="no_khs" readonly cols="20" rows="10"></textarea>
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label for="password" class="form-label">Password</label>
-                                                        <input type="password" class="form-control" name="password"
-                                                            id="password">
+                                                        <label for="variant_id" class="form-label">Nama Material</label>
+                                                        <select class="form-control custom-select-value" name="variant_id">
+                                                            <option value="">-- Pilih Nama Material ---</option>
+                                                            @foreach ($materials as $material)
+                                                                <option value="{{ $material->id }}">
+                                                                    {{ $material->nama_material }}
+                                                                </option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="tahun" class="form-label">Tahun</label>
+                                                        <input type="text" class="form-control" name="tahun">
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="harga_satuan" class="form-label">Harga Satuan</label>
+                                                        <input type="text" class="form-control uang" name="harga_satuan">
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer">
@@ -90,7 +97,7 @@
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header header-color-modal bg-color-1">
-                                                <h4 class="modal-title">Ubah Data User</h4>
+                                                <h4 class="modal-title">Ubah Data Harga Satuan</h4>
                                                 <div class="modal-close-area modal-close-df">
                                                     <a class="close" data-dismiss="modal" href="#"><i
                                                             class="fa fa-close"></i></a>
@@ -101,30 +108,42 @@
                                                     @csrf
                                                     @method('put')
                                                     <div class="mb-3">
-                                                        <label for="name" class="form-label">Nama User</label>
-                                                        <input type="text" class="form-control" name="name"
-                                                            id="name">
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label for="image" class="form-label">Gambar</label>
-                                                        <input type="text" class="form-control" name="image"
-                                                            id="image">
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label for="role" class="form-label">Role</label>
-                                                        <select class="form-control custom-select-value" name="role"
-                                                            id="role">
-                                                            <option value=""> --- Pilih Roles ---</option>
-                                                            @foreach ($roles as $role)
-                                                                <option value="{{ $role->id }}">{{ $role->name }}
+                                                        <label for="pabrikan_id_edit" class="form-label">Nama Vendor</label>
+                                                        <select class="form-control custom-select-value"
+                                                            name="pabrikan_id_edit" id="pabrikan_id_edit">
+                                                            <option value="">-- Pilih No KHS ---</option>
+                                                            @foreach ($pabrikans as $pabrikan)
+                                                                <option value="{{ $pabrikan->id }}">
+                                                                    {{ $pabrikan->nama_vendor }}
                                                                 </option>
                                                             @endforeach
                                                         </select>
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label for="email" class="form-label">Email</label>
-                                                        <input type="text" class="form-control" name="email"
-                                                            id="email">
+                                                        <label for="no_khs_edit" class="form-label">No KHS</label>
+                                                        <textarea class="form-control" name="no_khs_edit" id="no_khs_edit" readonly cols="30" rows="10"></textarea>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="variant_id" class="form-label">Nama Material</label>
+                                                        <select class="form-control custom-select-value" name="variant_id"
+                                                            id="variant_id">
+                                                            <option value="">-- Pilih Nama Material ---</option>
+                                                            @foreach ($materials as $material)
+                                                                <option value="{{ $material->id }}">
+                                                                    {{ $material->nama_material }}
+                                                                </option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="tahun" class="form-label">Tahun</label>
+                                                        <input type="text" class="form-control" name="tahun"
+                                                            id="tahun">
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="harga_satuan" class="form-label">Harga Satuan</label>
+                                                        <input type="text" class="form-control uang"
+                                                            name="harga_satuan" id="harga_satuan">
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer">
@@ -156,35 +175,37 @@
                                         <tr>
                                             <th data-field="state" data-checkbox="true"></th>
                                             <th data-field="no">No</th>
-                                            <th data-field="nama_satuan" data-editable="true">Nama</th>
-                                            <th data-field="image" data-editable="true">Gambar</th>
-                                            <th data-field="role" data-editable="true">Role</th>
-                                            <th data-field="email" data-editable="true">Email</th>
+                                            <th data-field="nama_vendor" data-editable="true">Nama Vendor</th>
+                                            <th data-field="no_khs">No KHS</th>
+                                            <th data-field="nama_variant" data-editable="true">Nama Variant</th>
+                                            <th data-field="tahun" data-editable="true">Tahun</th>
+                                            <th data-field="harga_satuan" data-editable="true">Harga Satuan</th>
                                             <th data-field="action" class="aksi">Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($users as $user)
+                                        @foreach ($hsatuans as $hsatuan)
                                             <tr>
                                                 <td></td>
                                                 <td>{{ $loop->iteration }}</td>
-                                                <td>{{ $user->name }}</td>
-                                                <td>{{ $user->img }}</td>
-                                                <td>{{ $user->role->name }}</td>
-                                                <td>{{ $user->email }}</td>
+                                                <td>{{ $hsatuan->pabrikan->nama_vendor }}</td>
+                                                <td>{{ $hsatuan->pabrikan->no_khs }}</td>
+                                                <td>{{ $hsatuan->material->nama_material }}</td>
+                                                <td>{{ $hsatuan->tahun }}</td>
+                                                <td>{{ $hsatuan->harga_satuan }}</td>
                                                 <td>
                                                     <!-- Button trigger modal -->
                                                     <button class="btn btn-warning btn-sm edit"
-                                                        value="{{ $user->id }}" data-toggle="modal"
+                                                        value="{{ $hsatuan->id }}" data-toggle="modal"
                                                         data-target="#ModalEdit">
                                                         <i class="fa-regular fa-pen-to-square"></i>
                                                     </button>
                                                     <form class="d-inline" style="display: inline"
-                                                        action="{{ url('/user', $user->id) }}" method="POST">
+                                                        action="{{ url('/harga-satuan', $hsatuan->id) }}" method="POST">
                                                         @method('delete')
                                                         @csrf
                                                         <button type="submit" class="btn btn-danger btn-sm"
-                                                            onclick="return confirm('Apakah anda yakin untuk hapus data Rab?')">
+                                                            onclick="return confirm('Apakah anda yakin untuk hapus data harga satuan?')">
                                                             <i class="fa-solid fa-trash"></i>
                                                         </button>
                                                     </form>
@@ -202,20 +223,46 @@
     </div>
     <!-- Static Table End -->
     <script>
+        $('#pabrikan_id').on('change', (event) => {
+            // console.log(event);
+            getKHS(event.target.value).then(data => {
+                $('#no_khs').val(data.no_khs);
+            });
+        });
+        $('#pabrikan_id_edit').on('change', (event) => {
+            // console.log(event);
+            getKHS(event.target.value).then(data => {
+                $('#no_khs_edit').val(data.no_khs);
+            });
+        });
+
+        async function getKHS(id) {
+            let response = await fetch('/pabrikan/' + id);
+            let data = await response.json();
+            // const body = await response.text();
+            console.log(data);
+
+            return data;
+        }
+    </script>
+
+
+    <script>
         $(document).ready(function() {
 
             $('.edit').click(function() {
                 const id = $(this).val()
                 $.ajax({
-                    url: `{{ url('/user/${id}/edit') }}`,
+                    url: `{{ url('/harga-satuan/${id}/edit') }}`,
                     method: "get",
                     success: function(data) {
-                        $('#name').val(data.name)
-                        $('#image').val(data.img)
-                        $('#role').val(data.role_id)
-                        $('#email').val(data.email)
+                        $('#variant_id').val(data.variant_id)
+                        $('#pabrikan_id_edit').val(data.pabrikan_id)
+                        $('#no_khs_edit').val(data.pabrikan.no_khs)
+                        $('#tahun').val(data.tahun)
+                        $('#harga_satuan').val(data.harga_satuan)
                         $('#ModalEdit form').attr('action',
-                            `{{ url('user/${id}') }}`)
+                            `{{ url('harga-satuan/${id}') }}`)
                     }
                 })
             })

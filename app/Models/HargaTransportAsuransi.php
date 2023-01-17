@@ -4,18 +4,17 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Rab extends Model
+class HargaTransportAsuransi extends Model
 {
     use HasFactory;
 
-    protected $table = 'rab';
+    protected $table = 'harga_transport_asuransi';
 
     protected $guarded = [];
 
-    public function rnks()
+    public function material()
     {
-        return $this->hasMany(Rnk::class, 'rab_id', 'id');
+        return $this->belongsTo(Material::class, 'material_id');
     }
 }

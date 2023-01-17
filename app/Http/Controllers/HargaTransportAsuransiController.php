@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Rab;
-use App\Models\Rnk;
+use App\Models\HargaTransportAsuransi;
+use App\Models\Material;
 use Illuminate\Http\Request;
 
-class RabController extends Controller
+class HargaTransportAsuransiController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,15 +16,14 @@ class RabController extends Controller
     public function index()
     {
         //
-        $rabs = Rab::get();
-        // dd($rabs);
-        $rnks = Rnk::with(['rab', 'prk', 'material', 'satuan'])->get();
+        //
+        $materials = Material::get();
+        $htransports = HargaTransportAsuransi::with(['material'])->get();
 
-        // return $rabs;
-        return view('rab.index', [
-            'title' => 'Data Rencana Anggaran Biaya',
-            'rnks' => $rnks,
-            'rabs' => $rabs
+        return view('hargatransport.index', [
+            'title' => 'Harga Transport & Asuransi',
+            'materials' => $materials,
+            'htransports' => $htransports
         ]);
     }
 
@@ -48,13 +47,15 @@ class RabController extends Controller
     {
         //
         $validatedData = $request->validate([
-            'kode_rab' => 'max:255',
-            'nama_user' => 'max:255',
-            'prk' => 'max:255'
+            'lokasi_awal' => 'max:255',
+            'material_id' => 'max:255',
+            'pln_kantor_pusat' => 'max:255',
+            'pln_area_up3' => 'max:255',
+            'harga' => 'max:255',
         ]);
 
-        Rab::create($validatedData);
-        return redirect('/rencana-anggaran-biaya ')->with('success', 'Data Berhasil Ditambahkan!');
+        HargaTransportAsuransi::create($validatedData);
+        return redirect('/harga-transport ')->with('success', 'Data Berhasil Ditambahkan!');
     }
 
     /**
@@ -66,13 +67,9 @@ class RabController extends Controller
     public function show($id)
     {
         //
-        $datas = Rab::with('rnks')->find($id);
-        // return compact($datas);
-        return view('rab.show', [
-            'title' => 'Details',
-            'datas' => $datas
-        ]);
-        // return response()->json($data);
+        $data = HargaTransportAsuransi::find($id);
+
+        return response()->json($data);
     }
 
     /**
@@ -84,9 +81,8 @@ class RabController extends Controller
     public function edit($id)
     {
         //
-        $data = Rab::find($id);
-        return response()->json($data);
-        // return view(['data' => $data]);
+        $harga = HargaTransportAsuransi::with(['material'])->find($id);
+        return response()->json($harga);
     }
 
     /**
@@ -100,12 +96,14 @@ class RabController extends Controller
     {
         //
         $validatedData = $request->validate([
-            'kode_rab' => 'max:255',
-            'nama_user' => 'max:255',
-            'prk' => 'max:255'
+            'lokasi_awal' => 'max:255',
+            'material_id' => 'max:255',
+            'pln_kantor_pusat' => 'max:255',
+            'pln_area_up3' => 'max:255',
+            'harga' => 'max:255',
         ]);
-        Rab::where('id', $id)->update($validatedData);
-        return redirect('/rencana-anggaran-biaya')->with('success', 'Data Berhasil Di Ubah!');
+        HargaTransportAsuransi::where('id', $id)->update($validatedData);
+        return redirect('/harga-transport ')->with('success', 'Data Berhasil Di Ubah!');
     }
 
     /**
@@ -117,8 +115,7 @@ class RabController extends Controller
     public function destroy($id)
     {
         //
-        //menghapus data satuan
-        Rab::destroy($id);
-        return redirect('/rencana-anggaran-biaya')->with('success', 'Data Berhasil Dihapus!');
+        HargaTransportAsuransi::destroy($id);
+        return redirect('/harga-transport ')->with('success', 'Data Berhasil Ditambahkan!');
     }
 }

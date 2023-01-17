@@ -9,7 +9,7 @@
                     <div class="sparkline13-list">
                         <div class="sparkline13-hd">
                             <div class="main-sparkline13-hd">
-                                <h1>Data <span class="table-project-n">User</span></h1>
+                                <h1>Data <span class="table-project-n">Harga Transport dan Asuransi</span></h1>
                             </div>
                         </div>
                         @if (session()->has('success'))
@@ -34,42 +34,43 @@
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header header-color-modal bg-color-1">
-                                                <h4 class="modal-title">Tambah Data User</h4>
+                                                <h4 class="modal-title">Tambah Data Harga Transport dan Asuransi</h4>
                                                 <div class="modal-close-area modal-close-df">
                                                     <a class="close" data-dismiss="modal" href="#"><i
                                                             class="fa fa-close"></i></a>
                                                 </div>
                                             </div>
-                                            <form method="post" action="/user">
-                                                @csrf
+                                            <form method="post" action="/harga-transport">
                                                 <div class="modal-body">
+                                                    @csrf
                                                     <div class="mb-3">
-                                                        <label for="name" class="form-label">Nama User</label>
-                                                        <input type="text" class="form-control" name="name">
+                                                        <label for="lokasi_awal" class="form-label">Lokasi Asal</label>
+                                                        <input type="text" class="form-control" name="lokasi_awal">
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label for="image" class="form-label">Gambar</label>
-                                                        <input type="text" class="form-control" name="image">
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label for="role_id" class="form-label">Role</label>
-                                                        <select class="form-control custom-select-value" name="role_id">
-                                                            <option value="">-- Pilih Role ---</option>
-                                                            @foreach ($roles as $role)
-                                                                <option value="{{ $role->id }}">
-                                                                    {{ $role->name }}
+                                                        <label for="nama_material" class="form-label">Nama Material</label>
+                                                        <select class="form-control custom-select-value" name="material_id">
+                                                            <option value="">-- Pilih Nama Material ---</option>
+                                                            @foreach ($materials as $material)
+                                                                <option value="{{ $material->id }}">
+                                                                    {{ $material->nama_material }}
                                                                 </option>
                                                             @endforeach
                                                         </select>
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label for="email" class="form-label">Email</label>
-                                                        <input type="text" class="form-control" name="email">
+                                                        <label for="pln_kantor_pusat" class="form-label">PLN Kantor
+                                                            Induk</label>
+                                                        <input type="text" class="form-control" name="pln_kantor_pusat">
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label for="password" class="form-label">Password</label>
-                                                        <input type="password" class="form-control" name="password"
-                                                            id="password">
+                                                        <label for="pln_area_up3" class="form-label">PLN Area UP3</label>
+                                                        <input type="text" class="form-control" name="pln_area_up3">
+                                                    </div>
+
+                                                    <div class="mb-3">
+                                                        <label for="harga" class="form-label">Harga</label>
+                                                        <input type="text" class="form-control uang" name="harga">
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer">
@@ -90,7 +91,7 @@
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header header-color-modal bg-color-1">
-                                                <h4 class="modal-title">Ubah Data User</h4>
+                                                <h4 class="modal-title">Ubah Data Harga Transport dan Asuransi</h4>
                                                 <div class="modal-close-area modal-close-df">
                                                     <a class="close" data-dismiss="modal" href="#"><i
                                                             class="fa fa-close"></i></a>
@@ -101,30 +102,38 @@
                                                     @csrf
                                                     @method('put')
                                                     <div class="mb-3">
-                                                        <label for="name" class="form-label">Nama User</label>
-                                                        <input type="text" class="form-control" name="name"
-                                                            id="name">
+                                                        <label for="lokasi_awal" class="form-label">Lokasi Asal</label>
+                                                        <input type="text" class="form-control" name="lokasi_awal"
+                                                            id="lokasi_awal">
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label for="image" class="form-label">Gambar</label>
-                                                        <input type="text" class="form-control" name="image"
-                                                            id="image">
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label for="role" class="form-label">Role</label>
-                                                        <select class="form-control custom-select-value" name="role"
-                                                            id="role">
-                                                            <option value=""> --- Pilih Roles ---</option>
-                                                            @foreach ($roles as $role)
-                                                                <option value="{{ $role->id }}">{{ $role->name }}
+                                                        <label for="nama_material" class="form-label">Nama Material</label>
+                                                        <select class="form-control custom-select-value"
+                                                            name="material_id" id="material_id">
+                                                            <option value="">-- Pilih Nama Material ---</option>
+                                                            @foreach ($materials as $material)
+                                                                <option value="{{ $material->id }}">
+                                                                    {{ $material->nama_material }}
                                                                 </option>
                                                             @endforeach
                                                         </select>
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label for="email" class="form-label">Email</label>
-                                                        <input type="text" class="form-control" name="email"
-                                                            id="email">
+                                                        <label for="pln_kantor_pusat" class="form-label">PLN Kantor
+                                                            Induk</label>
+                                                        <input type="text" class="form-control"
+                                                            name="pln_kantor_pusat" id="pln_kantor_pusat">
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="pln_area_up3" class="form-label">PLN Area UP3</label>
+                                                        <input type="text" class="form-control" name="pln_area_up3"
+                                                            id="pln_area_up3">
+                                                    </div>
+
+                                                    <div class="mb-3">
+                                                        <label for="harga" class="form-label">Harga</label>
+                                                        <input type="text" class="form-control uang" name="harga"
+                                                            id="harga">
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer">
@@ -156,38 +165,42 @@
                                         <tr>
                                             <th data-field="state" data-checkbox="true"></th>
                                             <th data-field="no">No</th>
-                                            <th data-field="nama_satuan" data-editable="true">Nama</th>
-                                            <th data-field="image" data-editable="true">Gambar</th>
-                                            <th data-field="role" data-editable="true">Role</th>
-                                            <th data-field="email" data-editable="true">Email</th>
+                                            <th data-field="lokasi_asal" data-editable="true">Lokasi Asal</th>
+                                            <th data-field="nama_material" data-editable="true">Nama Material</th>
+                                            <th data-field="pln_kantor_induk" data-editable="true">PLN Kantor Induk</th>
+                                            <th data-field="pln_area_up3" data-editable="true">PLN Area UP3</th>
+                                            <th data-field="harga" data-editable="true">Harga</th>
                                             <th data-field="action" class="aksi">Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($users as $user)
+                                        @foreach ($htransports as $htransport)
                                             <tr>
                                                 <td></td>
                                                 <td>{{ $loop->iteration }}</td>
-                                                <td>{{ $user->name }}</td>
-                                                <td>{{ $user->img }}</td>
-                                                <td>{{ $user->role->name }}</td>
-                                                <td>{{ $user->email }}</td>
+                                                <td>{{ $htransport->lokasi_awal }}</td>
+                                                <td>{{ $htransport->material->nama_material }}</td>
+                                                <td>{{ $htransport->pln_kantor_pusat }}</td>
+                                                <td>{{ $htransport->pln_area_up3 }}</td>
+                                                <td>{{ $htransport->harga }}</td>
                                                 <td>
                                                     <!-- Button trigger modal -->
                                                     <button class="btn btn-warning btn-sm edit"
-                                                        value="{{ $user->id }}" data-toggle="modal"
+                                                        value="{{ $htransport->id }}" data-toggle="modal"
                                                         data-target="#ModalEdit">
                                                         <i class="fa-regular fa-pen-to-square"></i>
                                                     </button>
                                                     <form class="d-inline" style="display: inline"
-                                                        action="{{ url('/user', $user->id) }}" method="POST">
+                                                        action="{{ url('/harga-transport', $htransport->id) }}"
+                                                        method="POST">
                                                         @method('delete')
                                                         @csrf
                                                         <button type="submit" class="btn btn-danger btn-sm"
-                                                            onclick="return confirm('Apakah anda yakin untuk hapus data Rab?')">
+                                                            onclick="return confirm('Apakah anda yakin untuk hapus data harga transport?')">
                                                             <i class="fa-solid fa-trash"></i>
                                                         </button>
                                                     </form>
+
                                                 </td>
                                             </tr>
                                         @endforeach
@@ -207,15 +220,16 @@
             $('.edit').click(function() {
                 const id = $(this).val()
                 $.ajax({
-                    url: `{{ url('/user/${id}/edit') }}`,
+                    url: `{{ url('/harga-transport/${id}/edit') }}`,
                     method: "get",
                     success: function(data) {
-                        $('#name').val(data.name)
-                        $('#image').val(data.img)
-                        $('#role').val(data.role_id)
-                        $('#email').val(data.email)
+                        $('#lokasi_awal').val(data.lokasi_awal)
+                        $('#material_id').val(data.material_id)
+                        $('#pln_kantor_pusat').val(data.pln_kantor_pusat)
+                        $('#pln_area_up3').val(data.pln_area_up3)
+                        $('#harga').val(data.harga)
                         $('#ModalEdit form').attr('action',
-                            `{{ url('user/${id}') }}`)
+                            `{{ url('harga-transport/${id}') }}`)
                     }
                 })
             })

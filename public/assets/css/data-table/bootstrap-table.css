@@ -142,6 +142,46 @@ thead>tr>th.aksi {
     padding-right: 20px !important;
 }
 
+thead>tr>th.kode_rab {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+}
+
+thead>tr>th.unit {
+    padding-left: 70px !important;
+    padding-right: 70px !important;
+}
+
+thead>tr>th.variant {
+    padding-left: 60px !important;
+    padding-right: 60px !important;
+}
+
+thead>tr>th.no-prk {
+    padding-left: 40px !important;
+    padding-right: 40px !important;
+}
+
+thead>tr>th.satuan {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+}
+
+thead>tr>th.harga_satuan {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+}
+
+thead>tr>th.harga_transport {
+    padding-left: 30px !important;
+    padding-right: 30px !important;
+}
+
+thead>tr>th.total {
+    padding-left: 40px !important;
+    padding-right: 40px !important;
+}
+
 .fixed-table-container thead th .th-inner,
 .fixed-table-container tbody td .th-inner {
     padding: 8px;
@@ -284,6 +324,11 @@ thead>tr>th.aksi {
     z-index: 99;
     background-color: #fff;
     text-align: center;
+}
+
+.table-bordered {
+    border-color: black;
+    border-width: 1px;
 }
 
 .fixed-table-body .card-view .title {

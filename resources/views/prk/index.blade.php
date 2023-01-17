@@ -48,7 +48,7 @@
                                                         <input type="text" class="form-control" name="no_prk" required>
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label for="bidang" class="form-label">Bidang</label>
+                                                        <label for="bidang" class="form-label">User / Bidang</label>
                                                         <input type="text" class="form-control" name="bidang" required>
                                                     </div>
                                                     <div class="mb-3">
@@ -99,7 +99,7 @@
                                                             id="no_prk">
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label for="bidang" class="form-label">Bidang</label>
+                                                        <label for="bidang" class="form-label">User / Bidang</label>
                                                         <input type="text" class="form-control" name="bidang"
                                                             id="bidang">
                                                     </div>

@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\HargaSatuan;
+use App\Models\HargaTransportAsuransi;
+use App\Models\Material;
 use App\Models\Pabrikan;
 use App\Models\Prk;
 use App\Models\Rab;
@@ -21,9 +24,11 @@ class RnkController extends Controller
     {
         //
         $rabs = Rab::get();
-        $rnks = Rnk::with(['rab', 'prk'])->get();
+        $rnks = Rnk::with(['rab', 'prk', 'material', 'satuan'])->get();
         $prks = Prk::get();
         $variants = Variant::get();
+        $hsatuans = HargaSatuan::get();
+        $htransports = HargaTransportAsuransi::get();
         $satuans = Satuan::get();
 
         return view('rab/rnk.index', [
@@ -32,6 +37,8 @@ class RnkController extends Controller
             'rabs' => $rabs,
             'prks' => $prks,
             'variants' => $variants,
+            'hsatuans' => $hsatuans,
+            'htransports' => $htransports,
             'satuans' => $satuans
         ]);
     }
@@ -56,10 +63,10 @@ class RnkController extends Controller
     {
         //
         $validatedData = $request->validate([
-            'kode_rab' => 'max:255',
-            'unit' => 'max:255',
-            'nama_variant' => 'max:255',
-            'nama_satuan' => 'max:255',
+            'rab_id' => 'max:255',
+            'prk_id' => 'max:255',
+            'variant_id' => 'max:255',
+            'satuan_id' => 'max:255',
             'volume' => 'max:255',
             'alokasi_bulan' => 'max:255',
             'no_prk' => 'max:255',
@@ -81,6 +88,9 @@ class RnkController extends Controller
     public function show($id)
     {
         //
+        $data = Rab::find($id);
+
+        return response()->json($data);
     }
 
     /**

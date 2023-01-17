@@ -281,18 +281,20 @@
                                                 <td>{{ $pabrikan->no_spm }}</td>
                                                 <td>
                                                     <!-- Button trigger modal -->
-                                                    <button class="btn btn-warning edit" value="{{ $pabrikan->id }}"
-                                                        data-toggle="modal" data-target="#ModalEdit"> <i
-                                                            class="fa-regular fa-pen-to-square"></i></button>
-                                                    <form class="d-inline" action="{{ url('/pabrikan', $pabrikan->id) }}"
-                                                        method="POST">
+                                                    <button class="btn btn-warning btn-sm edit"
+                                                        value="{{ $pabrikan->id }}" data-toggle="modal"
+                                                        data-target="#ModalEdit">
+                                                        <i class="fa-regular fa-pen-to-square"></i>
+                                                    </button>
+                                                    <form class="d-inline" style="display: inline"
+                                                        action="{{ url('/pabrikan', $pabrikan->id) }}" method="POST">
                                                         @method('delete')
                                                         @csrf
                                                         <button type="submit" class="btn btn-danger btn-sm"
-                                                            onclick="return confirm('Apakah anda yakin untuk hapus data Pabrikan?')">
-                                                            <i class="fa-solid fa-trash"></i></button>
+                                                            onclick="return confirm('Apakah anda yakin untuk hapus data Rab?')">
+                                                            <i class="fa-solid fa-trash"></i>
+                                                        </button>
                                                     </form>
-                                                    <!-- Modal Tambah Data -->
                                                 </td>
                                             </tr>
                                         @endforeach

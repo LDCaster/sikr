@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Rab;
-use App\Models\Rnk;
+use App\Models\HargaSatuan;
+use App\Models\Material;
+use App\Models\Pabrikan;
+use App\Models\Variant;
 use Illuminate\Http\Request;
 
-class RabController extends Controller
+class HargaSatuanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,16 +17,15 @@ class RabController extends Controller
      */
     public function index()
     {
-        //
-        $rabs = Rab::get();
-        // dd($rabs);
-        $rnks = Rnk::with(['rab', 'prk', 'material', 'satuan'])->get();
+        $materials = Material::get();
+        $pabrikans = Pabrikan::get();
+        $hsatuans = HargaSatuan::with(['pabrikan', 'material'])->get();
 
-        // return $rabs;
-        return view('rab.index', [
-            'title' => 'Data Rencana Anggaran Biaya',
-            'rnks' => $rnks,
-            'rabs' => $rabs
+        return view('hargasatuan.index', [
+            'title' => 'Harga Satuan',
+            'materials' => $materials,
+            'pabrikans' => $pabrikans,
+            'hsatuans' => $hsatuans
         ]);
     }
 
@@ -40,7 +41,7 @@ class RabController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     *
+     *;
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
@@ -48,13 +49,15 @@ class RabController extends Controller
     {
         //
         $validatedData = $request->validate([
-            'kode_rab' => 'max:255',
-            'nama_user' => 'max:255',
-            'prk' => 'max:255'
+            'variant_id' => 'max:255',
+            'pabrikan_id' => 'max:255',
+            'tahun' => 'max:255',
+            'harga_satuan' => 'max:255',
+
         ]);
 
-        Rab::create($validatedData);
-        return redirect('/rencana-anggaran-biaya ')->with('success', 'Data Berhasil Ditambahkan!');
+        HargaSatuan::create($validatedData);
+        return redirect('/harga-satuan')->with('success', 'Data Berhasil Ditambahkan!');
     }
 
     /**
@@ -66,13 +69,9 @@ class RabController extends Controller
     public function show($id)
     {
         //
-        $datas = Rab::with('rnks')->find($id);
-        // return compact($datas);
-        return view('rab.show', [
-            'title' => 'Details',
-            'datas' => $datas
-        ]);
-        // return response()->json($data);
+        $data = HargaSatuan::find($id);
+
+        return response()->json($data);
     }
 
     /**
@@ -84,9 +83,8 @@ class RabController extends Controller
     public function edit($id)
     {
         //
-        $data = Rab::find($id);
-        return response()->json($data);
-        // return view(['data' => $data]);
+        $harga = HargaSatuan::with(['material', 'pabrikan'])->find($id);
+        return response()->json($harga);
     }
 
     /**
@@ -100,12 +98,14 @@ class RabController extends Controller
     {
         //
         $validatedData = $request->validate([
-            'kode_rab' => 'max:255',
-            'nama_user' => 'max:255',
-            'prk' => 'max:255'
+            'variant_id' => 'max:255',
+            'pabrikan_id' => 'max:255',
+            'tahun' => 'max:255',
+            'harga_satuan' => 'max:255',
+
         ]);
-        Rab::where('id', $id)->update($validatedData);
-        return redirect('/rencana-anggaran-biaya')->with('success', 'Data Berhasil Di Ubah!');
+        HargaSatuan::where('id', $id)->update($validatedData);
+        return redirect('/harga-satuan ')->with('success', 'Data Berhasil Di Ubah!');
     }
 
     /**
@@ -117,8 +117,7 @@ class RabController extends Controller
     public function destroy($id)
     {
         //
-        //menghapus data satuan
-        Rab::destroy($id);
-        return redirect('/rencana-anggaran-biaya')->with('success', 'Data Berhasil Dihapus!');
+        HargaSatuan::destroy($id);
+        return redirect('/harga-satuan')->with('success', 'Data Berhasil Ditambahkan!');
     }
 }

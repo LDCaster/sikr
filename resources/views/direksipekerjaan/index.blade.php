@@ -137,19 +137,22 @@
                                                 <td>{{ $direksi->nama_pengawas }}</td>
                                                 <td>
                                                     <!-- Button trigger modal -->
-                                                    <button class="btn btn-warning edit" value="{{ $direksi->id }}"
-                                                        data-toggle="modal" data-target="#ModalEdit"><i
-                                                            class="fa-regular fa-pen-to-square"></i></button>
-                                                    <form class="d-inline"
+                                                    <button class="btn btn-warning btn-sm edit"
+                                                        value="{{ $direksi->id }}" data-toggle="modal"
+                                                        data-target="#ModalEdit">
+                                                        <i class="fa-regular fa-pen-to-square"></i>
+                                                    </button>
+                                                    <form class="d-inline" style="display: inline"
                                                         action="{{ url('/direksi-pekerjaan', $direksi->id) }}"
                                                         method="POST">
                                                         @method('delete')
                                                         @csrf
                                                         <button type="submit" class="btn btn-danger btn-sm"
                                                             onclick="return confirm('Apakah anda yakin untuk hapus data Direksi Pekerjaan?')">
-                                                            <i class="fa-solid fa-trash"></i></button>
+                                                            <i class="fa-solid fa-trash"></i>
+                                                        </button>
                                                     </form>
-                                                    <!-- Modal Tambah Data -->
+
                                                 </td>
                                             </tr>
                                         @endforeach

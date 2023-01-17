@@ -73,7 +73,9 @@ class PabrikanController extends Controller
     public function show($id)
     {
         //
+        $data = Pabrikan::find($id);
 
+        return response()->json($data);
     }
 
     /**

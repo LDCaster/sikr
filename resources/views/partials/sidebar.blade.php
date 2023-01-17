@@ -2,9 +2,10 @@
    <div class="left-sidebar-pro">
        <nav id="sidebar" class="">
            <div class="sidebar-header">
-               <a href="index.html"><img class="main-logo" src="assets/img/logo/logo.png" width="150px"
+               <a href="index.html"><img class="main-logo" src="{{ url('assets/img/logo/logo.png') }}" width="150px"
                        alt="" /></a>
-               <strong><a href="index.html"><img src="assets/img/logo/logosn.png" alt="" /></a></strong>
+               <strong><a href="index.html"><img src="{{ url('assets/img/logo/logosn.png') }}"
+                           alt="" /></a></strong>
            </div>
            <div class="left-custom-menu-adp-wrap comment-scrollbar" style="margin-top: 20px">
                <nav class="sidebar-nav left-sidebar-menu-pro">
@@ -59,16 +60,6 @@
                            </ul>
                        </li>
                        <li>
-                           <a title="Data Pengadaan" href="/pengadaan" aria-expanded="false">
-                               <i class="fa-solid fa-note-sticky" aria-hidden="true"></i>
-                               <span class="mini-click-non">&ensp;Data Pengadaan</span></a>
-                       </li>
-                       <li>
-                           <a title="Data Direksi Pekerjaan" href="/direksi-pekerjaan" aria-expanded="false">
-                               <i class="fa-solid fa-users-between-lines"aria-hidden="true"> </i>
-                               <span class="mini-click-non">&nbsp;Data Direksi Pekerjaan</span></a>
-                       </li>
-                       <li>
                            <a class="has-arrow" href="" aria-expanded="false">
                                <i class="fa-solid fa-shapes"></i>
                                <span class="mini-click-non">&nbsp;&nbsp;Data Material</span></a>
@@ -84,6 +75,34 @@
                                    </a>
                                </li>
                            </ul>
+                       </li>
+                       <li>
+                           <a class="has-arrow" href="" aria-expanded="false">
+                               <i class="fa-solid fa-money-bill"></i>
+                               <span class="mini-click-non">&nbsp;&nbsp;Data Harga</span></a>
+                           <ul class="submenu-angle" aria-expanded="false">
+                               <li>
+                                   <a title="Material" href="/harga-satuan">
+                                       <span class="mini-sub-pro">&nbsp;Harga Satuan</span>
+                                   </a>
+                               </li>
+                               <li>
+                                   <a title="Jenis Material" href="/harga-transport">
+                                       <span class="mini-sub-pro">&nbsp;Harga Transport</span>
+                                   </a>
+                               </li>
+                           </ul>
+                       </li>
+                       <li>
+                       <li>
+                           <a title="Data Pengadaan" href="/pengadaan" aria-expanded="false">
+                               <i class="fa-solid fa-note-sticky" aria-hidden="true"></i>
+                               <span class="mini-click-non">&ensp;Data Pengadaan</span></a>
+                       </li>
+                       <li>
+                           <a title="Data Direksi Pekerjaan" href="/direksi-pekerjaan" aria-expanded="false">
+                               <i class="fa-solid fa-users-between-lines"aria-hidden="true"> </i>
+                               <span class="mini-click-non">&nbsp;Data Direksi Pekerjaan</span></a>
                        </li>
                        <li>
                            <a title="Data Satuan" href="/satuan" aria-expanded="false">

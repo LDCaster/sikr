@@ -11,27 +11,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- favicon
   ============================================ -->
-    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ url('assets/img/favicon.ico') }}">
     <!-- Google Fonts
   ============================================ -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet">
     <!-- Bootstrap CSS
   ============================================ -->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/tambah-rab.css">
+    <link rel="stylesheet" href="{{ url('assets/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href=" {{ url('assets/css/tambah-rab.css') }}">
     {{-- Bootstrap CSS  --}}
     {{-- ============================================ --}}
     {{-- ============================================ --> 
     {{-- <link rel="stylesheet" href="assets/css/fontawesome.css"> --}}
-    <link rel="stylesheet" href="assets/css/font-awesome-6.2.1/css/all.css">
+    <link rel="stylesheet" href=" {{ url('assets/css/font-awesome-6.2.1/css/all.css') }}">
     <!-- owl.carousel CSS
   ============================================ -->
-    <link rel="stylesheet" href="assets/css/owl.carousel.css">
-    <link rel="stylesheet" href="assets/css/owl.theme.css">
-    <link rel="stylesheet" href="assets/css/owl.transitions.css">
+    <link rel="stylesheet" href=" {{ url('assets/css/owl.carousel.css') }}">
+    <link rel="stylesheet" href=" {{ url('ssets/css/owl.theme.css') }}">
+    <link rel="stylesheet" href=" {{ url('assets/css/owl.transitions.css') }}">
     <!-- animate CSS
   ============================================ -->
-    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet" href=" {{ url('assets/css/animate.css') }}">
     <!-- Animate CSS for the css animation support if needed -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet" />
 
@@ -49,58 +49,59 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
     <!-- normalize CSS
   ============================================ -->
-    <link rel="stylesheet" href="assets/css/normalize.css">
+    <link rel="stylesheet" href=" {{ url('assets/css/normalize.css') }}">
     <!-- meanmenu icon CSS
   ============================================ -->
-    <link rel="stylesheet" href="assets/css/meanmenu.min.css">
+    <link rel="stylesheet" href=" {{ url('assets/css/meanmenu.min.css') }}">
     <!-- main CSS
   ============================================ -->
-    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href=" {{ url('assets/css/main.css') }}">
     <!-- educate icon CSS
   ============================================ -->
-    <link rel="stylesheet" href="assets/css/educate-custon-icon.css">
+    <link rel="stylesheet" href=" {{ url('assets/css/educate-custon-icon.css') }}">
     <!-- morrisjs CSS
   ============================================ -->
-    <link rel="stylesheet" href="assets/css/morrisjs/morris.css">
+    <link rel="stylesheet" href=" {{ url('assets/css/morrisjs/morris.') }}css">
     <!-- mCustomScrollbar CSS
   ============================================ -->
-    <link rel="stylesheet" href="assets/css/scrollbar/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet" href=" {{ url('assets/css/scrollbar/jquery.mCustomScrollbar.min.css') }}">
     <!-- metisMenu CSS
   ============================================ -->
-    <link rel="stylesheet" href="assets/css/metisMenu/metisMenu.min.css">
-    <link rel="stylesheet" href="assets/css/metisMenu/metisMenu-vertical.css">
+    <link rel="stylesheet" href=" {{ url('assets/css/metisMenu/metisMenu.min.css') }}">
+    <link rel="stylesheet" href=" {{ url('assets/css/metisMenu/metisMenu-vertical.css') }}">
     <!-- calendar CSS
   ============================================ -->
     {{-- modals CSS --}}
-    <link rel="stylesheet" href="assets/css/modals.css">
+    <link rel="stylesheet" href=" {{ url('assets/css/modals.css') }}">
     {{-- modals css --}}
     {{-- alerts --}}
-    <link rel="stylesheet" href="assets/css/alerts.css">
+    <link rel="stylesheet" href=" {{ url('assets/css/alerts.css') }}">
     {{-- alerts --}}
-    <link rel="stylesheet" href="assets/css/calendar/fullcalendar.min.css">
-    <link rel="stylesheet" href="assets/css/calendar/fullcalendar.print.min.css">
+    <link rel="stylesheet" href=" {{ url('assets/css/calendar/fullcalendar.min.css') }}">
+    <link rel="stylesheet" href=" {{ url('assets/css/calendar/fullcalendar.print.min.css') }}">
     <!-- buttons CSS
   ============================================ -->
     <link rel="stylesheet" href="assets/css/buttons.css">
     <!-- x-editor CSS
   ============================================ -->
-    <link rel="stylesheet" href="assets/css/editor/select2.css">
-    <link rel="stylesheet" href="assets/css/editor/datetimepicker.css">
-    <link rel="stylesheet" href="assets/css/editor/bootstrap-editable.css">
-    <link rel="stylesheet" href="assets/css/editor/x-editor-style.css">
+    <link rel="stylesheet" href=" {{ url('assets/css/editor/select2.css') }}">
+    <link rel="stylesheet" href=" {{ url('assets/css/editor/datetimepicker.css') }}">
+    <link rel="stylesheet" href=" {{ url('assets/css/editor/bootstrap-editable.css') }}">
+    <link rel="stylesheet" href=" {{ url('assets/css/editor/x-editor-style.css') }}">
     <!-- normalize CSS
   ============================================ -->
-    <link rel="stylesheet" href="assets/css/data-table/bootstrap-table.css">
-    <link rel="stylesheet" href="assets/css/data-table/bootstrap-editable.css">
+    <link rel="stylesheet" href=" {{ url('assets/css/data-table/bootstrap-table.css') }}">
+    <link rel="stylesheet" href="{{ url('assets/css/data-table/bootstrap-editable.css') }}">
     <!-- style CSS
   ============================================ -->
-    <link rel="stylesheet" href="assets/css/stylee.css">
+    <link rel="stylesheet" href="{{ url('assets/css/stylee.css') }}">
     <!-- responsive CSS
   ============================================ -->
-    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href=" {{ url('assets/css/responsive.css') }}">
     <!-- modernizr JS
   ============================================ -->
-    <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
+    <script src=" {{ url('assets/js/vendor/modernizr-2.8.3.min.js') }}"></script>
+
 </head>
 
 <body>
@@ -129,89 +130,90 @@
     <!-- jquery
   ============================================ -->
 
-    <script src="assets/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src=" {{ url('assets/js/vendor/jquery-1.12.4.min.js') }}"></script>
+
     <!-- bootstrap JS
   ============================================ -->
-    <script src="assets/js/bootstrap.min.js"></script>
+    <script src=" {{ url('assets/js/bootstrap.min.js') }}"></script>
     <!-- wow JS
   ============================================ -->
-    <script src="assets/js/wow.min.js"></script>
+    <script src=" {{ url('assets/js/wow.min.js') }}"></script>
     <!-- price-slider JS
   ============================================ -->
-    <script src="assets/js/jquery-price-slider.js"></script>
+    <script src=" {{ url('assets/js/jquery-price-slider.js') }}"></script>
     <!-- meanmenu JS
   ============================================ -->
-    <script src="assets/js/jquery.meanmenu.js"></script>
+    <script src=" {{ url('assets/js/jquery.meanmenu.js') }}"></script>
     <!-- owl.carousel JS
   ============================================ -->
-    <script src="assets/js/owl.carousel.min.js"></script>
+    <script src=" {{ url('assets/js/owl.carousel.min.js') }}"></script>
     <!-- sticky JS
   ============================================ -->
-    <script src="assets/js/jquery.sticky.js"></script>
+    <script src=" {{ url('assets/js/jquery.sticky.js') }}"></script>
     <!-- scrollUp JS
   ============================================ -->
-    <script src="assets/js/jquery.scrollUp.min.js"></script>
+    <script src=" {{ url('assets/js/jquery.scrollUp.min.js') }}"></script>
     <!-- mCustomScrollbar JS
   ============================================ -->
-    <script src="assets/js/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
-    <script src="assets/js/scrollbar/mCustomScrollbar-active.js"></script>
+    <script src=" {{ url('assets/js/scrollbar/jquery.mCustomScrollbar.concat.min.js') }}"></script>
+    <script src=" {{ url('assets/js/scrollbar/mCustomScrollbar-active.js') }}"></script>
     <!-- counterup JS
   ============================================ -->
-    <script src="assets/js/counterup/jquery.counterup.min.js"></script>
-    <script src="assets/js/counterup/waypoints.min.js"></script>
-    <script src="assets/js/counterup/counterup-active.js"></script>
+    <script src=" {{ url('assets/js/counterup/jquery.counterup.min.js') }}"></script>
+    <script src=" {{ url('assets/js/counterup/waypoints.min.js') }}"></script>
+    <script src=" {{ url('assets/js/counterup/counterup-active.js') }}"></script>
     <!-- mCustomScrollbar JS
   ============================================ -->
-    <script src="assets/js/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
-    <script src="assets/js/scrollbar/mCustomScrollbar-active.js"></script>
+    <script src=" {{ url('assets/js/scrollbar/jquery.mCustomScrollbar.concat.min.js') }}"></script>
+    <script src=" {{ url('assets/js/scrollbar/mCustomScrollbar-active.js') }}"></script>
     <!-- metisMenu JS
   ============================================ -->
-    <script src="assets/js/metisMenu/metisMenu.min.js"></script>
-    <script src="assets/js/metisMenu/metisMenu-active.js"></script>
+    <script src=" {{ url('assets/js/metisMenu/metisMenu.min.js') }}"></script>
+    <script src=" {{ url('assets/js/metisMenu/metisMenu-active.js') }}"></script>
     <!-- data table JS
   ============================================ -->
-    <script src="assets/js/data-table/bootstrap-table.js"></script>
-    <script src="assets/js/data-table/tableExport.js"></script>
-    <script src="assets/js/data-table/data-table-active.js"></script>
-    <script src="assets/js/data-table/bootstrap-table-editable.js"></script>
-    <script src="assets/js/data-table/bootstrap-editable.js"></script>
-    <script src="assets/js/data-table/bootstrap-table-resizable.js"></script>
-    <script src="assets/js/data-table/colResizable-1.5.source.js"></script>
-    <script src="assets/js/data-table/bootstrap-table-export.js"></script>
+    <script src=" {{ url('assets/js/data-table/bootstrap-table.js') }}"></script>
+    <script src=" {{ url('assets/js/data-table/tableExport.js') }}"></script>
+    <script src=" {{ url('assets/js/data-table/data-table-active.js') }}"></script>
+    <script src=" {{ url('assets/js/data-table/bootstrap-table-editable.js') }}"></script>
+    <script src=" {{ url('assets/js/data-table/bootstrap-editable.js') }}"></script>
+    <script src=" {{ url('assets/js/data-table/bootstrap-table-resizable.js') }}"></script>
+    <script src=" {{ url('assets/js/data-table/colResizable-1.5.source.js') }}"></script>
+    <script src=" {{ url('assets/js/data-table/bootstrap-table-export.js') }}"></script>
     <!--  editable JS
   ============================================ -->
-    <script src="assets/js/editable/jquery.mockjax.js"></script>
-    <script src="assets/js/editable/mock-active.js"></script>
-    <script src="assets/js/editable/select2.js"></script>
-    <script src="assets/js/editable/moment.min.js"></script>
-    <script src="assets/js/editable/bootstrap-datetimepicker.js"></script>
-    <script src="assets/js/editable/bootstrap-editable.js"></script>
-    <script src="assets/js/editable/xediable-active.js"></script>
+    <script src=" {{ url('assets/js/editable/jquery.mockjax.js') }}"></script>
+    <script src=" {{ url('assets/js/editable/mock-active.js') }}"></script>
+    <script src=" {{ url('assets/js/editable/select2.js') }}"></script>
+    <script src=" {{ url('assets/js/editable/moment.min.js') }}"></script>
+    <script src=" {{ url('assets/js/editable/bootstrap-datetimepicker.js') }}"></script>
+    <script src=" {{ url('assets/js/editable/bootstrap-editable.js') }}"></script>
+    <script src=" {{ url('assets/js/editable/xediable-active.js') }}"></script>
     <!-- sparkline JS
   ============================================ -->
-    <script src="assets/js/sparkline/jquery.sparkline.min.js"></script>
-    <script src="assets/js/sparkline/sparkline-active.js"></script>
+    <script src=" {{ url('assets/js/sparkline/jquery.sparkline.min.js') }}"></script>
+    <script src=" {{ url('assets/js/sparkline/sparkline-active.js') }}"></script>
     <!-- Chart JS
   ============================================ -->
-    <script src="assets/js/chart/jquery.peity.min.js"></script>
-    <script src="assets/js/chart/peity-active.js"></script>
+    <script src=" {{ url('assets/js/chart/jquery.peity.min.js') }}"></script>
+    <script src=" {{ url('assets/js/chart/peity-active.js') }}"></script>
     <!-- calendar JS
   ============================================ -->
-    <script src="assets/js/calendar/moment.min.js"></script>
+    <script src=" {{ url('assets/js/calendar/moment.min.js') }}"></script>
     {{-- <script src="assets/js/calendar/fullcalendar.min.js"></script>
     <script src="assets/js/calendar/fullcalendar-active.js"></script> --}}
     <!-- tab JS
   ============================================ -->
-    <script src="assets/js/tab.js"></script>
+    <script src=" {{ url('assets/js/tab.js') }}"></script>
     <!-- plugins JS
   ============================================ -->
-    <script src="assets/js/plugins.js"></script>
+    <script src=" {{ url('assets/js/plugins.js') }}"></script>
     <!-- main JS
   ============================================ -->
-    <script src="assets/js/main.js"></script>
+    <script src=" {{ url('assets/js/main.js') }}"></script>
     <!-- tawk chat JS
   ============================================ -->
-    <script src="assets/js/tawk-chat.js"></script>
+    <script src=" {{ url('assets/js/tawk-chat.js') }}"></script>
     <!-- Bootrap for the demo page -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
@@ -348,6 +350,68 @@
             });
 
         });
+    </script>
+    <script>
+        (function($) {
+            $.fn.simpleMoneyFormat = function() {
+                this.each(function(index, el) {
+                    var elType = null; // input or other
+                    var value = null;
+                    // get value
+                    if ($(el).is('input') || $(el).is('textarea')) {
+                        value = $(el).val().replace(/,/g, '');
+                        elType = 'input';
+                    } else {
+                        value = $(el).text().replace(/,/g, '');
+                        elType = 'other';
+                    }
+                    // if value changes
+                    $(el).on('paste keyup', function() {
+                        value = $(el).val().replace(/,/g, '');
+                        formatElement(el, elType, value); // format element
+                    });
+                    formatElement(el, elType, value); // format element
+                });
+
+                function formatElement(el, elType, value) {
+                    var result = '';
+                    var valueArray = value.split('');
+                    var resultArray = [];
+                    var counter = 0;
+                    var temp = '';
+                    for (var i = valueArray.length - 1; i >= 0; i--) {
+                        temp += valueArray[i];
+                        counter++
+                        if (counter == 3) {
+                            resultArray.push(temp);
+                            counter = 0;
+                            temp = '';
+                        }
+                    };
+                    if (counter > 0) {
+                        resultArray.push(temp);
+                    }
+                    for (var i = resultArray.length - 1; i >= 0; i--) {
+                        var resTemp = resultArray[i].split('');
+                        for (var j = resTemp.length - 1; j >= 0; j--) {
+                            result += resTemp[j];
+                        };
+                        if (i > 0) {
+                            result += ','
+                        }
+                    };
+                    if (elType == 'input') {
+                        $(el).val(result);
+                    } else {
+                        $(el).empty().text(result);
+                    }
+                }
+            };
+        }(jQuery));
+
+        $(document).ready(function() {
+            $('.uang').simpleMoneyFormat();
+        })
     </script>
 </body>
 
