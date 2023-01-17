@@ -46,15 +46,26 @@ class UserController extends Controller
     public function store(Request $request)
     {
         //
-        $validatedData = $request->validate([
+        $request->validate([
             'name' => 'max:255',
-            'img' => 'max:255',
+            'img' => 'mimes:jpeg,jpg,png,gif,svg|image',
             'role_id' => 'max:255',
             'email' => 'max:255',
             'password' => 'max:255',
         ]);
         $request['password'] = Hash::make($request->password);
-        $user = User::create($request->all());
+        $input = $request->all();
+
+        if ($image = $request->file('img')) {
+            $destinationPath = 'assets/img/profile';
+            $profileImage = date('YmdHis') . "." . $image->extension();
+            $image->move($destinationPath, $profileImage);
+            $input['img'] = "$profileImage";
+        } else {
+            unset($input['img']);
+        }
+
+        $user = User::create($input);
         return redirect('/user ')->with('success', 'Data Berhasil Ditambahkan!');
     }
 
@@ -94,10 +105,11 @@ class UserController extends Controller
         //
         $validatedData = $request->validate([
             'name' => 'max:255',
-            'img' => 'max:255',
+            'img' => 'mimes:jpeg,jpg,png,gif',
             'role_id' => 'max:255',
             'email' => 'max:255',
         ]);
+        $foto_file = $request->file('img');
         User::where('id', $id)->update($validatedData);
         return redirect('/user')->with('success', 'Data Berhasil Di Ubah!');
     }

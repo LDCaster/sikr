@@ -119,7 +119,7 @@
                                                     <div class="col-lg-4" style="margin-top: 10px">
                                                         <label for="volume" class="form-label">Volume</label>
                                                         <input type="text" class="form-control" name="volume"
-                                                            id="volume">
+                                                            id="vol">
                                                     </div>
                                                     <div class="col-lg-4" style="margin-top: 10px">
                                                         <label for="satuan_id" class="form-label">Satuan</label>
@@ -188,9 +188,9 @@
                                                 @method('put')
                                                 <div class="modal-body">
                                                     <div class="mb-3">
-                                                        <label for="rab_id" class="form-label">Kode Rab</label>
+                                                        <label for="kode_rab" class="form-label">Kode Rab</label>
                                                         <select class="form-control custom-select-value" name="rab_id"
-                                                            id="rab_id">
+                                                            id="kode_rab">
                                                             @foreach ($rabs as $rab)
                                                                 <option value="{{ $rab->id }}">{{ $rab->kode_rab }}
                                                                 </option>
@@ -198,19 +198,19 @@
                                                         </select>
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label for="prk_id" class="form-label">Unit</label>
-                                                        <input type="text" class="form-control" name="unit"
-                                                            id="prk_id">
+                                                        <label for="unit" class="form-label">Unit</label>
+                                                        <input type="text" class="form-control" name="prk_id"
+                                                            id="unit">
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label for="variant_id" class="form-label">Variant Type</label>
+                                                        <label for="nama_variant" class="form-label">Variant Type</label>
                                                         <input type="text" class="form-control" name="variant_id"
-                                                            id="variant_id">
+                                                            id="nama_variant">
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label for="satuan_id" class="form-label">Satuan</label>
+                                                        <label for="nama_satuan" class="form-label">Satuan</label>
                                                         <input type="text" class="form-control" name="satuan_id"
-                                                            id="satuan_id">
+                                                            id="nama_satuan">
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="volume" class="form-label">Volume</label>
@@ -218,26 +218,26 @@
                                                             id="volume">
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label for="alokasi_bulan" class="form-label">Alokasi
+                                                        <label for="alokasi" class="form-label">Alokasi
                                                             Bulan</label>
                                                         <input type="text" class="form-control" name="alokasi_bulan"
-                                                            id="alokasi_bulan">
+                                                            id="alokasi">
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label for="harga_satuan" class="form-label">Harga Satuan</label>
+                                                        <label for="hargasatuan" class="form-label">Harga Satuan</label>
                                                         <input type="text" class="form-control" name="harga_satuan"
-                                                            id="harga_satuan">
+                                                            id="hargasatuan">
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label for="harga_transport" class="form-label">Harga
+                                                        <label for="hargatransport" class="form-label">Harga
                                                             Transport</label>
                                                         <input type="text" class="form-control" name="harga_transport"
-                                                            id="harga_transport">
+                                                            id="hargatransport">
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label for="total" class="form-label">Total</label>
+                                                        <label for="totals" class="form-label">Total</label>
                                                         <input type="text" class="form-control" name="total"
-                                                            id="total">
+                                                            id="totals">
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer">
@@ -300,11 +300,11 @@
                                                 <td>{{ $rnk->total }}</td>
                                                 <td>
                                                     <!-- Button trigger modal -->
-                                                    <button class="btn btn-warning btn-sm edit"
+                                                    {{-- <button class="btn btn-warning btn-sm edit"
                                                         value="{{ $rnk->id }}" data-toggle="modal"
                                                         data-target="#ModalEdit">
                                                         <i class="fa-regular fa-pen-to-square"></i>
-                                                    </button>
+                                                    </button> --}}
                                                     <form class="d-inline" style="display: inline"
                                                         action="{{ url('/rincian-nilai-kontrak', $rnk->id) }}"
                                                         method="POST">
@@ -339,8 +339,8 @@
                     if (i % 3 == 0) rupiah += angkarev.substr(i, 3) + ',';
                 return rupiah.split('', rupiah.length - 1).reverse().join('');
             }
-            $("#volume, #biaya_transport").keyup(function() {
-                let volume = $("#volume").val();
+            $("#vol, #biaya_transport").keyup(function() {
+                let volume = $("#vol").val();
                 let biaya_transport = $("#biaya_transport").val();
                 let bTransport = biaya_transport.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '');
                 let harga_transport = parseInt(volume) * parseInt(
@@ -360,8 +360,8 @@
                     if (i % 3 == 0) rupiah += angkarev.substr(i, 3) + ',';
                 return '' + rupiah.split('', rupiah.length - 1).reverse().join('');
             }
-            $("#volume, #harga_satuan, #harga_transport").keyup(function() {
-                let volume = $("#volume").val();
+            $("#vol, #harga_satuan, #harga_transport").keyup(function() {
+                let volume = $("#vol").val();
                 let harga_satuan = $("#harga_satuan").val();
                 let hSatuan = harga_satuan.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '');
                 let harga_transport = $("#harga_transport").val();
@@ -520,16 +520,16 @@
                     method: "get",
                     success: function(data) {
                         // console.log(data)
-                        $('#rab_id').val(data.rab_id)
-                        $('#prk_id').val(data.prk_id)
-                        $('#variant_id').val(data.variant_id)
-                        $('#satuan_id').val(data.satuan_id)
+                        $('#kode_rab').val(data.rab_id)
+                        $('#unit').val(data.prk_id)
+                        $('#nama_variant').val(data.variant_id)
+                        $('#nama_satuan').val(data.satuan_id)
                         $('#volume').val(data.volume)
-                        $('#alokasi_bulan').val(data.alokasi_bulan)
-                        $('#no_prk').val(data.no_prk)
-                        $('#harga_satuan').val(data.harga_satuan)
-                        $('#harga_transport').val(data.harga_transport)
-                        $('#total').val(data.total)
+                        $('#alokasi').val(data.alokasi_bulan)
+                        $('#noprk').val(data.no_prk)
+                        $('#hargasatuan').val(data.harga_satuan)
+                        $('#hargatransport').val(data.harga_transport)
+                        $('#totals').val(data.total)
                         $('#ModalEdit form').attr('action',
                             `{{ url('rincian-nilai-kontrak/${id}') }}`)
                     }
