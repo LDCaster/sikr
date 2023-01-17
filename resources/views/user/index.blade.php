@@ -40,7 +40,7 @@
                                                             class="fa fa-close"></i></a>
                                                 </div>
                                             </div>
-                                            <form method="post" action="/user">
+                                            <form method="post" action="/user" enctype="multipart/form-data">
                                                 @csrf
                                                 <div class="modal-body">
                                                     <div class="mb-3">
@@ -48,8 +48,8 @@
                                                         <input type="text" class="form-control" name="name">
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label for="image" class="form-label">Gambar</label>
-                                                        <input type="text" class="form-control" name="image">
+                                                        <label for="img" class="form-label">Gambar</label>
+                                                        <input type="file" class="form-control" name="img">
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="role_id" class="form-label">Role</label>
@@ -157,7 +157,7 @@
                                             <th data-field="state" data-checkbox="true"></th>
                                             <th data-field="no">No</th>
                                             <th data-field="nama_satuan" data-editable="true">Nama</th>
-                                            <th data-field="image" data-editable="true">Gambar</th>
+                                            <th>Gambar</th>
                                             <th data-field="role" data-editable="true">Role</th>
                                             <th data-field="email" data-editable="true">Email</th>
                                             <th data-field="action" class="aksi">Aksi</th>
@@ -169,7 +169,12 @@
                                                 <td></td>
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td>{{ $user->name }}</td>
-                                                <td>{{ $user->img }}</td>
+                                                <td>
+                                                    @if ($user->img)
+                                                        <img style="max-width:50px; max-height:50px"
+                                                            src="{{ url('/assets/img/profile') . '/' . $user->img }}">
+                                                    @endif
+                                                </td>
                                                 <td>{{ $user->role->name }}</td>
                                                 <td>{{ $user->email }}</td>
                                                 <td>

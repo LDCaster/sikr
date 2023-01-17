@@ -118,10 +118,10 @@ class RnkController extends Controller
     {
         //
         $validatedData = $request->validate([
-            'kode_rab' => 'max:255',
-            'unit' => 'max:255',
-            'nama_variant' => 'max:255',
-            'nama_satuan' => 'max:255',
+            'rab_id' => 'max:255',
+            'prk_id' => 'max:255',
+            'variant_id' => 'max:255',
+            'satuan_id' => 'max:255',
             'volume' => 'max:255',
             'alokasi_bulan' => 'max:255',
             'no_prk' => 'max:255',

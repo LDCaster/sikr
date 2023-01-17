@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AkunController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DireksiPekerjaanController;
@@ -55,6 +56,7 @@ Route::get('/dashboard', function () {
 
 Route::resource('user', UserController::class);
 Route::resource('role', RoleController::class);
+Route::resource('akun-saya', AkunController::class);
 Route::resource('kontrak', KontrakController::class);
 Route::resource('pabrikan', PabrikanController::class);
 Route::resource('jenis-variant', JenisVariantController::class);
