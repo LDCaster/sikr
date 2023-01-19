@@ -102,6 +102,21 @@ thead>tr>th:nth-child(10) {
     padding-right: 150px !important;
 }
 
+thead>tr>th.nama_pengadaan {
+    padding-left: 40px !important;
+    padding-right: 40px !important;
+}
+
+thead>tr>th.nama_vendor {
+    padding-left: 60px !important;
+    padding-right: 60px !important;
+}
+
+thead>tr>th.nama_direktur {
+    padding-left: 30px !important;
+    padding-right: 30px !important;
+}
+
 thead>tr>th.alamat {
     padding-left: 150px !important;
     padding-right: 150px !important;
@@ -113,8 +128,8 @@ thead>tr>th.no_telp {
 }
 
 thead>tr>th.nama_bank {
-    padding-left: 50px !important;
-    padding-right: 50px !important;
+    padding-left: 40px !important;
+    padding-right: 40px !important;
 }
 
 thead>tr>th.cabang {
@@ -138,8 +153,8 @@ thead>tr>th.no_khs {
 }
 
 thead>tr>th.aksi {
-    padding-left: 20px !important;
-    padding-right: 20px !important;
+    padding-left: 21px !important;
+    padding-right: 21px !important;
 }
 
 thead>tr>th.kode_rab {

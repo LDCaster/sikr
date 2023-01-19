@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pabrikan;
+use App\Models\Rab;
 use Illuminate\Http\Request;
 
 class PabrikanController extends Controller

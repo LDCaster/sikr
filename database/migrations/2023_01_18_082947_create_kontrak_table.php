@@ -15,24 +15,27 @@ return new class extends Migration
     {
         Schema::create('kontrak', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('pabrikan_id')->nullable();
-            $table->string('no_kr');
+            $table->foreignId('pengadaan_id')->constrained('pengadaan')->nullable();
+            $table->foreignId('pabrikan_id')->constrained('pabrikan')->nullable();
+            $table->string('no_kr')->nullable();
             $table->string('bt_kr')->nullable();
             $table->date('tanggal_kr')->nullable();
-            $table->string('no_prk')->nullable();
-            $table->string('user')->nullable();
-            $table->foreignId('rab_id')->nullable();
+            $table->foreignId('rab_id')->constrained('rab')->nullable();
+            $table->string('nilai_kontrak')->nullable();
             $table->string('terbilang_kontrak')->nullable();
+            $table->string('nilai_jamlak')->nullable();
+            $table->string('terbilang_jamlak')->nullable();
             $table->string('hari')->nullable();
             $table->string('tanggal')->nullable();
             $table->string('bulan')->nullable();
             $table->string('tahun')->nullable();
             $table->integer('wd_kontrak')->nullable();
             $table->string('terbilang_waktu')->nullable();
-            $table->foreignId('direksi_id')->nullable();
-            $table->foreignId('material_id')->nullable();
-            $table->foreignId('variant_id')->nullable();
-            $table->string('satuan')->nullable();
+            $table->string('direksi_pekerjaan')->nullable();
+            $table->string('pengawas_pekerjaan')->nullable();
+            $table->foreignId('jmaterial_id')->constrained('jenismaterial')->nullable();
+            $table->string('nama_variant')->nullable();
+            $table->foreignId('satuan_id')->constrained('satuan')->nullable();
             $table->string('volume')->nullable();
             $table->string('no_type')->nullable();
             $table->string('no_spm')->nullable();

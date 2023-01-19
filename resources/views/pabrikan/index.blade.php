@@ -70,11 +70,11 @@
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="no_notaris" class="form-label">No Notaris</label>
-                                                        <textarea type="text" class="form-control" name="no_notaris"></textarea>
+                                                        <textarea cols="70.8" rows="10" name="no_notaris"></textarea>
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="no_khs" class="form-label">No KHS</label>
-                                                        <textarea type="text" class="form-control" name="no_khs"></textarea>
+                                                        <textarea name="no_khs" cols="70.8" rows="10"></textarea>
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="nama_pengadaan" class="form-label">Jenis
@@ -139,7 +139,7 @@
                                                     <div class="mb-3">
                                                         <label for="nama_vendor" class="form-label">Nama Vendor</label>
                                                         <input type="text" class="form-control" name="nama_vendor"
-                                                            aria-describedby="namavendorlHelp" id="nama_vendor">
+                                                            id="nama_vendor">
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="alamat" class="form-label">Alamat</label>
@@ -225,13 +225,7 @@
                                 </div>
                                 {{-- END MODAL EDIT --}}
 
-                                <div id="toolbar">
-                                    <select class="form-control dt-tb">
-                                        <option value="">Export Basic</option>
-                                        <option value="all">Export All</option>
-                                        <option value="selected">Export Selected</option>
-                                    </select>
-                                </div>
+
                                 <table id="table" data-toggle="table" data-pagination="true" data-search="true"
                                     data-show-columns="true" data-show-pagination-switch="true" data-show-refresh="true"
                                     data-key-events="true" data-show-toggle="true" data-resizable="true"
@@ -239,20 +233,23 @@
                                     data-click-to-select="true" data-toolbar="#toolbar">
                                     <thead>
                                         <tr>
-                                            <th data-field="state" data-checkbox="true"></th>
                                             <th data-field="no">No</th>
-                                            <th data-field="nama_vendor" data-editable="true">Nama Vendor</th>
-                                            <th data-field="alamat" data-editable="true">Alamat</th>
+                                            <th data-field="nama_vendor" data-editable="true" class="nama_vendor">Nama
+                                                Vendor</th>
+                                            <th data-field="alamat" data-editable="true" class="alamat">Alamat</th>
                                             <th data-field="email" data-editable="true">Email</th>
                                             <th data-field="no_telp" data-editable="true">No Telepon</th>
                                             <th data-field="nama_direktur" data-editable="true">Direktur</th>
                                             <th data-field="jabatan" data-editable="true">Jabatan</th>
-                                            <th data-field="no_notaris" data-editable="true">Nomor Notaris</th>
+                                            <th data-field="no_notaris" data-editable="true" class="no_notaris">Nomor
+                                                Notaris</th>
                                             <th data-field="no_khs" data-editable="true">Nomor KHS</th>
                                             <th data-field="nama_pengadaan" data-editable="true">Jenis Pengadaan</th>
-                                            <th data-field="nama_rekening" data-editable="true">Nama Rekening</th>
-                                            <th data-field="nama_bank" data-editable="true">Nama Bank</th>
-                                            <th data-field="cabang" data-editable="true">Cabang</th>
+                                            <th data-field="nama_rekening" data-editable="true" class="nama_bank">Nama
+                                                Rekening</th>
+                                            <th data-field="nama_bank" data-editable="true" class="nama_bank">Nama Bank
+                                            </th>
+                                            <th data-field="cabang" data-editable="true" class="cabang">Cabang</th>
                                             <th data-field="no_rekening" data-editable="true">Nomor Rekening</th>
                                             <th data-field="no_type" data-editable="true">No Type Test</th>
                                             <th data-field="no_spm" data-editable="true">Nomor SPM</th>
@@ -262,7 +259,6 @@
                                     <tbody>
                                         @foreach ($pabrikans as $pabrikan)
                                             <tr>
-                                                <td></td>
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td>{{ $pabrikan->nama_vendor }}</td>
                                                 <td>{{ $pabrikan->alamat }}</td>
@@ -291,7 +287,7 @@
                                                         @method('delete')
                                                         @csrf
                                                         <button type="submit" class="btn btn-danger btn-sm"
-                                                            onclick="return confirm('Apakah anda yakin untuk hapus data Rab?')">
+                                                            onclick="return confirm('Apakah anda yakin untuk hapus data kontrak?')">
                                                             <i class="fa-solid fa-trash"></i>
                                                         </button>
                                                     </form>

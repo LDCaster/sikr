@@ -49,7 +49,8 @@
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="img" class="form-label">Gambar</label>
-                                                        <input type="file" class="form-control" name="img">
+                                                        <input type="file" class="form-control " name="img"
+                                                            id="img">
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="role_id" class="form-label">Role</label>
@@ -96,7 +97,7 @@
                                                             class="fa fa-close"></i></a>
                                                 </div>
                                             </div>
-                                            <form action="" method="POST">
+                                            <form action="" method="POST" enctype="multipart/form-data">
                                                 <div class="modal-body">
                                                     @csrf
                                                     @method('put')
@@ -107,8 +108,12 @@
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="image" class="form-label">Gambar</label>
-                                                        <input type="text" class="form-control" name="image"
-                                                            id="image">
+                                                        <input type="file" name="image" class="form-control"
+                                                            placeholder="image">
+                                                        @foreach ($users as $user)
+                                                            <img src="{{ url('/assets/img/profile') . '/' . $user->img }}"
+                                                                width="300px">
+                                                        @endforeach
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="role" class="form-label">Role</label>
@@ -206,6 +211,12 @@
         </div>
     </div>
     <!-- Static Table End -->
+
+    {{-- START IMAGE PRV SC --}}
+
+    {{-- END IMAGE PRV SC --}}
+
+
     <script>
         $(document).ready(function() {
 

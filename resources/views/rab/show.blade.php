@@ -40,38 +40,35 @@
                                                     <td>{{ $rnk->no_prk }}</td>
                                                     <td>{{ $rnk->harga_satuan }}</td>
                                                     <td>{{ $rnk->harga_transport }}</td>
-                                                    <td id="total_rnk">{{ $rnk->total }}</td>
+                                                    <td>{{ $rnk->total }}</td>
                                                 </tr>
                                             @endforeach
                                             <tr style="font-weight: 700; background-color: #bdd7ee;">
                                                 <td></td>
                                                 <td>Sub Total</td>
                                                 <td>Variant</td>
-                                                <td>Unit</td>
-                                                <td>Volume</td>
+                                                <td>Satuan</td>
+                                                <td>{{ number_format($total_vol, 0, ',', ',') }}</td>
                                                 <td></td>
                                                 <td></td>
                                                 <td style="background-color: black !important"></td>
                                                 <td style="background-color: black !important"></td>
-                                                <td>{{ number_format($result, 0, ',', '.') }}</td>
-                                                {{-- <td>
-                                                    <span id="hasil"></span>
-                                                </td> --}}
+                                                <td>{{ number_format($result, 0, ',', ',') }}</td>
                                             </tr>
                                             <tr style="font-weight: 700; background-color: #c6e0b4;">
                                                 <td style="background-color: #bdd7ee !important;"></td>
                                                 <td colspan="8">Sub Total</td>
-                                                <td></td>
+                                                <td>{{ number_format($result, 0, ',', ',') }}</td>
                                             </tr>
                                             <tr style="font-weight: 700; background-color: #c6e0b4;">
                                                 <td style="background-color: #bdd7ee !important;"></td>
                                                 <td colspan="8">PPN 11%</td>
-                                                <td></td>
+                                                <td>{{ number_format($ppn, 0, ',', ',') }}</td>
                                             </tr>
                                             <tr style="font-weight: 700; background-color: #f8cbad;">
                                                 <td style="background-color: #bdd7ee !important;"></td>
                                                 <td colspan="8">Total + PPN</td>
-                                                <td></td>
+                                                <td>{{ number_format($total_ppn, 0, ',', ',') }}</td>
                                             </tr>
 
 

@@ -77,11 +77,11 @@
                                             <li class="nav-item" style="margin-right: 25px">
                                                 <a href="#" data-toggle="dropdown" role="button"
                                                     aria-expanded="false" class="nav-link dropdown-toggle">
-                                                    <img src="{{ url('/assets/img/profile') . '/' . Auth::user()->img }}"
+                                                    {{-- <img src="{{ url('/assets/img/profile') . '/' . Auth::user()->img }}"
                                                         style=" margin-bottom:3px;" alt="" />
                                                     <span class="admin-name"
                                                         style="font-size: 80%;">{{ Auth::user()->name }}</span> <i
-                                                        class="fa fa-angle-down edu-icon edu-down-arrow"></i>
+                                                        class="fa fa-angle-down edu-icon edu-down-arrow"></i> --}}
                                                 </a>
                                                 <ul role="menu"
                                                     class="dropdown-header-top author-log dropdown-menu animated zoomIn">
