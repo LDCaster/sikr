@@ -20,6 +20,7 @@ use App\Http\Controllers\SatuanController;
 use App\Http\Controllers\TambahRabController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VariantController;
+use App\Models\Pabrikan;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -53,11 +54,14 @@ Route::get('/dashboard', function () {
 // Route::get('wizard', function () {
 //     return view('default');
 // });
+Route::resource('kontrak', KontrakController::class);
+Route::get('/pdf/{id}', [KontrakController::class, 'generatePDF']);
+Route::get('/word/{id}', [KontrakController::class, 'generateWORD']);
+Route::get('/pabrikan-import', [PabrikanController::class, 'pabrikanImport']);
 
 Route::resource('user', UserController::class);
 Route::resource('role', RoleController::class);
 Route::resource('akun-saya', AkunController::class);
-Route::resource('kontrak', KontrakController::class);
 Route::resource('pabrikan', PabrikanController::class);
 Route::resource('jenis-variant', JenisVariantController::class);
 Route::resource('variant', VariantController::class);

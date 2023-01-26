@@ -27,6 +27,16 @@
                                 <a href="#" data-toggle="modal" data-target="#PrimaryModalhdbgcl"
                                     class="btn btn-cusom-four btn-primary"><i class="fa fa-plus edu-informatio"
                                         aria-hidden="true"></i> Tambah</a>
+                                <form action="{{ url('/pabrikan-import') }}" method="POST" enctype="multipart/form-data">
+                                    @csrf
+                                    <div class="col-lg-3">
+                                        <input type="file" name="file" class="form-control">
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <button class="btn btn-info form-control">Upload</button>
+                                    </div>
+
+                                </form>
 
                                 {{-- START MODAL TAMBAH --}}
                                 <div id="PrimaryModalhdbgcl" class="modal modal-edu-general default-popup-PrimaryModal fade"

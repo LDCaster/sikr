@@ -670,6 +670,11 @@
                                         <tr>
                                             <td>
                                                 <!-- Button trigger modal -->
+                                                <a href="{{ url('/word', $kontrak->id) }}" target="_blank">
+                                                    <button class="btn btn-info btn-sm edit">
+                                                        <i class="fa-solid fa-file-pdf"></i>
+                                                    </button>
+                                                </a>
                                                 <button class="btn btn-warning btn-sm edit" value="{{ $kontrak->id }}"
                                                     data-toggle="modal" data-target="#ModalEdit">
                                                     <i class="fa-regular fa-pen-to-square"></i>

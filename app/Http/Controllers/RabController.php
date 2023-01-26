@@ -82,18 +82,6 @@ class RabController extends Controller
         $total_ppn = $sub += $ppn;
         // end count total
 
-        // $unit = array();
-        // foreach ($datas->rnks as $value) {
-        //     array_push($unit, $value->satuan_id);
-        // }
-        // $total_unit = $value->satuan_id;
-
-        // $variant = array();
-        // foreach ($datas->rnks as $value) {
-        //     array_push($variant, $value->variant_id);
-        // }
-        // $total_variant = $value->variant_id;
-
         // count vol
         $vol = array();
         foreach ($datas->rnks as $value) {
