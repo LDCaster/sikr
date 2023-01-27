@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Imports\PRKImport;
 use App\Models\Prk;
 use Illuminate\Http\Request;
 
@@ -23,6 +24,21 @@ class PrkController extends Controller
         ]);
     }
 
+
+    public function prkImport(Request $request)
+    {
+        $file = $request->file('file')->store('public/import');
+
+        $import = new PRKImport;
+        $import->import($file);
+
+        // dd($import->failures());
+        if ($import->failures()->isNotEmpty()) {
+            return back()->withfailures($import->failures());
+        }
+
+        return redirect('/prk')->with('success', 'Data Berhasil di import!');
+    }
     /**
      * Show the form for creating a new resource.
      *

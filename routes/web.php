@@ -57,7 +57,15 @@ Route::get('/dashboard', function () {
 Route::resource('kontrak', KontrakController::class);
 Route::get('/pdf/{id}', [KontrakController::class, 'generatePDF']);
 Route::get('/word/{id}', [KontrakController::class, 'generateWORD']);
-Route::get('/pabrikan-import', [PabrikanController::class, 'pabrikanImport']);
+Route::post('/pabrikan-import', [PabrikanController::class, 'pabrikanImport']);
+Route::post('/jenis-variant-import', [JenisVariantController::class, 'jenisvariantImport']);
+Route::post('/variant-import', [VariantController::class, 'variantImport']);
+Route::post('/jenis-material-import', [JenisMaterialController::class, 'jenismaterialImport']);
+Route::post('/material-import', [MaterialController::class, 'materialImport']);
+Route::post('/pengadaan-import', [PengadaanController::class, 'pengadaanImport']);
+Route::post('/satuan-import', [SatuanController::class, 'satuanImport']);
+Route::post('/prk-import', [PrkController::class, 'prkImport']);
+Route::post('/direksi-pekerjaan-import', [DireksiPekerjaanController::class, 'direksipekerjaanImport']);
 
 Route::resource('user', UserController::class);
 Route::resource('role', RoleController::class);

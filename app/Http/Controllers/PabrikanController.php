@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Imports\PabrikanImport;
 use App\Models\Pabrikan;
 use App\Models\Rab;
 use Illuminate\Http\Request;
@@ -24,6 +25,21 @@ class PabrikanController extends Controller
         ]);
     }
 
+
+    public function pabrikanImport(Request $request)
+    {
+        $file = $request->file('file')->store('public/import');
+
+        $import = new PabrikanImport;
+        $import->import($file);
+
+        // dd($import->failures());
+        if ($import->failures()->isNotEmpty()) {
+            return back()->withfailures($import->failures());
+        }
+
+        return redirect('/pabrikan')->with('success', 'Data Berhasil di import!');
+    }
     /**
      * Show the form for creating a new resource.
      *

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Imports\SatuanImport;
 use App\Models\Satuan;
 use Illuminate\Http\Request;
 
@@ -33,6 +34,20 @@ class SatuanController extends Controller
         //
     }
 
+    public function satuanImport(Request $request)
+    {
+        $file = $request->file('file')->store('public/import');
+
+        $import = new SatuanImport;
+        $import->import($file);
+
+        // dd($import->failures());
+        if ($import->failures()->isNotEmpty()) {
+            return back()->withfailures($import->failures());
+        }
+
+        return redirect('/satuan')->with('success', 'Data Berhasil di import!');
+    }
     /**
      * Store a newly created resource in storage.
      *

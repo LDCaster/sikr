@@ -16,11 +16,11 @@ return new class extends Migration
         Schema::create('pabrikan', function (Blueprint $table) {
             $table->id();
             $table->string('nama_vendor');
-            $table->string('nama_direktur')->nullable();
-            $table->string('jabatan')->nullable();
             $table->string('alamat')->nullable();
             $table->string('email')->nullable();
             $table->string('no_telp')->nullable();
+            $table->string('nama_direktur')->nullable();
+            $table->string('jabatan')->nullable();
             $table->text('no_notaris')->nullable();
             $table->text('no_khs')->nullable();
             $table->string('nama_pengadaan')->nullable();

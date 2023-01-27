@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+
+use App\Imports\JenisVariantImport;
 use App\Models\JenisVariant;
 use Illuminate\Http\Request;
+
 
 class JenisVariantController extends Controller
 {
@@ -32,6 +35,21 @@ class JenisVariantController extends Controller
     public function create()
     {
         //
+    }
+
+    public function jenisvariantImport(Request $request)
+    {
+        $file = $request->file('file')->store('public/import');
+
+        $import = new JenisVariantImport;
+        $import->import($file);
+
+        // dd($import->failures());
+        if ($import->failures()->isNotEmpty()) {
+            return back()->withfailures($import->failures());
+        }
+
+        return redirect('/jenis-variant')->with('success', 'Data Berhasil di import!');
     }
 
     /**

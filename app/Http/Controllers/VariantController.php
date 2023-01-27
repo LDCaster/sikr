@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Imports\VariantImport;
 use App\Models\JenisVariant;
 use App\Models\Variant;
 use Illuminate\Http\Request;
@@ -40,6 +41,20 @@ class VariantController extends Controller
         //
     }
 
+    public function variantImport(Request $request)
+    {
+        $file = $request->file('file')->store('public/import');
+
+        $import = new VariantImport;
+        $import->import($file);
+
+        // dd($import->failures());
+        if ($import->failures()->isNotEmpty()) {
+            return back()->withfailures($import->failures());
+        }
+
+        return redirect('/variant')->with('success', 'Data Berhasil di import!');
+    }
     /**
      * Store a newly created resource in storage.
      *

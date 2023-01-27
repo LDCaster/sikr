@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Imports\JenisMaterialImport;
 use App\Models\JenisMaterial;
 use Illuminate\Http\Request;
 
@@ -48,6 +49,21 @@ class JenisMaterialController extends Controller
 
         JenisMaterial::create($validatedData);
         return redirect('/jenis-material ')->with('success', 'Data Berhasil Ditambahkan!');
+    }
+
+    public function jenismaterialImport(Request $request)
+    {
+        $file = $request->file('file')->store('public/import');
+
+        $import = new JenisMaterialImport;
+        $import->import($file);
+
+        // dd($import->failures());
+        if ($import->failures()->isNotEmpty()) {
+            return back()->withfailures($import->failures());
+        }
+
+        return redirect('/jenis-material')->with('success', 'Data Berhasil di import!');
     }
 
     /**

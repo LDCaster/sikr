@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Imports\PengadaanImport;
 use App\Models\Pengadaan;
 use Illuminate\Http\Request;
 
@@ -33,6 +34,20 @@ class PengadaanController extends Controller
         //
     }
 
+    public function pengadaanImport(Request $request)
+    {
+        $file = $request->file('file')->store('public/import');
+
+        $import = new PengadaanImport;
+        $import->import($file);
+
+        // dd($import->failures());
+        if ($import->failures()->isNotEmpty()) {
+            return back()->withfailures($import->failures());
+        }
+
+        return redirect('/pengadaan')->with('success', 'Data Berhasil di import!');
+    }
     /**
      * Store a newly created resource in storage.
      *

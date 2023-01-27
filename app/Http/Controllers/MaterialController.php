@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Imports\MaterialImport;
 use App\Models\JenisMaterial;
 use App\Models\Material;
 use Illuminate\Http\Request;
@@ -24,6 +25,21 @@ class MaterialController extends Controller
             'jenismaterials' => $jenismaterials,
             'materials' => $materials
         ]);
+    }
+
+    public function materialImport(Request $request)
+    {
+        $file = $request->file('file')->store('public/import');
+
+        $import = new MaterialImport;
+        $import->import($file);
+
+        // dd($import->failures());
+        if ($import->failures()->isNotEmpty()) {
+            return back()->withfailures($import->failures());
+        }
+
+        return redirect('/material')->with('success', 'Data Berhasil di import!');
     }
 
     /**

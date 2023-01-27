@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Imports\DireksiPekerjaanImport;
 use App\Models\DireksiPekerjaan;
 use Illuminate\Http\Request;
 
@@ -21,6 +22,21 @@ class DireksiPekerjaanController extends Controller
             'title' => 'Data Direksi Pekerjaan',
             'direksis' => $direksis
         ]);
+    }
+
+    public function direksipekerjaanImport(Request $request)
+    {
+        $file = $request->file('file')->store('public/import');
+
+        $import = new DireksiPekerjaanImport;
+        $import->import($file);
+
+        // dd($import->failures());
+        if ($import->failures()->isNotEmpty()) {
+            return back()->withfailures($import->failures());
+        }
+
+        return redirect('/direksi-pekerjaan')->with('success', 'Data Berhasil di import!');
     }
 
     /**
@@ -44,7 +60,6 @@ class DireksiPekerjaanController extends Controller
         //
         $validatedData = $request->validate([
             'nama_direksi' => 'max:255',
-            'nama_pengawas' => 'max:255',
         ]);
 
         DireksiPekerjaan::create($validatedData);
@@ -87,7 +102,6 @@ class DireksiPekerjaanController extends Controller
         //
         $validatedData = $request->validate([
             'nama_direksi' => 'max:255',
-            'nama_pengawas' => 'max:255',
         ]);
         DireksiPekerjaan::where('id', $id)->update($validatedData);
         return redirect('/direksi-pekerjaan')->with('success', 'Data Berhasil Di Ubah!');
