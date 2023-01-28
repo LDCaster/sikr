@@ -12,6 +12,7 @@ use App\Http\Controllers\KontrakController;
 use App\Http\Controllers\MaterialController;
 use App\Http\Controllers\PabrikanController;
 use App\Http\Controllers\PengadaanController;
+use App\Http\Controllers\PengawasPekerjaanController;
 use App\Http\Controllers\PrkController;
 use App\Http\Controllers\RabController;
 use App\Http\Controllers\RnkController;
@@ -35,7 +36,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('dashboard', [
+        "title" => "Dashboard"
+    ]);
 });
 
 Route::get('/login', [AuthController::class, 'login'])->name('login')->middleware('guest');
@@ -47,7 +50,7 @@ Route::post('/register', [AuthController::class, 'registerProses'])->middleware(
 
 Route::get('/dashboard', function () {
     return view('dashboard', [
-        "title" => "Admin - Dashboard"
+        "title" => "Dashboard"
     ]);
 });
 
@@ -66,6 +69,7 @@ Route::post('/pengadaan-import', [PengadaanController::class, 'pengadaanImport']
 Route::post('/satuan-import', [SatuanController::class, 'satuanImport']);
 Route::post('/prk-import', [PrkController::class, 'prkImport']);
 Route::post('/direksi-pekerjaan-import', [DireksiPekerjaanController::class, 'direksipekerjaanImport']);
+Route::post('/pengawas-pekerjaan-import', [PengawasPekerjaanController::class, 'pengawaspekerjaanImport']);
 
 Route::resource('user', UserController::class);
 Route::resource('role', RoleController::class);
@@ -79,6 +83,7 @@ Route::resource('harga-transport', HargaTransportAsuransiController::class);
 Route::resource('harga-satuan', HargaSatuanController::class);
 Route::resource('pengadaan', PengadaanController::class);
 Route::resource('direksi-pekerjaan', DireksiPekerjaanController::class);
+Route::resource('pengawas-pekerjaan', PengawasPekerjaanController::class);
 Route::resource('satuan', SatuanController::class);
 Route::resource('prk', PrkController::class);
 Route::resource('rincian-nilai-kontrak', RnkController::class);

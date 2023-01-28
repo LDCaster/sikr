@@ -4824,6 +4824,10 @@ td.text-right.mail-date {
     background: #fff;
 }
 
+.kecilkan {
+    font-size: 15px;
+}
+
 element.style {
     display: inline-block;
     width: 721px;
