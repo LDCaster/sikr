@@ -2,7 +2,7 @@
    <div class="left-sidebar-pro">
        <nav id="sidebar" class="">
            <div class="sidebar-header" style="margin-top: 7px">
-               <a href="index.html"><img class="main-logo" src="{{ url('assets/img/logo/logo.png') }}" width="150px"
+               <a href="index.html"><img class="main-logo" src="{{ url('assets/img/logo/logo.png') }}" width="130px"
                        alt="" /></a>
                <strong><a href="index.html"><img src="{{ url('assets/img/logo/logosn.png') }}"
                            alt="" /></a></strong>
@@ -58,23 +58,29 @@
                            </ul>
                        </li>
                        <h4 style="color: #6e6969; margin-left:12px; margin-top:3px;">Menu Master</h4>
-                       <li>
-                           <a class="has-arrow" href="" aria-expanded="false">
-                               <span class="mini-click-non kecilkan"><i class="fa-solid fa-users"></i>&nbsp; Data
-                                   User</span></a>
-                           <ul class="submenu-angle" aria-expanded="false">
-                               <li>
-                                   <a title="Variant" href="/user">
-                                       <span class="mini-sub-pro kecilkan">&nbsp;User</span>
-                                   </a>
-                               </li>
-                               <li>
-                                   <a title="Jenis Variant" href="/role">
-                                       <span class="mini-sub-pro kecilkan">&nbsp;Role User</span>
-                                   </a>
-                               </li>
-                           </ul>
-                       </li>
+
+                       @if (Auth::user()->role_id != 1)
+                       @else
+                           <li>
+                               <a class="has-arrow" href="" aria-expanded="false">
+                                   <span class="mini-click-non kecilkan"><i class="fa-solid fa-users"></i>&nbsp; Data
+                                       User</span></a>
+                               <ul class="submenu-angle" aria-expanded="false">
+                                   <li>
+                                       <a title="Variant" href="/user">
+                                           <span class="mini-sub-pro kecilkan">&nbsp;User</span>
+                                       </a>
+                                   </li>
+                                   <li>
+                                       <a title="Jenis Variant" href="/role">
+                                           <span class="mini-sub-pro kecilkan">&nbsp;Role User</span>
+                                       </a>
+                                   </li>
+                               </ul>
+                           </li>
+                       @endif
+
+
                        <li>
                            <a title="Data Pabrikan" href="/pabrikan" aria-expanded="false">
                                <span class="mini-click-non kecilkan"><i class="fa-solid fa-city"

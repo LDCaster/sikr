@@ -88,9 +88,9 @@
                                                             </a>
 
                                                         </p> <!-- alamat website end --> --}}
-                                                        <button class="btn btn-success btn-sm">
+                                                        {{-- <button class="btn btn-success btn-sm">
                                                             <i class="fa-solid fa-pencil me-1"></i> Ubah Profil
-                                                        </button>
+                                                        </button> --}}
                                                     </div>
                                                     <!-- .col end -->
 

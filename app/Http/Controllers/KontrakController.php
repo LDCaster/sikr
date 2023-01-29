@@ -30,6 +30,7 @@ class KontrakController extends Controller
         $satuans = Satuan::get();
         $rabs = Rab::get();
         $kontraks = Kontrak::with(['pengadaan', 'pabrikan', 'jenismaterial', 'satuan', 'rab'])->get();
+
         //
         return view('kontrak.index', [
             'title' => 'Data Kontrak',
@@ -102,6 +103,25 @@ class KontrakController extends Controller
     public function show($id)
     {
         //
+        $datas = Rab::with('rnks')->find($id);
+
+        // count total 
+        $arr = array();
+        foreach ($datas->rnks as $value) {
+            array_push($arr, $value->total);
+        }
+        $arrTotal =  preg_replace("/[^0-9]/", '', $arr);
+        $rmTotal = implode(",", $arrTotal);
+        $result = 0;
+        $ppn = 0;
+        foreach (explode(',', $rmTotal) as $key)
+            $sub = $result += intval($key);
+        $ppn = $sub * 0.11;
+        $total_ppn = $sub += $ppn;
+
+        return view('kontrak.index', [
+            'total_ppn' => $total_ppn
+        ]);
     }
 
     /**

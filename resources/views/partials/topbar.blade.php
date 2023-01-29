@@ -77,15 +77,17 @@
                                             <li class="nav-item" style="margin-right: 25px">
                                                 <a href="#" data-toggle="dropdown" role="button"
                                                     aria-expanded="false" class="nav-link dropdown-toggle">
-                                                    {{-- <img src="{{ url('/assets/img/profile') . '/' . Auth::user()->img }}"
+                                                    <img src="{{ url('/assets/img/profile') . '/' . Auth::user()->img }}"
                                                         style=" margin-bottom:3px;" alt="" />
-                                                    <span class="admin-name"
-                                                        style="font-size: 80%;">{{ Auth::user()->name }}</span> <i
-                                                        class="fa fa-angle-down edu-icon edu-down-arrow"></i> --}}
+                                                    <span class="admin-name dropdown-menu-right"
+                                                        style="font-size: 80%;">Selamat Datang,
+                                                        {{ Auth::user()->name }}</span> <i
+                                                        class="fa fa-angle-down edu-icon edu-down-arrow"></i>
                                                 </a>
                                                 <ul role="menu"
-                                                    class="dropdown-header-top author-log dropdown-menu animated zoomIn">
-                                                    <li><a href="{{ url('/akun-saya') }}"><span
+                                                    class="dropdown-header-top author-log dropdown-menu animated">
+                                                    <li><a href="{{ url('/akun-saya') }}">
+                                                            <span
                                                                 class="edu-icon edu-user-rounded author-log-ic"></span>Akun
                                                             Saya</a>
                                                     </li>

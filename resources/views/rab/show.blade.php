@@ -1,14 +1,15 @@
 @extends('layout.main')
 
 @section('content')
-    <div class="data-table-area mg-b-15">
+    <div class="data-table-area mg-b-15" style="margin-top: 60px">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="sparkline13-list">
                         <div class="sparkline13-hd">
                             <div class="main-sparkline13-hd">
-                                <h1>Data <span class="table-project-n">Rencana Anggaran Biaya</span></h1>
+                                <h3 style="margin-left: 15px; font-family: 'Roboto Condensed', sans-serif;">
+                                    Data Rencana Anggaran Biaya</h3>
                             </div>
                             <div class="sparkline10-graph">
                                 <div class="static-table-list">
