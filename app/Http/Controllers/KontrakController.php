@@ -313,10 +313,15 @@ class KontrakController extends Controller
 
     public function kontrakRab(Request $request)
     {
-        $rnk = Rnk::where('rab_id', $request->id)->first();
-        $arrTotal =  preg_replace("/[^0-9]/", '', $rnk->total);
-        $kontrak = $arrTotal * 0.11;
-        $sub = $arrTotal + $kontrak;
+        $rnk = Rnk::where('rab_id', $request->id)->get();
+        $arr = array();
+        foreach ($rnk as $data) {
+            array_push($arr, $data->total);
+        }
+        $arrTotal =  preg_replace("/[^0-9]/", '', $arr);
+        $total =  array_sum($arrTotal);
+        $kontrak = $total * 0.11;
+        $sub = $total + $kontrak;
         $forkontrak = number_format($sub, 0, ',', '.');
         return  $forkontrak;
     }
