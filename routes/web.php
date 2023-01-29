@@ -65,6 +65,7 @@ Route::post('/satuan-import', [SatuanController::class, 'satuanImport'])->middle
 Route::post('/prk-import', [PrkController::class, 'prkImport'])->middleware('auth');
 Route::post('/direksi-pekerjaan-import', [DireksiPekerjaanController::class, 'direksipekerjaanImport'])->middleware('auth');
 Route::post('/pengawas-pekerjaan-import', [PengawasPekerjaanController::class, 'pengawaspekerjaanImport'])->middleware('auth');
+Route::any('/kontraks', [KontrakController::class, 'kontrakRab'])->middleware('auth');
 
 Route::resource('user', UserController::class)->middleware(['auth', 'must-admin']);
 Route::resource('role', RoleController::class)->middleware(['auth', 'must-admin']);

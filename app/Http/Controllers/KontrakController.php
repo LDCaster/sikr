@@ -8,6 +8,7 @@ use App\Models\Material;
 use App\Models\Pabrikan;
 use App\Models\Pengadaan;
 use App\Models\Rab;
+use App\Models\Rnk;
 use App\Models\Satuan;
 use Barryvdh\DomPDF\PDF as DomPDFPDF;
 use Illuminate\Http\Request;
@@ -308,5 +309,15 @@ class KontrakController extends Controller
         //
         Kontrak::destroy($id);
         return redirect('/kontrak')->with('success', 'Data Berhasil Dihapus!');
+    }
+
+    public function kontrakRab(Request $request)
+    {
+        $rnk = Rnk::where('rab_id', $request->id)->first();
+        $arrTotal =  preg_replace("/[^0-9]/", '', $rnk->total);
+        $kontrak = $arrTotal * 0.11;
+        $sub = $arrTotal + $kontrak;
+        $forkontrak = number_format($sub, 0, ',', '.');
+        return  $forkontrak;
     }
 }

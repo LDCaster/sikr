@@ -145,7 +145,8 @@
                                     <div class="col-lg-6">
                                         <label for="nilai_kontrak" class="form-label">Nilai
                                             Kontrak</label>
-                                        <input type="text" class="form-control" name="nilai_kontrak">
+                                        <input type="text" class="form-control" name="nilai_kontrak"
+                                            id="totalkontrak">
                                     </div>
                                     <div class="col-lg-6">
                                         <label for="terbilang_kontrak" class="form-label">Terbilang
@@ -369,7 +370,7 @@
                                     <div class="col-lg-6">
                                         <label for="no_kr" class="form-label">Nomor Kontrak
                                             Rinci</label>
-                                        <input type="text" class="form-control" name="no_kr" id="no_kr">
+                                        <input type="text" class="form-control" name="no_kr" id="kontrak">
                                     </div>
                                     <div class="col-lg-3">
                                         <label for="bt_kr" class="form-label">Bulan Tahun
@@ -727,7 +728,21 @@
     {{-- START GET DATA RAB by Kode RAB  --}}
     <script>
         $('#kd_rab').on('change', (event) => {
-            // console.log(event);
+            $.ajax({
+                url: `{{ url('/kontraks') }}`,
+                method: "GET",
+                data: ({
+                    id: event.target.value,
+                }),
+                headers: {
+                    'Accept': 'application/json',
+                    'content-Type': 'application/json'
+                },
+                success: function(data) {
+                    $('#totalkontrak').val(data);
+                    console.log(data)
+                }
+            })
             getRab(event.target.value).then(data => {
                 $('#noprk').val(data.prk);
                 $('#nm_user').val(data.nama_user);
